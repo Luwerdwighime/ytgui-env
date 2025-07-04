@@ -1,0 +1,14 @@
+prefix=/data/data/com.termux/files/home/ffmpeg-build
+exec_prefix=${prefix}
+libdir=/data/data/com.termux/files/home/ffmpeg-build/lib
+includedir=/data/data/com.termux/files/home/ffmpeg-build/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 60.4.101
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil -lm -latomic -landroid -lmediandk -pthread
+Libs.private: 
+Cflags: -I${includedir}

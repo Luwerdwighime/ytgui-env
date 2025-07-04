@@ -1,0 +1,14 @@
+prefix=/data/data/com.termux/files/home/ffmpeg-build
+exec_prefix=${prefix}
+libdir=/data/data/com.termux/files/home/ffmpeg-build/lib
+includedir=/data/data/com.termux/files/home/ffmpeg-build/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 62.1.101
+Requires: libavcodec >= 62.5.100, libswresample >= 6.0.100, libavutil >= 60.4.101
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavformat -lm -latomic -lbz2 -L/data/data/com.termux/files/usr/lib -lz
+Libs.private: 
+Cflags: -I${includedir}
