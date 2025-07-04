@@ -21,4 +21,4 @@ jobs:
     - name: 🛠️ Upload ZIP to Release
       uses: softprops/action-gh-release@v1
       with:
-        files: release.zip
+        files: ytgui-env.zip
