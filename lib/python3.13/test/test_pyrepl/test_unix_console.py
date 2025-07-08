@@ -1,13 +1,11 @@
 import itertools
-import os
 import sys
 import unittest
 from functools import partial
-from test.support import os_helper
 from unittest import TestCase
 from unittest.mock import MagicMock, call, patch, ANY
 
-from .support import handle_all_events, code_to_events, reader_no_colors
+from .support import handle_all_events, code_to_events
 
 try:
     from _pyrepl.console import Event
@@ -252,9 +250,7 @@ class TestConsole(TestCase):
         # fmt: on
 
         events = itertools.chain(code_to_events(code))
-        reader, console = handle_events_short_unix_console(
-            events, prepare_reader=reader_no_colors
-        )
+        reader, console = handle_events_short_unix_console(events)
 
         console.height = 2
         console.getheightwidth = MagicMock(lambda _: (2, 80))
@@ -316,14 +312,3 @@ class TestConsole(TestCase):
         )
         console.restore()
         con.restore()
-
-    def test_getheightwidth_with_invalid_environ(self, _os_write):
-        # gh-128636
-        console = UnixConsole()
-        with os_helper.EnvironmentVarGuard() as env:
-            env["LINES"] = ""
-            self.assertIsInstance(console.getheightwidth(), tuple)
-            env["COLUMNS"] = ""
-            self.assertIsInstance(console.getheightwidth(), tuple)
-            os.environ = []
-            self.assertIsInstance(console.getheightwidth(), tuple)

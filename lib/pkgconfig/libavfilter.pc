@@ -1,12 +1,12 @@
-prefix=/data/data/com.termux/files/home/ffmpeg-build
+prefix=/root/ytgui-env
 exec_prefix=${prefix}
-libdir=/data/data/com.termux/files/home/ffmpeg-build/lib
-includedir=/data/data/com.termux/files/home/ffmpeg-build/include
+libdir=/root/ytgui-env/lib
+includedir=/root/ytgui-env/include
 
 Name: libavfilter
 Description: FFmpeg audio/video filtering library
 Version: 11.1.100
-Requires: libswscale >= 9.0.100, libavformat >= 62.1.101, libavcodec >= 62.5.100, libswresample >= 6.0.100, libavutil >= 60.4.101
+Requires: libswscale >= 9.0.100, libswresample >= 6.0.100, libavutil >= 60.4.101
 Requires.private: 
 Conflicts:
 Libs: -L${libdir}  -lavfilter -pthread -lm -latomic

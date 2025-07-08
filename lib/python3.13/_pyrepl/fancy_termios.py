@@ -40,9 +40,7 @@ class TermState:
             self.lflag,
             self.ispeed,
             self.ospeed,
-            # Always return a copy of the control characters list to ensure
-            # there are not any additional references to self.cc
-            self.cc[:],
+            self.cc,
         ]
 
     def copy(self):

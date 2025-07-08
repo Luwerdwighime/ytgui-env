@@ -2397,8 +2397,8 @@ class TestInvalidFD(unittest.TestCase):
         support.is_emscripten or support.is_wasi,
         "musl libc issue on Emscripten/WASI, bpo-46390"
     )
+    @unittest.skipIf(support.is_apple_mobile, "gh-118201: Test is flaky on iOS")
     def test_fpathconf(self):
-        self.assertIn("PC_NAME_MAX", os.pathconf_names)
         self.check(os.pathconf, "PC_NAME_MAX")
         self.check(os.fpathconf, "PC_NAME_MAX")
         self.check_bool(os.pathconf, "PC_NAME_MAX")
@@ -3917,10 +3917,10 @@ class ExtendedAttributeTests(unittest.TestCase):
         xattr.remove("user.test")
         self.assertEqual(set(listxattr(fn)), xattr)
         self.assertEqual(getxattr(fn, s("user.test2"), **kwargs), b"foo")
-        setxattr(fn, s("user.test"), b"a"*256, **kwargs)
-        self.assertEqual(getxattr(fn, s("user.test"), **kwargs), b"a"*256)
+        setxattr(fn, s("user.test"), b"a"*1024, **kwargs)
+        self.assertEqual(getxattr(fn, s("user.test"), **kwargs), b"a"*1024)
         removexattr(fn, s("user.test"), **kwargs)
-        many = sorted("user.test{}".format(i) for i in range(32))
+        many = sorted("user.test{}".format(i) for i in range(100))
         for thing in many:
             setxattr(fn, thing, b"x", **kwargs)
         self.assertEqual(set(listxattr(fn)), set(init_xattr) | set(many))
@@ -4124,7 +4124,6 @@ class EventfdTests(unittest.TestCase):
         os.eventfd_read(fd)
 
 @unittest.skipUnless(hasattr(os, 'timerfd_create'), 'requires os.timerfd_create')
-@unittest.skipIf(sys.platform == "android", "gh-124873: Test is flaky on Android")
 @support.requires_linux_version(2, 6, 30)
 class TimerfdTests(unittest.TestCase):
     # 1 ms accuracy is reliably achievable on every platform except Android
@@ -4188,9 +4187,6 @@ class TimerfdTests(unittest.TestCase):
         # confirm if timerfd is readable and read() returns 1 as bytes.
         self.assertEqual(self.read_count_signaled(fd), 1)
 
-    @unittest.skipIf(sys.platform.startswith('netbsd'),
-                     "gh-131263: Skip on NetBSD due to system freeze "
-                     "with negative timer values")
     def test_timerfd_negative(self):
         one_sec_in_nsec = 10**9
         fd = self.timerfd_create(time.CLOCK_REALTIME)

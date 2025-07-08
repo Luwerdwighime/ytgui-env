@@ -2376,22 +2376,16 @@ class CustomQueueProtocol:
         return getattr(queue, attribute)
 
 class CustomQueueFakeProtocol(CustomQueueProtocol):
-    # An object implementing the minimial Queue API for
-    # the logging module but with incorrect signatures.
-    #
+    # An object implementing the Queue API (incorrect signatures).
     # The object will be considered a valid queue class since we
     # do not check the signatures (only callability of methods)
     # but will NOT be usable in production since a TypeError will
-    # be raised due to the extra argument in 'put_nowait'.
-    def put_nowait(self):
+    # be raised due to a missing argument.
+    def empty(self, x):
         pass
 
 class CustomQueueWrongProtocol(CustomQueueProtocol):
-    put_nowait = None
-
-class MinimalQueueProtocol:
-    def put_nowait(self, x): pass
-    def get(self): pass
+    empty = None
 
 def queueMaker():
     return queue.Queue()
@@ -3754,16 +3748,16 @@ class ConfigDictTest(BaseTest):
             'adict': {
                 'd': 'e', 'f': 3 ,
                 'alpha numeric 1 with spaces' : 5,
-                'alpha numeric 1 %( - © ©ß¯' : 9,
+                'aplha numeric 1 %( - © ©ß¯' : 9,
                 'alpha numeric ] 1 with spaces' : 15,
-                'alpha ]] numeric 1 %( - © ©ß¯]' : 19,
-                ' alpha [ numeric 1 %( - © ©ß¯] ' : 11,
-                ' alpha ' : 32,
+                'aplha ]] numeric 1 %( - © ©ß¯]' : 19,
+                ' aplha [ numeric 1 %( - © ©ß¯] ' : 11,
+                ' aplha ' : 32,
                 '' : 10,
                 'nest4' : {
                     'd': 'e', 'f': 3 ,
                     'alpha numeric 1 with spaces' : 5,
-                    'alpha numeric 1 %( - © ©ß¯' : 9,
+                    'aplha numeric 1 %( - © ©ß¯' : 9,
                     '' : 10,
                     'somelist' :  ('g', ('h', 'i'), 'j'),
                     'somedict' : {
@@ -3785,14 +3779,14 @@ class ConfigDictTest(BaseTest):
         self.assertEqual(bc.convert('cfg://adict.d'), 'e')
         self.assertEqual(bc.convert('cfg://adict[f]'), 3)
         self.assertEqual(bc.convert('cfg://adict[alpha numeric 1 with spaces]'), 5)
-        self.assertEqual(bc.convert('cfg://adict[alpha numeric 1 %( - © ©ß¯]'), 9)
+        self.assertEqual(bc.convert('cfg://adict[aplha numeric 1 %( - © ©ß¯]'), 9)
         self.assertEqual(bc.convert('cfg://adict[]'), 10)
         self.assertEqual(bc.convert('cfg://adict.nest4.d'), 'e')
         self.assertEqual(bc.convert('cfg://adict.nest4[d]'), 'e')
         self.assertEqual(bc.convert('cfg://adict[nest4].d'), 'e')
         self.assertEqual(bc.convert('cfg://adict[nest4][f]'), 3)
         self.assertEqual(bc.convert('cfg://adict[nest4][alpha numeric 1 with spaces]'), 5)
-        self.assertEqual(bc.convert('cfg://adict[nest4][alpha numeric 1 %( - © ©ß¯]'), 9)
+        self.assertEqual(bc.convert('cfg://adict[nest4][aplha numeric 1 %( - © ©ß¯]'), 9)
         self.assertEqual(bc.convert('cfg://adict[nest4][]'), 10)
         self.assertEqual(bc.convert('cfg://adict[nest4][somelist][0]'), 'g')
         self.assertEqual(bc.convert('cfg://adict[nest4][somelist][1][0]'), 'h')
@@ -3812,8 +3806,8 @@ class ConfigDictTest(BaseTest):
         self.assertRaises(ValueError, bc.convert, 'cfg://!')
         self.assertRaises(KeyError, bc.convert, 'cfg://adict[2]')
         self.assertRaises(KeyError, bc.convert, 'cfg://adict[alpha numeric ] 1 with spaces]')
-        self.assertRaises(ValueError, bc.convert, 'cfg://adict[ alpha ]] numeric 1 %( - © ©ß¯] ]')
-        self.assertRaises(ValueError, bc.convert, 'cfg://adict[ alpha [ numeric 1 %( - © ©ß¯] ]')
+        self.assertRaises(ValueError, bc.convert, 'cfg://adict[ aplha ]] numeric 1 %( - © ©ß¯] ]')
+        self.assertRaises(ValueError, bc.convert, 'cfg://adict[ aplha [ numeric 1 %( - © ©ß¯] ]')
 
     def test_namedtuple(self):
         # see bpo-39142
@@ -3951,70 +3945,56 @@ class ConfigDictTest(BaseTest):
             msg = str(ctx.exception)
             self.assertEqual(msg, "Unable to configure handler 'ah'")
 
-    def _apply_simple_queue_listener_configuration(self, qspec):
-        self.apply_config({
-            "version": 1,
-            "handlers": {
-                "queue_listener": {
-                    "class": "logging.handlers.QueueHandler",
-                    "queue": qspec,
-                },
-            },
-        })
-
     @threading_helper.requires_working_threading()
     @support.requires_subprocess()
     @patch("multiprocessing.Manager")
     def test_config_queue_handler_does_not_create_multiprocessing_manager(self, manager):
-        # gh-120868, gh-121723, gh-124653
+        # gh-120868, gh-121723
 
-        for qspec in [
-            {"()": "queue.Queue", "maxsize": -1},
-            queue.Queue(),
-            # queue.SimpleQueue does not inherit from queue.Queue
-            queue.SimpleQueue(),
-            # CustomQueueFakeProtocol passes the checks but will not be usable
-            # since the signatures are incompatible. Checking the Queue API
-            # without testing the type of the actual queue is a trade-off
-            # between usability and the work we need to do in order to safely
-            # check that the queue object correctly implements the API.
-            CustomQueueFakeProtocol(),
-            MinimalQueueProtocol(),
-        ]:
-            with self.subTest(qspec=qspec):
-                self._apply_simple_queue_listener_configuration(qspec)
-                manager.assert_not_called()
+        from multiprocessing import Queue as MQ
+
+        q1 = {"()": "queue.Queue", "maxsize": -1}
+        q2 = MQ()
+        q3 = queue.Queue()
+        # CustomQueueFakeProtocol passes the checks but will not be usable
+        # since the signatures are incompatible. Checking the Queue API
+        # without testing the type of the actual queue is a trade-off
+        # between usability and the work we need to do in order to safely
+        # check that the queue object correctly implements the API.
+        q4 = CustomQueueFakeProtocol()
+
+        for qspec in (q1, q2, q3, q4):
+            self.apply_config(
+                {
+                    "version": 1,
+                    "handlers": {
+                        "queue_listener": {
+                            "class": "logging.handlers.QueueHandler",
+                            "queue": qspec,
+                        },
+                    },
+                }
+            )
+            manager.assert_not_called()
 
     @patch("multiprocessing.Manager")
     def test_config_queue_handler_invalid_config_does_not_create_multiprocessing_manager(self, manager):
         # gh-120868, gh-121723
 
         for qspec in [object(), CustomQueueWrongProtocol()]:
-            with self.subTest(qspec=qspec), self.assertRaises(ValueError):
-                self._apply_simple_queue_listener_configuration(qspec)
-                manager.assert_not_called()
-
-    @skip_if_tsan_fork
-    @support.requires_subprocess()
-    @unittest.skipUnless(support.Py_DEBUG, "requires a debug build for testing"
-                                           " assertions in multiprocessing")
-    def test_config_reject_simple_queue_handler_multiprocessing_context(self):
-        # multiprocessing.SimpleQueue does not implement 'put_nowait'
-        # and thus cannot be used as a queue-like object (gh-124653)
-
-        import multiprocessing
-
-        if support.MS_WINDOWS:
-            start_methods = ['spawn']
-        else:
-            start_methods = ['spawn', 'fork', 'forkserver']
-
-        for start_method in start_methods:
-            with self.subTest(start_method=start_method):
-                ctx = multiprocessing.get_context(start_method)
-                qspec = ctx.SimpleQueue()
-                with self.assertRaises(ValueError):
-                    self._apply_simple_queue_listener_configuration(qspec)
+            with self.assertRaises(ValueError):
+                self.apply_config(
+                    {
+                        "version": 1,
+                        "handlers": {
+                            "queue_listener": {
+                                "class": "logging.handlers.QueueHandler",
+                                "queue": qspec,
+                            },
+                        },
+                    }
+                )
+            manager.assert_not_called()
 
     @skip_if_tsan_fork
     @support.requires_subprocess()
@@ -4163,89 +4143,6 @@ class ConfigDictTest(BaseTest):
         handler = logging.getHandlerByName('custom')
         self.assertEqual(handler.custom_kwargs, custom_kwargs)
 
-    # See gh-91555 and gh-90321
-    @support.requires_subprocess()
-    def test_deadlock_in_queue(self):
-        queue = multiprocessing.Queue()
-        handler = logging.handlers.QueueHandler(queue)
-        logger = multiprocessing.get_logger()
-        level = logger.level
-        try:
-            logger.setLevel(logging.DEBUG)
-            logger.addHandler(handler)
-            logger.debug("deadlock")
-        finally:
-            logger.setLevel(level)
-            logger.removeHandler(handler)
-
-    def test_recursion_in_custom_handler(self):
-        class BadHandler(logging.Handler):
-            def __init__(self):
-                super().__init__()
-            def emit(self, record):
-                logger.debug("recurse")
-        logger = logging.getLogger("test_recursion_in_custom_handler")
-        logger.addHandler(BadHandler())
-        logger.setLevel(logging.DEBUG)
-        logger.debug("boom")
-
-    @threading_helper.requires_working_threading()
-    def test_thread_supression_noninterference(self):
-        lock = threading.Lock()
-        logger = logging.getLogger("test_thread_supression_noninterference")
-
-        # Block on the first call, allow others through
-        #
-        # NOTE: We need to bypass the base class's lock, otherwise that will
-        #       block multiple calls to the same handler itself.
-        class BlockOnceHandler(TestHandler):
-            def __init__(self, barrier):
-                super().__init__(support.Matcher())
-                self.barrier = barrier
-
-            def createLock(self):
-                self.lock = None
-
-            def handle(self, record):
-                self.emit(record)
-
-            def emit(self, record):
-                if self.barrier:
-                    barrier = self.barrier
-                    self.barrier = None
-                    barrier.wait()
-                    with lock:
-                        pass
-                super().emit(record)
-                logger.info("blow up if not supressed")
-
-        barrier = threading.Barrier(2)
-        handler = BlockOnceHandler(barrier)
-        logger.addHandler(handler)
-        logger.setLevel(logging.DEBUG)
-
-        t1 = threading.Thread(target=logger.debug, args=("1",))
-        with lock:
-
-            # Ensure first thread is blocked in the handler, hence supressing logging...
-            t1.start()
-            barrier.wait()
-
-            # ...but the second thread should still be able to log...
-            t2 = threading.Thread(target=logger.debug, args=("2",))
-            t2.start()
-            t2.join(timeout=3)
-
-            self.assertEqual(len(handler.buffer), 1)
-            self.assertTrue(handler.matches(levelno=logging.DEBUG, message='2'))
-
-            # The first thread should still be blocked here
-            self.assertTrue(t1.is_alive())
-
-        # Now the lock has been released the first thread should complete
-        t1.join()
-        self.assertEqual(len(handler.buffer), 2)
-        self.assertTrue(handler.matches(levelno=logging.DEBUG, message='1'))
 
 class ManagerTest(BaseTest):
     def test_manager_loggerclass(self):
@@ -4383,6 +4280,8 @@ class QueueHandlerTest(BaseTest):
         self.assertEqual(formatted_msg, log_record.msg)
         self.assertEqual(formatted_msg, log_record.message)
 
+    @unittest.skipUnless(hasattr(logging.handlers, 'QueueListener'),
+                         'logging.handlers.QueueListener required for this test')
     def test_queue_listener(self):
         handler = TestHandler(support.Matcher())
         listener = logging.handlers.QueueListener(self.queue, handler)
@@ -4417,18 +4316,8 @@ class QueueHandlerTest(BaseTest):
         self.assertTrue(handler.matches(levelno=logging.CRITICAL, message='6'))
         handler.close()
 
-        # doesn't hurt to call stop() more than once.
-        listener.stop()
-        self.assertIsNone(listener._thread)
-
-    def test_queue_listener_multi_start(self):
-        handler = TestHandler(support.Matcher())
-        listener = logging.handlers.QueueListener(self.queue, handler)
-        listener.start()
-        self.assertRaises(RuntimeError, listener.start)
-        listener.stop()
-        self.assertIsNone(listener._thread)
-
+    @unittest.skipUnless(hasattr(logging.handlers, 'QueueListener'),
+                         'logging.handlers.QueueListener required for this test')
     def test_queue_listener_with_StreamHandler(self):
         # Test that traceback and stack-info only appends once (bpo-34334, bpo-46755).
         listener = logging.handlers.QueueListener(self.queue, self.root_hdlr)
@@ -4443,6 +4332,8 @@ class QueueHandlerTest(BaseTest):
         self.assertEqual(self.stream.getvalue().strip().count('Traceback'), 1)
         self.assertEqual(self.stream.getvalue().strip().count('Stack'), 1)
 
+    @unittest.skipUnless(hasattr(logging.handlers, 'QueueListener'),
+                         'logging.handlers.QueueListener required for this test')
     def test_queue_listener_with_multiple_handlers(self):
         # Test that queue handler format doesn't affect other handler formats (bpo-35726).
         self.que_hdlr.setFormatter(self.root_formatter)

@@ -2,10 +2,8 @@ import unittest
 import sys
 from test import support
 from test.support.testcase import ComplexesAreIdenticalMixin
-from test.support.numbers import (
-    VALID_UNDERSCORE_LITERALS,
-    INVALID_UNDERSCORE_LITERALS,
-)
+from test.test_grammar import (VALID_UNDERSCORE_LITERALS,
+                               INVALID_UNDERSCORE_LITERALS)
 
 from random import random
 from math import isnan, copysign
@@ -302,11 +300,6 @@ class ComplexTest(ComplexesAreIdenticalMixin, unittest.TestCase):
                         c ** c
                     except OverflowError:
                         pass
-
-        # gh-113841: possible undefined division by 0 in _Py_c_pow()
-        x, y = 9j, 33j**3
-        with self.assertRaises(OverflowError):
-            x**y
 
     def test_pow_with_small_integer_exponents(self):
         # Check that small integer exponents are handled identically

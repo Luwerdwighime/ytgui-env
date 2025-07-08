@@ -894,7 +894,7 @@ class IOTest(unittest.TestCase):
         def badopener(fname, flags):
             return -1
         with self.assertRaises(ValueError) as cm:
-            self.open('non-existent', 'r', opener=badopener)
+            open('non-existent', 'r', opener=badopener)
         self.assertEqual(str(cm.exception), 'opener returned -1')
 
     def test_bad_opener_other_negative(self):
@@ -902,7 +902,7 @@ class IOTest(unittest.TestCase):
         def badopener(fname, flags):
             return -2
         with self.assertRaises(ValueError) as cm:
-            self.open('non-existent', 'r', opener=badopener)
+            open('non-existent', 'r', opener=badopener)
         self.assertEqual(str(cm.exception), 'opener returned -2')
 
     def test_opener_invalid_fd(self):
@@ -1038,37 +1038,6 @@ class IOTest(unittest.TestCase):
         # Silence destructor error
         R.flush = lambda self: None
 
-    @threading_helper.requires_working_threading()
-    def test_write_readline_races(self):
-        # gh-134908: Concurrent iteration over a file caused races
-        thread_count = 2
-        write_count = 100
-        read_count = 100
-
-        def writer(file, barrier):
-            barrier.wait()
-            for _ in range(write_count):
-                file.write("x")
-
-        def reader(file, barrier):
-            barrier.wait()
-            for _ in range(read_count):
-                for line in file:
-                    self.assertEqual(line, "")
-
-        with self.open(os_helper.TESTFN, "w+") as f:
-            barrier = threading.Barrier(thread_count + 1)
-            reader = threading.Thread(target=reader, args=(f, barrier))
-            writers = [threading.Thread(target=writer, args=(f, barrier))
-                       for _ in range(thread_count)]
-            with threading_helper.catch_threading_exception() as cm:
-                with threading_helper.start_threads(writers + [reader]):
-                    pass
-                self.assertIsNone(cm.exc_type)
-
-        self.assertEqual(os.stat(os_helper.TESTFN).st_size,
-                         write_count * thread_count)
-
 
 class CIOTest(IOTest):
 
@@ -1178,21 +1147,6 @@ class TestIOCTypes(unittest.TestCase):
     def test_disallow_instantiation(self):
         _io = self._io
         support.check_disallow_instantiation(self, _io._BytesIOBuffer)
-
-    def test_stringio_setstate(self):
-        # gh-127182: Calling __setstate__() with invalid arguments must not crash
-        obj = self._io.StringIO()
-        with self.assertRaisesRegex(
-            TypeError,
-            'initial_value must be str or None, not int',
-        ):
-            obj.__setstate__((1, '', 0, {}))
-
-        obj.__setstate__((None, '', 0, {}))  # should not crash
-        self.assertEqual(obj.getvalue(), '')
-
-        obj.__setstate__(('', '', 0, {}))
-        self.assertEqual(obj.getvalue(), '')
 
 class PyIOTest(IOTest):
     pass
@@ -1379,28 +1333,6 @@ class CommonBufferedTests:
         x = self.MockRawIO()
         with self.assertRaises(AttributeError):
             buf.raw = x
-
-    def test_pickling_subclass(self):
-        global MyBufferedIO
-        class MyBufferedIO(self.tp):
-            def __init__(self, raw, tag):
-                super().__init__(raw)
-                self.tag = tag
-            def __getstate__(self):
-                return self.tag, self.raw.getvalue()
-            def __setstate__(slf, state):
-                tag, value = state
-                slf.__init__(self.BytesIO(value), tag)
-
-        raw = self.BytesIO(b'data')
-        buf = MyBufferedIO(raw, tag='ham')
-        for proto in range(pickle.HIGHEST_PROTOCOL + 1):
-            with self.subTest(protocol=proto):
-                pickled = pickle.dumps(buf, proto)
-                newbuf = pickle.loads(pickled)
-                self.assertEqual(newbuf.raw.getvalue(), b'data')
-                self.assertEqual(newbuf.tag, 'ham')
-        del MyBufferedIO
 
 
 class SizeofTest:
@@ -3985,28 +3917,6 @@ class TextIOWrapperTest(unittest.TestCase):
         f.write(res)
         self.assertEqual(res + f.readline(), 'foo\nbar\n')
 
-    def test_pickling_subclass(self):
-        global MyTextIO
-        class MyTextIO(self.TextIOWrapper):
-            def __init__(self, raw, tag):
-                super().__init__(raw)
-                self.tag = tag
-            def __getstate__(self):
-                return self.tag, self.buffer.getvalue()
-            def __setstate__(slf, state):
-                tag, value = state
-                slf.__init__(self.BytesIO(value), tag)
-
-        raw = self.BytesIO(b'data')
-        txt = MyTextIO(raw, 'ham')
-        for proto in range(pickle.HIGHEST_PROTOCOL + 1):
-            with self.subTest(protocol=proto):
-                pickled = pickle.dumps(txt, proto)
-                newtxt = pickle.loads(pickled)
-                self.assertEqual(newtxt.buffer.getvalue(), b'data')
-                self.assertEqual(newtxt.tag, 'ham')
-        del MyTextIO
-
 
 class MemviewBytesIO(io.BytesIO):
     '''A BytesIO object whose read method returns memoryviews
@@ -4417,7 +4327,7 @@ class MiscIOTest(unittest.TestCase):
         self._check_abc_inheritance(io)
 
     def _check_warn_on_dealloc(self, *args, **kwargs):
-        f = self.open(*args, **kwargs)
+        f = open(*args, **kwargs)
         r = repr(f)
         with self.assertWarns(ResourceWarning) as cm:
             f = None
@@ -4446,7 +4356,7 @@ class MiscIOTest(unittest.TestCase):
         r, w = os.pipe()
         fds += r, w
         with warnings_helper.check_no_resource_warning(self):
-            self.open(r, *args, closefd=False, **kwargs)
+            open(r, *args, closefd=False, **kwargs)
 
     @unittest.skipUnless(hasattr(os, "pipe"), "requires os.pipe()")
     def test_warn_on_dealloc_fd(self):
@@ -4621,11 +4531,11 @@ class MiscIOTest(unittest.TestCase):
         ''')
         proc = assert_python_ok('-X', 'warn_default_encoding', '-c', code)
         warnings = proc.err.splitlines()
-        self.assertEqual(len(warnings), 2)
+        self.assertEqual(len(warnings), 4)
         self.assertTrue(
             warnings[0].startswith(b"<string>:5: EncodingWarning: "))
         self.assertTrue(
-            warnings[1].startswith(b"<string>:8: EncodingWarning: "))
+            warnings[2].startswith(b"<string>:8: EncodingWarning: "))
 
     def test_text_encoding(self):
         # PEP 597, bpo-47000. io.text_encoding() returns "locale" or "utf-8"

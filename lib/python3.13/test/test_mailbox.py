@@ -13,7 +13,6 @@ from test.support import import_helper
 from test.support import os_helper
 from test.support import refleak_helper
 from test.support import socket_helper
-from test.support.testcase import ExtraAssertions
 import unittest
 import textwrap
 import mailbox
@@ -1267,7 +1266,7 @@ class _TestMboxMMDF(_TestSingleFile):
         self._box.close()
 
 
-class TestMbox(_TestMboxMMDF, unittest.TestCase, ExtraAssertions):
+class TestMbox(_TestMboxMMDF, unittest.TestCase):
 
     _factory = lambda self, path, factory=None: mailbox.mbox(path, factory)
 
@@ -1305,12 +1304,12 @@ class TestMbox(_TestMboxMMDF, unittest.TestCase, ExtraAssertions):
         self._box.add('From: foo\n\n0')  # No newline at the end
         with open(self._path, encoding='utf-8') as f:
             data = f.read()
-            self.assertEndsWith(data, '0\n\n')
+            self.assertEqual(data[-3:], '0\n\n')
 
         self._box.add('From: foo\n\n0\n')  # Newline at the end
         with open(self._path, encoding='utf-8') as f:
             data = f.read()
-            self.assertEndsWith(data, '0\n\n')
+            self.assertEqual(data[-3:], '0\n\n')
 
 
 class TestMMDF(_TestMboxMMDF, unittest.TestCase):
@@ -2359,7 +2358,7 @@ class MaildirTestCase(unittest.TestCase):
         # Test for regression on bug #117490:
         # Make sure the boxes attribute actually gets set.
         self.mbox = mailbox.Maildir(os_helper.TESTFN)
-        #self.assertHasAttr(self.mbox, "boxes")
+        #self.assertTrue(hasattr(self.mbox, "boxes"))
         #self.assertEqual(len(self.mbox.boxes), 0)
         self.assertIsNone(self.mbox.next())
         self.assertIsNone(self.mbox.next())

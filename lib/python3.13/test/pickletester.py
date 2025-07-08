@@ -26,7 +26,7 @@ except ImportError:
 from test import support
 from test.support import os_helper
 from test.support import (
-    TestFailed, run_with_locales, no_tracing,
+    TestFailed, run_with_locale, no_tracing,
     _2G, _4G, bigmemtest
     )
 from test.support.import_helper import forget
@@ -1080,11 +1080,6 @@ class AbstractUnpickleTests:
         self.check_unpickling_error((pickle.UnpicklingError, OverflowError),
                                     dumped)
 
-    def test_large_binstring(self):
-        errmsg = 'BINSTRING pickle has negative byte count'
-        with self.assertRaisesRegex(pickle.UnpicklingError, errmsg):
-            self.loads(b'T\0\0\0\x80')
-
     def test_get(self):
         pickled = b'((lp100000\ng100000\nt.'
         unpickled = self.loads(pickled)
@@ -1348,41 +1343,6 @@ class AbstractUnpickleTests:
         self.check_unpickling_error(error, b'cbuiltins\nlen\n)}\x92.')
         self.check_unpickling_error(error, b'cbuiltins\nint\nN}\x92.')
         self.check_unpickling_error(error, b'cbuiltins\nint\n)N\x92.')
-
-    def test_bad_state(self):
-        c = C()
-        c.x = None
-        base = b'c__main__\nC\n)\x81'
-        self.assertEqual(self.loads(base + b'}X\x01\x00\x00\x00xNsb.'), c)
-        self.assertEqual(self.loads(base + b'N}X\x01\x00\x00\x00xNs\x86b.'), c)
-        # non-hashable dict key
-        self.check_unpickling_error(TypeError, base + b'}]Nsb.')
-        # state = list
-        error = (pickle.UnpicklingError, AttributeError)
-        self.check_unpickling_error(error, base + b'](}}eb.')
-        # state = 1-tuple
-        self.check_unpickling_error(error, base + b'}\x85b.')
-        # state = 3-tuple
-        self.check_unpickling_error(error, base + b'}}}\x87b.')
-        # non-hashable slot name
-        self.check_unpickling_error(TypeError, base + b'}}]Ns\x86b.')
-        # non-string slot name
-        self.check_unpickling_error(TypeError, base + b'}}NNs\x86b.')
-        # dict = True
-        self.check_unpickling_error(error, base + b'\x88}\x86b.')
-        # slots dict = True
-        self.check_unpickling_error(error, base + b'}\x88\x86b.')
-
-        class BadKey1:
-            count = 1
-            def __hash__(self):
-                if not self.count:
-                    raise CustomError
-                self.count -= 1
-                return 42
-        __main__.BadKey1 = BadKey1
-        # bad hashable dict key
-        self.check_unpickling_error(CustomError, base + b'}c__main__\nBadKey1\n)\x81Nsb.')
 
     def test_bad_stack(self):
         badpickles = [
@@ -1973,11 +1933,7 @@ class AbstractPicklingErrorTests:
 
     def test_nested_lookup_error(self):
         # Nested name does not exist
-        global TestGlobal
-        class TestGlobal:
-            class A:
-                pass
-        obj = REX('TestGlobal.A.B.C')
+        obj = REX('AbstractPickleTests.spam')
         obj.__module__ = __name__
         for proto in protocols:
             with self.subTest(proto=proto):
@@ -1992,11 +1948,9 @@ class AbstractPicklingErrorTests:
 
     def test_wrong_object_lookup_error(self):
         # Name is bound to different object
-        global TestGlobal
-        class TestGlobal:
-            pass
-        obj = REX('TestGlobal')
+        obj = REX('AbstractPickleTests')
         obj.__module__ = __name__
+        AbstractPickleTests.ham = []
         for proto in protocols:
             with self.subTest(proto=proto):
                 with self.assertRaises(pickle.PicklingError):
@@ -2107,7 +2061,7 @@ class AbstractPicklingErrorTests:
     @support.cpython_only
     def test_bad_ext_code(self):
         # This should never happen in normal circumstances, because the type
-        # and the value of the extension code is checked in copyreg.add_extension().
+        # and the value of the extesion code is checked in copyreg.add_extension().
         key = (__name__, 'MyList')
         def check(code, exc):
             assert key not in copyreg._extension_registry
@@ -2635,7 +2589,7 @@ class AbstractPickleTests:
                 got = self.loads(pickle)
                 self.assert_is_copy(value, got)
 
-    @run_with_locales('LC_ALL', 'de_DE', 'fr_FR', '')
+    @run_with_locale('LC_ALL', 'de_DE', 'fr_FR')
     def test_float_format(self):
         # make sure that floats are formatted locale independent with proto 0
         self.assertEqual(self.dumps(1.2, 0)[0:3], b'F1.')

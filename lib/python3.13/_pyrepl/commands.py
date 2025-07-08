@@ -282,7 +282,7 @@ class down(MotionCommand):
             x, y = r.pos2xy()
             new_y = y + 1
 
-            if r.eol() == len(b):
+            if new_y > r.max_row():
                 if r.historyi < len(r.history):
                     r.select_item(r.historyi + 1)
                     r.pos = r.eol(0)
@@ -309,7 +309,7 @@ class down(MotionCommand):
 class left(MotionCommand):
     def do(self) -> None:
         r = self.reader
-        for _ in range(r.get_arg()):
+        for i in range(r.get_arg()):
             p = r.pos - 1
             if p >= 0:
                 r.pos = p
@@ -321,7 +321,7 @@ class right(MotionCommand):
     def do(self) -> None:
         r = self.reader
         b = r.buffer
-        for _ in range(r.get_arg()):
+        for i in range(r.get_arg()):
             p = r.pos + 1
             if p <= len(b):
                 r.pos = p
@@ -437,7 +437,7 @@ class help(Command):
         import _sitebuiltins
 
         with self.reader.suspend():
-            self.reader.msg = _sitebuiltins._Helper()()  # type: ignore[assignment]
+            self.reader.msg = _sitebuiltins._Helper()()  # type: ignore[assignment, call-arg]
 
 
 class invalid_key(Command):
@@ -456,18 +456,12 @@ class invalid_command(Command):
 class show_history(Command):
     def do(self) -> None:
         from .pager import get_pager
-        from site import gethistoryfile
+        from site import gethistoryfile  # type: ignore[attr-defined]
 
         history = os.linesep.join(self.reader.history[:])
-        self.reader.console.restore()
-        pager = get_pager()
-        pager(history, gethistoryfile())
-        self.reader.console.prepare()
-
-        # We need to copy over the state so that it's consistent between
-        # console and reader, and console does not overwrite/append stuff
-        self.reader.console.screen = self.reader.screen.copy()
-        self.reader.console.posxy = self.reader.cxy
+        with self.reader.suspend():
+            pager = get_pager()
+            pager(history, gethistoryfile())
 
 
 class paste_mode(Command):

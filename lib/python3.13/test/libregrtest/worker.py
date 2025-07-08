@@ -17,7 +17,7 @@ USE_PROCESS_GROUP = (hasattr(os, "setsid") and hasattr(os, "killpg"))
 
 
 def create_worker_process(runtests: WorkerRunTests, output_fd: int,
-                          tmp_dir: StrPath | None = None) -> subprocess.Popen[str]:
+                          tmp_dir: StrPath | None = None) -> subprocess.Popen:
     worker_json = runtests.as_json()
 
     cmd = runtests.create_python_cmd()
@@ -98,7 +98,7 @@ def worker_process(worker_json: StrJSON) -> NoReturn:
     sys.exit(0)
 
 
-def main() -> NoReturn:
+def main():
     if len(sys.argv) != 2:
         print("usage: python -m test.libregrtest.worker JSON")
         sys.exit(1)

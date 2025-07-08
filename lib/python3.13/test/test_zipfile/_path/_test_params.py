@@ -1,5 +1,5 @@
-import functools
 import types
+import functools
 
 from ._itertools import always_iterable
 

@@ -95,16 +95,8 @@ EXTENDED_ATTRIBUTE_ENDS = ATTRIBUTE_ENDS - set('%')
 NLSET = {'\n', '\r'}
 SPECIALSNL = SPECIALS | NLSET
 
-
-def make_quoted_pairs(value):
-    """Escape dquote and backslash for use within a quoted-string."""
-    return str(value).replace('\\', '\\\\').replace('"', '\\"')
-
-
 def quote_string(value):
-    escaped = make_quoted_pairs(value)
-    return f'"{escaped}"'
-
+    return '"'+str(value).replace('\\', '\\\\').replace('"', r'\"')+'"'
 
 # Match a RFC 2047 word, looks like =?utf-8?q?someword?=
 rfc2047_matcher = re.compile(r'''
@@ -1020,8 +1012,6 @@ def _get_ptext_to_endchars(value, endchars):
     a flag that is True iff there were any quoted printables decoded.
 
     """
-    if not value:
-        return '', '', False
     fragment, *remainder = _wsp_splitter(value, 1)
     vchars = []
     escape = False
@@ -1055,7 +1045,7 @@ def get_fws(value):
     fws = WhiteSpaceTerminal(value[:len(value)-len(newvalue)], 'fws')
     return fws, newvalue
 
-def get_encoded_word(value, terminal_type='vtext'):
+def get_encoded_word(value):
     """ encoded-word = "=?" charset "?" encoding "?" encoded-text "?="
 
     """
@@ -1094,7 +1084,7 @@ def get_encoded_word(value, terminal_type='vtext'):
             ew.append(token)
             continue
         chars, *remainder = _wsp_splitter(text, 1)
-        vtext = ValueTerminal(chars, terminal_type)
+        vtext = ValueTerminal(chars, 'vtext')
         _validate_xtext(vtext)
         ew.append(vtext)
         text = ''.join(remainder)
@@ -1136,7 +1126,7 @@ def get_unstructured(value):
         valid_ew = True
         if value.startswith('=?'):
             try:
-                token, value = get_encoded_word(value, 'utext')
+                token, value = get_encoded_word(value)
             except _InvalidEwError:
                 valid_ew = False
             except errors.HeaderParseError:
@@ -1165,7 +1155,7 @@ def get_unstructured(value):
         # the parser to go in an infinite loop.
         if valid_ew and rfc2047_matcher.search(tok):
             tok, *remainder = value.partition('=?')
-        vtext = ValueTerminal(tok, 'utext')
+        vtext = ValueTerminal(tok, 'vtext')
         _validate_xtext(vtext)
         unstructured.append(vtext)
         value = ''.join(remainder)
@@ -1575,7 +1565,7 @@ def get_dtext(value):
 def _check_for_early_dl_end(value, domain_literal):
     if value:
         return False
-    domain_literal.defects.append(errors.InvalidHeaderDefect(
+    domain_literal.append(errors.InvalidHeaderDefect(
         "end of input inside domain-literal"))
     domain_literal.append(ValueTerminal(']', 'domain-literal-end'))
     return True
@@ -1594,9 +1584,9 @@ def get_domain_literal(value):
         raise errors.HeaderParseError("expected '[' at start of domain-literal "
                 "but found '{}'".format(value))
     value = value[1:]
-    domain_literal.append(ValueTerminal('[', 'domain-literal-start'))
     if _check_for_early_dl_end(value, domain_literal):
         return domain_literal, value
+    domain_literal.append(ValueTerminal('[', 'domain-literal-start'))
     if value[0] in WSP:
         token, value = get_fws(value)
         domain_literal.append(token)
@@ -2815,7 +2805,7 @@ def _refold_parse_tree(parse_tree, *, policy):
             continue
         tstr = str(part)
         if not want_encoding:
-            if part.token_type in ('ptext', 'vtext'):
+            if part.token_type == 'ptext':
                 # Encode if tstr contains special characters.
                 want_encoding = not SPECIALSNL.isdisjoint(tstr)
             else:
@@ -2915,15 +2905,6 @@ def _refold_parse_tree(parse_tree, *, policy):
         if not hasattr(part, 'encode'):
             # It's not a terminal, try folding the subparts.
             newparts = list(part)
-            if part.token_type == 'bare-quoted-string':
-                # To fold a quoted string we need to create a list of terminal
-                # tokens that will render the leading and trailing quotes
-                # and use quoted pairs in the value as appropriate.
-                newparts = (
-                    [ValueTerminal('"', 'ptext')] +
-                    [ValueTerminal(make_quoted_pairs(p), 'ptext')
-                     for p in newparts] +
-                    [ValueTerminal('"', 'ptext')])
             if not part.as_ew_allowed:
                 wrap_as_ew_blocked += 1
                 newparts.append(end_ew_not_allowed)

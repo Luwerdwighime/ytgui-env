@@ -72,23 +72,6 @@ class AST_Tests(unittest.TestCase):
             # "ast.AST constructor takes 0 positional arguments"
             ast.AST(2)
 
-    def test_AST_fields_NULL_check(self):
-        # See: https://github.com/python/cpython/issues/126105
-        old_value = ast.AST._fields
-
-        def cleanup():
-            ast.AST._fields = old_value
-        self.addCleanup(cleanup)
-
-        del ast.AST._fields
-
-        msg = "type object 'ast.AST' has no attribute '_fields'"
-        # Both examples used to crash:
-        with self.assertRaisesRegex(AttributeError, msg):
-            ast.AST(arg1=123)
-        with self.assertRaisesRegex(AttributeError, msg):
-            ast.AST()
-
     def test_AST_garbage_collection(self):
         class X:
             pass
@@ -203,26 +186,6 @@ class AST_Tests(unittest.TestCase):
 
         # Check that compilation doesn't crash. Note: this may crash explicitly only on debug mode.
         compile(tree, "<string>", "exec")
-
-    def test_negative_locations_for_compile(self):
-        # See https://github.com/python/cpython/issues/130775
-        alias = ast.alias(name='traceback', lineno=0, col_offset=0)
-        for attrs in (
-            {'lineno': -2, 'col_offset': 0},
-            {'lineno': 0, 'col_offset': -2},
-            {'lineno': 0, 'col_offset': -2, 'end_col_offset': -2},
-            {'lineno': -2, 'end_lineno': -2, 'col_offset': 0},
-        ):
-            with self.subTest(attrs=attrs):
-                tree = ast.Module(body=[
-                    ast.Import(names=[alias], **attrs)
-                ], type_ignores=[])
-
-                # It used to crash on this step:
-                compile(tree, "<string>", "exec")
-
-                # This also must not crash:
-                ast.parse(tree, optimize=2)
 
     def test_slice(self):
         slc = ast.parse("x[::]").body[0].value.slice
@@ -960,17 +923,6 @@ class AST_Tests(unittest.TestCase):
             ):
                 compile(expr, "<test>", "eval")
 
-    def test_constant_as_unicode_name(self):
-        constants = [
-            ("True", b"Tru\xe1\xb5\x89"),
-            ("False", b"Fal\xc5\xbfe"),
-            ("None", b"N\xc2\xbane"),
-        ]
-        for constant in constants:
-            with self.assertRaisesRegex(ValueError,
-                f"identifier field can't represent '{constant[0]}' constant"):
-                ast.parse(constant[1], mode="eval")
-
     def test_precedence_enum(self):
         class _Precedence(enum.IntEnum):
             """Precedence table that originated from python grammar."""
@@ -1347,21 +1299,9 @@ Module(
         )
 
         check_node(
-            ast.MatchSingleton(value=[]),
-            empty="MatchSingleton(value=[])",
-            full="MatchSingleton(value=[])",
-        )
-
-        check_node(
             ast.Constant(value=None),
             empty="Constant(value=None)",
             full="Constant(value=None)",
-        )
-
-        check_node(
-            ast.Constant(value=[]),
-            empty="Constant(value=[])",
-            full="Constant(value=[])",
         )
 
         check_node(

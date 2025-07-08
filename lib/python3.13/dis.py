@@ -1051,7 +1051,7 @@ class Bytecode:
             return output.getvalue()
 
 
-def main(args=None):
+def main():
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -1060,7 +1060,7 @@ def main(args=None):
     parser.add_argument('-O', '--show-offsets', action='store_true',
                         help='show instruction offsets')
     parser.add_argument('infile', nargs='?', default='-')
-    args = parser.parse_args(args=args)
+    args = parser.parse_args()
     if args.infile == '-':
         name = '<stdin>'
         source = sys.stdin.buffer.read()

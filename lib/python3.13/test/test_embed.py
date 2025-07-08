@@ -168,8 +168,7 @@ class EmbeddingTestsMixin:
             # Parse the line from the loop.  The first line is the main
             # interpreter and the 3 afterward are subinterpreters.
             interp = Interp(*match.groups())
-            if support.verbose > 2:
-                # 5 lines per pass is super-spammy, so limit that to -vvv
+            if support.verbose > 1:
                 print(interp)
             self.assertTrue(interp.interp)
             self.assertTrue(interp.tstate)
@@ -280,10 +279,6 @@ class EmbeddingTests(EmbeddingTestsMixin, unittest.TestCase):
         """
         env = dict(os.environ, PYTHONPATH=os.pathsep.join(sys.path))
         out, err = self.run_embedded_interpreter("test_pre_initialization_api", env=env)
-        if support.verbose > 1:
-            print()
-            print(out)
-            print(err)
         if MS_WINDOWS:
             expected_path = self.test_exe
         else:
@@ -301,10 +296,6 @@ class EmbeddingTests(EmbeddingTestsMixin, unittest.TestCase):
         env['PYTHONPATH'] = os.pathsep.join(sys.path)
         out, err = self.run_embedded_interpreter(
                         "test_pre_initialization_sys_options", env=env)
-        if support.verbose > 1:
-            print()
-            print(out)
-            print(err)
         expected_output = (
             "sys.warnoptions: ['once', 'module', 'default']\n"
             "sys._xoptions: {'not_an_option': '1', 'also_not_an_option': '2'}\n"
@@ -1951,6 +1942,57 @@ class MiscTests(EmbeddingTestsMixin, unittest.TestCase):
         self.assertIn("10 times sub", out)
         self.assertIn("CPU seconds", out)
         self.assertIn("cmd", out)
+
+
+class StdPrinterTests(EmbeddingTestsMixin, unittest.TestCase):
+    # Test PyStdPrinter_Type which is used by _PySys_SetPreliminaryStderr():
+    #   "Set up a preliminary stderr printer until we have enough
+    #    infrastructure for the io module in place."
+
+    STDOUT_FD = 1
+
+    def create_printer(self, fd):
+        ctypes = import_helper.import_module('ctypes')
+        PyFile_NewStdPrinter = ctypes.pythonapi.PyFile_NewStdPrinter
+        PyFile_NewStdPrinter.argtypes = (ctypes.c_int,)
+        PyFile_NewStdPrinter.restype = ctypes.py_object
+        return PyFile_NewStdPrinter(fd)
+
+    def test_write(self):
+        message = "unicode:\xe9-\u20ac-\udc80!\n"
+
+        stdout_fd = self.STDOUT_FD
+        stdout_fd_copy = os.dup(stdout_fd)
+        self.addCleanup(os.close, stdout_fd_copy)
+
+        rfd, wfd = os.pipe()
+        self.addCleanup(os.close, rfd)
+        self.addCleanup(os.close, wfd)
+        try:
+            # PyFile_NewStdPrinter() only accepts fileno(stdout)
+            # or fileno(stderr) file descriptor.
+            os.dup2(wfd, stdout_fd)
+
+            printer = self.create_printer(stdout_fd)
+            printer.write(message)
+        finally:
+            os.dup2(stdout_fd_copy, stdout_fd)
+
+        data = os.read(rfd, 100)
+        self.assertEqual(data, message.encode('utf8', 'backslashreplace'))
+
+    def test_methods(self):
+        fd = self.STDOUT_FD
+        printer = self.create_printer(fd)
+        self.assertEqual(printer.fileno(), fd)
+        self.assertEqual(printer.isatty(), os.isatty(fd))
+        printer.flush()  # noop
+        printer.close()  # noop
+
+    def test_disallow_instantiation(self):
+        fd = self.STDOUT_FD
+        printer = self.create_printer(fd)
+        support.check_disallow_instantiation(self, type(printer))
 
 
 if __name__ == "__main__":

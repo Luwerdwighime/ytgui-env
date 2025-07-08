@@ -2,6 +2,7 @@ from test import support
 from test.support import warnings_helper
 import decimal
 import enum
+import locale
 import math
 import platform
 import sys
@@ -18,7 +19,7 @@ try:
 except ImportError:
     _testinternalcapi = None
 
-from test.support import skip_if_buggy_ucrt_strfptime, SuppressCrashReport
+from test.support import skip_if_buggy_ucrt_strfptime
 
 # Max year is only limited by the size of C int.
 SIZEOF_INT = sysconfig.get_config_var('SIZEOF_INT') or 4
@@ -157,19 +158,10 @@ class TimeTestCase(unittest.TestCase):
         self.assertEqual(int(time.mktime(time.localtime(self.t))),
                          int(self.t))
 
-    def test_sleep_exceptions(self):
-        self.assertRaises(TypeError, time.sleep, [])
-        self.assertRaises(TypeError, time.sleep, "a")
-        self.assertRaises(TypeError, time.sleep, complex(0, 0))
-
+    def test_sleep(self):
         self.assertRaises(ValueError, time.sleep, -2)
         self.assertRaises(ValueError, time.sleep, -1)
-        self.assertRaises(ValueError, time.sleep, -0.1)
-
-    def test_sleep(self):
-        for value in [-0.0, 0, 0.0, 1e-100, 1e-9, 1e-6, 1, 1.2]:
-            with self.subTest(value=value):
-                time.sleep(value)
+        time.sleep(1.2)
 
     def test_epoch(self):
         # bpo-43869: Make sure that Python use the same Epoch on all platforms:
@@ -190,44 +182,8 @@ class TimeTestCase(unittest.TestCase):
                 self.fail('conversion specifier: %r failed.' % format)
 
         self.assertRaises(TypeError, time.strftime, b'%S', tt)
-
-    def test_strftime_invalid_format(self):
-        tt = time.gmtime(self.t)
-        with SuppressCrashReport():
-            for i in range(1, 128):
-                format = ' %' + chr(i)
-                with self.subTest(format=format):
-                    try:
-                        time.strftime(format, tt)
-                    except ValueError as exc:
-                        self.assertEqual(str(exc), 'Invalid format string')
-
-    def test_strftime_special(self):
-        tt = time.gmtime(self.t)
-        s1 = time.strftime('%c', tt)
-        s2 = time.strftime('%B', tt)
-        # gh-52551, gh-78662: Unicode strings should pass through strftime,
-        # independently from locale.
-        self.assertEqual(time.strftime('\U0001f40d', tt), '\U0001f40d')
-        self.assertEqual(time.strftime('\U0001f4bb%c\U0001f40d%B', tt), f'\U0001f4bb{s1}\U0001f40d{s2}')
-        self.assertEqual(time.strftime('%c\U0001f4bb%B\U0001f40d', tt), f'{s1}\U0001f4bb{s2}\U0001f40d')
-        # Lone surrogates should pass through.
-        self.assertEqual(time.strftime('\ud83d', tt), '\ud83d')
-        self.assertEqual(time.strftime('\udc0d', tt), '\udc0d')
-        self.assertEqual(time.strftime('\ud83d%c\udc0d%B', tt), f'\ud83d{s1}\udc0d{s2}')
-        self.assertEqual(time.strftime('%c\ud83d%B\udc0d', tt), f'{s1}\ud83d{s2}\udc0d')
-        self.assertEqual(time.strftime('%c\udc0d%B\ud83d', tt), f'{s1}\udc0d{s2}\ud83d')
-        # Surrogate pairs should not recombine.
-        self.assertEqual(time.strftime('\ud83d\udc0d', tt), '\ud83d\udc0d')
-        self.assertEqual(time.strftime('%c\ud83d\udc0d%B', tt), f'{s1}\ud83d\udc0d{s2}')
-        # Surrogate-escaped bytes should not recombine.
-        self.assertEqual(time.strftime('\udcf0\udc9f\udc90\udc8d', tt), '\udcf0\udc9f\udc90\udc8d')
-        self.assertEqual(time.strftime('%c\udcf0\udc9f\udc90\udc8d%B', tt), f'{s1}\udcf0\udc9f\udc90\udc8d{s2}')
-        # gh-124531: The null character should not terminate the format string.
-        self.assertEqual(time.strftime('\0', tt), '\0')
-        self.assertEqual(time.strftime('\0'*1000, tt), '\0'*1000)
-        self.assertEqual(time.strftime('\0%c\0%B', tt), f'\0{s1}\0{s2}')
-        self.assertEqual(time.strftime('%c\0%B\0', tt), f'{s1}\0{s2}\0')
+        # embedded null character
+        self.assertRaises(ValueError, time.strftime, '%S\0', tt)
 
     def _bounds_checking(self, func):
         # Make sure that strftime() checks the bounds of the various parts
@@ -339,11 +295,11 @@ class TimeTestCase(unittest.TestCase):
         # check that this doesn't chain exceptions needlessly (see #17572)
         with self.assertRaises(ValueError) as e:
             time.strptime('', '%D')
-        self.assertTrue(e.exception.__suppress_context__)
-        # additional check for stray % branch
+        self.assertIs(e.exception.__suppress_context__, True)
+        # additional check for IndexError branch (issue #19545)
         with self.assertRaises(ValueError) as e:
-            time.strptime('%', '%')
-        self.assertTrue(e.exception.__suppress_context__)
+            time.strptime('19', '%Y %')
+        self.assertIs(e.exception.__suppress_context__, True)
 
     def test_strptime_leap_year(self):
         # GH-70647: warns if parsing a format with a day and no year.
@@ -644,8 +600,17 @@ class TimeTestCase(unittest.TestCase):
 
 
 class TestLocale(unittest.TestCase):
-    @support.run_with_locale('LC_ALL', 'fr_FR', '')
+    def setUp(self):
+        self.oldloc = locale.setlocale(locale.LC_ALL)
+
+    def tearDown(self):
+        locale.setlocale(locale.LC_ALL, self.oldloc)
+
     def test_bug_3061(self):
+        try:
+            tmp = locale.setlocale(locale.LC_ALL, "fr_FR")
+        except locale.Error:
+            self.skipTest('could not set locale.LC_ALL to fr_FR')
         # This should not cause an exception
         time.strftime("%B", (2009,2,1,0,0,0,0,0,0))
 

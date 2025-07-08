@@ -11,11 +11,10 @@ import typing
 import builtins as bltns
 from collections import OrderedDict
 from datetime import date
-from functools import partial
 from enum import Enum, EnumMeta, IntEnum, StrEnum, EnumType, Flag, IntFlag, unique, auto
 from enum import STRICT, CONFORM, EJECT, KEEP, _simple_enum, _test_simple_enum
 from enum import verify, UNIQUE, CONTINUOUS, NAMED_FLAGS, ReprEnum
-from enum import member, nonmember, _iter_bits_lsb, EnumDict
+from enum import member, nonmember, _iter_bits_lsb
 from io import StringIO
 from pickle import dumps, loads, PicklingError, HIGHEST_PROTOCOL
 from test import support
@@ -463,7 +462,6 @@ class _EnumTests:
             self.assertEqual(str(TE), "<flag 'MainEnum'>")
             self.assertEqual(format(TE), "<flag 'MainEnum'>")
             self.assertTrue(TE(5) is self.dupe2)
-            self.assertTrue(7 in TE)
         else:
             self.assertEqual(repr(TE), "<enum 'MainEnum'>")
             self.assertEqual(str(TE), "<enum 'MainEnum'>")
@@ -1353,7 +1351,7 @@ class TestSpecial(unittest.TestCase):
                 red = 1
                 green = 2
                 blue = 3
-                def red(self):  # noqa: F811
+                def red(self):
                     return 'red'
         #
         with self.assertRaises(TypeError):
@@ -1361,7 +1359,7 @@ class TestSpecial(unittest.TestCase):
                 @enum.property
                 def red(self):
                     return 'redder'
-                red = 1  # noqa: F811
+                red = 1
                 green = 2
                 blue = 3
 
@@ -1539,19 +1537,6 @@ class TestSpecial(unittest.TestCase):
             [Outer.a, Outer.b, Outer.Inner],
             )
 
-    def test_partial(self):
-        def func(a, b=5):
-            return a, b
-        with self.assertWarnsRegex(FutureWarning, r'partial.*enum\.member') as cm:
-            class E(Enum):
-                a = 1
-                b = partial(func)
-        self.assertEqual(cm.filename, __file__)
-        self.assertIsInstance(E.b, partial)
-        self.assertEqual(E.b(2), (2, 5))
-        with self.assertWarnsRegex(FutureWarning, 'partial'):
-            self.assertEqual(E.a.b(2), (2, 5))
-
     def test_enum_with_value_name(self):
         class Huh(Enum):
             name = 1
@@ -1582,17 +1567,6 @@ class TestSpecial(unittest.TestCase):
             X = 1
         self.assertIn(IntEnum1.X, IntFlag1)
         self.assertIn(IntFlag1.X, IntEnum1)
-
-    def test_contains_does_not_call_missing(self):
-        class AnEnum(Enum):
-            UNKNOWN = None
-            LUCKY = 3
-            @classmethod
-            def _missing_(cls, *values):
-                return cls.UNKNOWN
-        self.assertTrue(None in AnEnum)
-        self.assertTrue(3 in AnEnum)
-        self.assertFalse(7 in AnEnum)
 
     def test_inherited_data_type(self):
         class HexInt(int):
@@ -1913,25 +1887,6 @@ class TestSpecial(unittest.TestCase):
         with self.assertRaises(TypeError):
             class Wrong(Enum, str):
                 NotHere = 'error before this point'
-
-    def test_raise_custom_error_on_creation(self):
-        class InvalidRgbColorError(ValueError):
-            def __init__(self, r, g, b):
-                self.r = r
-                self.g = g
-                self.b = b
-                super().__init__(f'({r}, {g}, {b}) is not a valid RGB color')
-
-        with self.assertRaises(InvalidRgbColorError):
-            class RgbColor(Enum):
-                RED = (255, 0, 0)
-                GREEN = (0, 255, 0)
-                BLUE = (0, 0, 255)
-                INVALID = (256, 0, 0)
-
-                def __init__(self, r, g, b):
-                    if not all(0 <= val <= 255 for val in (r, g, b)):
-                        raise InvalidRgbColorError(r, g, b)
 
     def test_intenum_transitivity(self):
         class number(IntEnum):
@@ -3505,13 +3460,6 @@ class TestSpecial(unittest.TestCase):
         self.assertRaisesRegex(TypeError, '.int. object is not iterable', Enum, 'bad_enum', names=0)
         self.assertRaisesRegex(TypeError, '.int. object is not iterable', Enum, 'bad_enum', 0, type=int)
 
-    def test_nonhashable_matches_hashable(self):    # issue 125710
-        class Directions(Enum):
-            DOWN_ONLY = frozenset({"sc"})
-            UP_ONLY = frozenset({"cs"})
-            UNRESTRICTED = frozenset({"sc", "cs"})
-        self.assertIs(Directions({"sc"}), Directions.DOWN_ONLY)
-
 
 class TestOrder(unittest.TestCase):
     "test usage of the `_order_` attribute"
@@ -4980,7 +4928,6 @@ class Color(enum.Enum)
  |      `value` is in `cls` if:
  |      1) `value` is a member of `cls`, or
  |      2) `value` is the value of one of the `cls`'s members.
- |      3) `value` is a pseudo-member (flags)
  |
  |  __getitem__(name)
  |      Return the member matching `name`.
@@ -5381,7 +5328,7 @@ class TestConvert(unittest.TestCase):
                 filter=lambda x: x.startswith('CONVERT_TEST_'))
         # We don't want the reverse lookup value to vary when there are
         # multiple possible names for a given value.  It should always
-        # report the first lexicographical name in that case.
+        # report the first lexigraphical name in that case.
         self.assertEqual(test_type(5).name, 'CONVERT_TEST_NAME_A')
 
     def test_convert_int(self):
@@ -5465,37 +5412,6 @@ class TestConvert(unittest.TestCase):
         self.assertEqual(repr(test_type.CONVERT_STRING_TEST_NAME_A), '%s.CONVERT_STRING_TEST_NAME_A' % SHORT_MODULE)
         self.assertEqual(str(test_type.CONVERT_STRING_TEST_NAME_A), '5')
         self.assertEqual(format(test_type.CONVERT_STRING_TEST_NAME_A), '5')
-
-
-class TestEnumDict(unittest.TestCase):
-    def test_enum_dict_in_metaclass(self):
-        """Test that EnumDict is usable as a class namespace"""
-        class Meta(type):
-            @classmethod
-            def __prepare__(metacls, cls, bases, **kwds):
-                return EnumDict(cls)
-
-        class MyClass(metaclass=Meta):
-            a = 1
-
-            with self.assertRaises(TypeError):
-                a = 2  # duplicate
-
-            with self.assertRaises(ValueError):
-                _a_sunder_ = 3
-
-    def test_enum_dict_standalone(self):
-        """Test that EnumDict is usable on its own"""
-        enumdict = EnumDict()
-        enumdict['a'] = 1
-
-        with self.assertRaises(TypeError):
-            enumdict['a'] = 'other value'
-
-        # Only MutableMapping interface is overridden for now.
-        # If this stops passing, update the documentation.
-        enumdict |= {'a': 'other value'}
-        self.assertEqual(enumdict['a'], 'other value')
 
 
 # helpers

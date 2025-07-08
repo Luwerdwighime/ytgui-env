@@ -190,6 +190,7 @@ class TestPkg(unittest.TestCase):
          ]
         self.mkhier(hier)
 
+        import t5
         s = """
             from t5 import *
             self.assertEqual(dir(), ['foo', 'self', 'string', 't5'])

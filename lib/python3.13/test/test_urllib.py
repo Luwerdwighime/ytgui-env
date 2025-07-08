@@ -12,7 +12,6 @@ from test import support
 from test.support import os_helper
 from test.support import socket_helper
 from test.support import warnings_helper
-from test.support.testcase import ExtraAssertions
 import os
 try:
     import ssl
@@ -20,6 +19,7 @@ except ImportError:
     ssl = None
 import sys
 import tempfile
+from nturl2path import url2pathname, pathname2url
 
 from base64 import b64encode
 import collections
@@ -140,7 +140,7 @@ class FakeFTPMixin(object):
         urllib.request.ftpwrapper = self._ftpwrapper_class
 
 
-class urlopen_FileTests(unittest.TestCase, ExtraAssertions):
+class urlopen_FileTests(unittest.TestCase):
     """Test urlopen() opening a temporary file.
 
     Try to test as much functionality as possible so as to cut down on reliance
@@ -158,7 +158,7 @@ class urlopen_FileTests(unittest.TestCase, ExtraAssertions):
         finally:
             f.close()
         self.pathname = os_helper.TESTFN
-        self.quoted_pathname = urllib.parse.quote(os.fsencode(self.pathname))
+        self.quoted_pathname = urllib.parse.quote(self.pathname)
         self.returned_obj = urlopen("file:%s" % self.quoted_pathname)
 
     def tearDown(self):
@@ -170,7 +170,9 @@ class urlopen_FileTests(unittest.TestCase, ExtraAssertions):
         # Make sure object returned by urlopen() has the specified methods
         for attr in ("read", "readline", "readlines", "fileno",
                      "close", "info", "geturl", "getcode", "__iter__"):
-            self.assertHasAttr(self.returned_obj, attr)
+            self.assertTrue(hasattr(self.returned_obj, attr),
+                         "object returned by urlopen() lacks %s attribute" %
+                         attr)
 
     def test_read(self):
         self.assertEqual(self.text, self.returned_obj.read())
@@ -475,9 +477,7 @@ Connection: close
 Content-Type: text/html; charset=iso-8859-1
 ''', mock_close=True)
         try:
-            with self.assertRaises(urllib.error.HTTPError) as cm:
-                urllib.request.urlopen("http://python.org/")
-            cm.exception.close()
+            self.assertRaises(OSError, urlopen, "http://python.org/")
         finally:
             self.unfakehttp()
 
@@ -492,9 +492,8 @@ Content-Type: text/html; charset=iso-8859-1
 ''', mock_close=True)
         try:
             msg = "Redirection to url 'file:"
-            with self.assertRaisesRegex(urllib.error.HTTPError, msg) as cm:
-                urllib.request.urlopen("http://python.org/")
-            cm.exception.close()
+            with self.assertRaisesRegex(urllib.error.HTTPError, msg):
+                urlopen("http://python.org/")
         finally:
             self.unfakehttp()
 
@@ -507,9 +506,8 @@ Location: file://guidocomputer.athome.com:/python/license
 Connection: close
 ''', mock_close=True)
             try:
-                with self.assertRaises(urllib.error.HTTPError) as cm:
-                    urllib.request.urlopen("http://something")
-                cm.exception.close()
+                self.assertRaises(urllib.error.HTTPError, urlopen,
+                    "http://something")
             finally:
                 self.unfakehttp()
 
@@ -600,7 +598,7 @@ Connection: close
             urllib.request.URLopener()
 
 
-class urlopen_DataTests(unittest.TestCase, ExtraAssertions):
+class urlopen_DataTests(unittest.TestCase):
     """Test urlopen() opening a data URL."""
 
     def setUp(self):
@@ -629,17 +627,18 @@ class urlopen_DataTests(unittest.TestCase, ExtraAssertions):
             "QOjdAAAAAXNSR0IArs4c6QAAAA9JREFUCNdj%0AYGBg%2BP//PwAGAQL%2BCm8 "
             "vHgAAAABJRU5ErkJggg%3D%3D%0A%20")
 
-        self.text_url_resp = self.enterContext(
-            urllib.request.urlopen(self.text_url))
-        self.text_url_base64_resp = self.enterContext(
-            urllib.request.urlopen(self.text_url_base64))
-        self.image_url_resp = self.enterContext(urllib.request.urlopen(self.image_url))
+        self.text_url_resp = urllib.request.urlopen(self.text_url)
+        self.text_url_base64_resp = urllib.request.urlopen(
+            self.text_url_base64)
+        self.image_url_resp = urllib.request.urlopen(self.image_url)
 
     def test_interface(self):
         # Make sure object returned by urlopen() has the specified methods
         for attr in ("read", "readline", "readlines",
                      "close", "info", "geturl", "getcode", "__iter__"):
-            self.assertHasAttr(self.text_url_resp, attr)
+            self.assertTrue(hasattr(self.text_url_resp, attr),
+                         "object returned by urlopen() lacks %s attribute" %
+                         attr)
 
     def test_info(self):
         self.assertIsInstance(self.text_url_resp.info(), email.message.Message)
@@ -647,10 +646,8 @@ class urlopen_DataTests(unittest.TestCase, ExtraAssertions):
             [('text/plain', ''), ('charset', 'ISO-8859-1')])
         self.assertEqual(self.image_url_resp.info()['content-length'],
             str(len(self.image)))
-        r = urllib.request.urlopen("data:,")
-        self.assertEqual(r.info().get_params(),
+        self.assertEqual(urllib.request.urlopen("data:,").info().get_params(),
             [('text/plain', ''), ('charset', 'US-ASCII')])
-        r.close()
 
     def test_geturl(self):
         self.assertEqual(self.text_url_resp.geturl(), self.text_url)
@@ -713,6 +710,10 @@ class urlretrieve_FileTests(unittest.TestCase):
 
     def constructLocalFileUrl(self, filePath):
         filePath = os.path.abspath(filePath)
+        try:
+            filePath.encode("utf-8")
+        except UnicodeEncodeError:
+            raise unittest.SkipTest("filePath is not encodable to utf8")
         return "file://%s" % urllib.request.pathname2url(filePath)
 
     def createNewTempFile(self, data=b""):
@@ -1519,119 +1520,39 @@ class Pathname_Tests(unittest.TestCase):
                          (expect, result))
 
     @unittest.skipUnless(sys.platform == 'win32',
-                         'test specific to Windows pathnames.')
-    def test_pathname2url_win(self):
+                         'test specific to the nturl2path functions.')
+    def test_prefixes(self):
         # Test special prefixes are correctly handled in pathname2url()
-        fn = urllib.request.pathname2url
-        self.assertEqual(fn('\\\\?\\C:\\dir'), '///C:/dir')
-        self.assertEqual(fn('\\\\?\\unc\\server\\share\\dir'), '//server/share/dir')
-        self.assertEqual(fn("C:"), '///C:')
-        self.assertEqual(fn("C:\\"), '///C:/')
-        self.assertEqual(fn('C:\\a\\b.c'), '///C:/a/b.c')
-        self.assertEqual(fn('C:\\a\\b.c\\'), '///C:/a/b.c/')
-        self.assertEqual(fn('C:\\a\\\\b.c'), '///C:/a//b.c')
-        self.assertEqual(fn('C:\\a\\b%#c'), '///C:/a/b%25%23c')
-        self.assertEqual(fn('C:\\a\\b\xe9'), '///C:/a/b%C3%A9')
-        self.assertEqual(fn('C:\\foo\\bar\\spam.foo'), "///C:/foo/bar/spam.foo")
-        # Long drive letter
-        self.assertRaises(IOError, fn, "XX:\\")
-        # No drive letter
-        self.assertEqual(fn("\\folder\\test\\"), '/folder/test/')
-        self.assertEqual(fn("\\\\folder\\test\\"), '//folder/test/')
-        self.assertEqual(fn("\\\\\\folder\\test\\"), '///folder/test/')
-        self.assertEqual(fn('\\\\some\\share\\'), '//some/share/')
-        self.assertEqual(fn('\\\\some\\share\\a\\b.c'), '//some/share/a/b.c')
-        self.assertEqual(fn('\\\\some\\share\\a\\b%#c\xe9'), '//some/share/a/b%25%23c%C3%A9')
-        # Alternate path separator
-        self.assertEqual(fn('C:/a/b.c'), '///C:/a/b.c')
-        self.assertEqual(fn('//some/share/a/b.c'), '//some/share/a/b.c')
-        self.assertEqual(fn('//?/C:/dir'), '///C:/dir')
-        self.assertEqual(fn('//?/unc/server/share/dir'), '//server/share/dir')
-        # Round-tripping
-        urls = ['///C:',
-                '/folder/test/',
-                '///C:/foo/bar/spam.foo']
-        for url in urls:
-            self.assertEqual(fn(urllib.request.url2pathname(url)), url)
+        given = '\\\\?\\C:\\dir'
+        expect = '///C:/dir'
+        result = urllib.request.pathname2url(given)
+        self.assertEqual(expect, result,
+                         "pathname2url() failed; %s != %s" %
+                         (expect, result))
+        given = '\\\\?\\unc\\server\\share\\dir'
+        expect = '/server/share/dir'
+        result = urllib.request.pathname2url(given)
+        self.assertEqual(expect, result,
+                         "pathname2url() failed; %s != %s" %
+                         (expect, result))
 
-    @unittest.skipIf(sys.platform == 'win32',
-                     'test specific to POSIX pathnames')
-    def test_pathname2url_posix(self):
-        fn = urllib.request.pathname2url
-        self.assertEqual(fn('/'), '/')
-        self.assertEqual(fn('/a/b.c'), '/a/b.c')
-        self.assertEqual(fn('//a/b.c'), '////a/b.c')
-        self.assertEqual(fn('///a/b.c'), '/////a/b.c')
-        self.assertEqual(fn('////a/b.c'), '//////a/b.c')
-        self.assertEqual(fn('/a/b%#c'), '/a/b%25%23c')
-
-    @unittest.skipUnless(os_helper.FS_NONASCII, 'need os_helper.FS_NONASCII')
-    def test_pathname2url_nonascii(self):
-        encoding = sys.getfilesystemencoding()
-        errors = sys.getfilesystemencodeerrors()
-        url = urllib.parse.quote(os_helper.FS_NONASCII, encoding=encoding, errors=errors)
-        self.assertEqual(urllib.request.pathname2url(os_helper.FS_NONASCII), url)
 
     @unittest.skipUnless(sys.platform == 'win32',
-                         'test specific to Windows pathnames.')
-    def test_url2pathname_win(self):
-        fn = urllib.request.url2pathname
-        self.assertEqual(fn('/C:/'), 'C:\\')
-        self.assertEqual(fn("///C|"), 'C:')
-        self.assertEqual(fn("///C:"), 'C:')
-        self.assertEqual(fn('///C:/'), 'C:\\')
-        self.assertEqual(fn('/C|//'), 'C:\\\\')
-        self.assertEqual(fn('///C|/path'), 'C:\\path')
-        # No DOS drive
-        self.assertEqual(fn("///C/test/"), '\\C\\test\\')
-        self.assertEqual(fn("////C/test/"), '\\\\C\\test\\')
-        # DOS drive paths
-        self.assertEqual(fn('C:/path/to/file'), 'C:\\path\\to\\file')
-        self.assertEqual(fn('C:/path/to/file/'), 'C:\\path\\to\\file\\')
-        self.assertEqual(fn('C:/path/to//file'), 'C:\\path\\to\\\\file')
-        self.assertEqual(fn('C|/path/to/file'), 'C:\\path\\to\\file')
-        self.assertEqual(fn('/C|/path/to/file'), 'C:\\path\\to\\file')
-        self.assertEqual(fn('///C|/path/to/file'), 'C:\\path\\to\\file')
-        self.assertEqual(fn("///C|/foo/bar/spam.foo"), 'C:\\foo\\bar\\spam.foo')
-        # Non-ASCII drive letter
-        self.assertRaises(IOError, fn, "///\u00e8|/")
-        # UNC paths
-        self.assertEqual(fn('//server/path/to/file'), '\\\\server\\path\\to\\file')
-        self.assertEqual(fn('////server/path/to/file'), '\\\\server\\path\\to\\file')
-        self.assertEqual(fn('/////server/path/to/file'), '\\\\server\\path\\to\\file')
-        # Localhost paths
-        self.assertEqual(fn('//localhost/C:/path/to/file'), 'C:\\path\\to\\file')
-        self.assertEqual(fn('//localhost/C|/path/to/file'), 'C:\\path\\to\\file')
-        self.assertEqual(fn('//localhost/path/to/file'), '\\path\\to\\file')
-        self.assertEqual(fn('//localhost//server/path/to/file'), '\\\\server\\path\\to\\file')
-        # Percent-encoded forward slashes are preserved for backwards compatibility
-        self.assertEqual(fn('C:/foo%2fbar'), 'C:\\foo/bar')
-        self.assertEqual(fn('//server/share/foo%2fbar'), '\\\\server\\share\\foo/bar')
-        # Round-tripping
-        paths = ['C:',
-                 r'\C\test\\',
-                 r'C:\foo\bar\spam.foo']
-        for path in paths:
-            self.assertEqual(fn(urllib.request.pathname2url(path)), path)
-
-    @unittest.skipIf(sys.platform == 'win32',
-                     'test specific to POSIX pathnames')
-    def test_url2pathname_posix(self):
-        fn = urllib.request.url2pathname
-        self.assertEqual(fn('/foo/bar'), '/foo/bar')
-        self.assertEqual(fn('//foo/bar'), '//foo/bar')
-        self.assertEqual(fn('///foo/bar'), '/foo/bar')
-        self.assertEqual(fn('////foo/bar'), '//foo/bar')
-        self.assertEqual(fn('//localhost/foo/bar'), '/foo/bar')
-
-    @unittest.skipUnless(os_helper.FS_NONASCII, 'need os_helper.FS_NONASCII')
-    def test_url2pathname_nonascii(self):
-        encoding = sys.getfilesystemencoding()
-        errors = sys.getfilesystemencodeerrors()
-        url = os_helper.FS_NONASCII
-        self.assertEqual(urllib.request.url2pathname(url), os_helper.FS_NONASCII)
-        url = urllib.parse.quote(url, encoding=encoding, errors=errors)
-        self.assertEqual(urllib.request.url2pathname(url), os_helper.FS_NONASCII)
+                         'test specific to the urllib.url2path function.')
+    def test_ntpath(self):
+        given = ('/C:/', '///C:/', '/C|//')
+        expect = 'C:\\'
+        for url in given:
+            result = urllib.request.url2pathname(url)
+            self.assertEqual(expect, result,
+                             'urllib.request..url2pathname() failed; %s != %s' %
+                             (expect, result))
+        given = '///C|/path'
+        expect = 'C:\\path'
+        result = urllib.request.url2pathname(given)
+        self.assertEqual(expect, result,
+                         'urllib.request.url2pathname() failed; %s != %s' %
+                         (expect, result))
 
 class Utility_Tests(unittest.TestCase):
     """Testcase to test the various utility functions in the urllib."""
@@ -1714,6 +1635,61 @@ class RequestTests(unittest.TestCase):
         request.method = 'HEAD'
         self.assertEqual(request.get_method(), 'HEAD')
 
+
+class URL2PathNameTests(unittest.TestCase):
+
+    def test_converting_drive_letter(self):
+        self.assertEqual(url2pathname("///C|"), 'C:')
+        self.assertEqual(url2pathname("///C:"), 'C:')
+        self.assertEqual(url2pathname("///C|/"), 'C:\\')
+
+    def test_converting_when_no_drive_letter(self):
+        # cannot end a raw string in \
+        self.assertEqual(url2pathname("///C/test/"), r'\\\C\test' '\\')
+        self.assertEqual(url2pathname("////C/test/"), r'\\C\test' '\\')
+
+    def test_simple_compare(self):
+        self.assertEqual(url2pathname("///C|/foo/bar/spam.foo"),
+                         r'C:\foo\bar\spam.foo')
+
+    def test_non_ascii_drive_letter(self):
+        self.assertRaises(IOError, url2pathname, "///\u00e8|/")
+
+    def test_roundtrip_url2pathname(self):
+        list_of_paths = ['C:',
+                         r'\\\C\test\\',
+                         r'C:\foo\bar\spam.foo'
+                         ]
+        for path in list_of_paths:
+            self.assertEqual(url2pathname(pathname2url(path)), path)
+
+class PathName2URLTests(unittest.TestCase):
+
+    def test_converting_drive_letter(self):
+        self.assertEqual(pathname2url("C:"), '///C:')
+        self.assertEqual(pathname2url("C:\\"), '///C:')
+
+    def test_converting_when_no_drive_letter(self):
+        self.assertEqual(pathname2url(r"\\\folder\test" "\\"),
+                         '/////folder/test/')
+        self.assertEqual(pathname2url(r"\\folder\test" "\\"),
+                         '////folder/test/')
+        self.assertEqual(pathname2url(r"\folder\test" "\\"),
+                         '/folder/test/')
+
+    def test_simple_compare(self):
+        self.assertEqual(pathname2url(r'C:\foo\bar\spam.foo'),
+                         "///C:/foo/bar/spam.foo" )
+
+    def test_long_drive_letter(self):
+        self.assertRaises(IOError, pathname2url, "XX:\\")
+
+    def test_roundtrip_pathname2url(self):
+        list_of_paths = ['///C:',
+                         '/////folder/test/',
+                         '///C:/foo/bar/spam.foo']
+        for path in list_of_paths:
+            self.assertEqual(pathname2url(url2pathname(path)), path)
 
 if __name__ == '__main__':
     unittest.main()

@@ -3,7 +3,6 @@ import os
 import importlib
 
 from test.support import warnings_helper
-from test.support.testcase import ExtraAssertions
 
 from importlib import resources
 
@@ -29,7 +28,7 @@ class ModuleAnchorMixin:
         return importlib.import_module('data02')
 
 
-class FunctionalAPIBase(util.DiskSetup, ExtraAssertions):
+class FunctionalAPIBase(util.DiskSetup):
     def setUp(self):
         super().setUp()
         self.load_fixture('data02')
@@ -43,6 +42,12 @@ class FunctionalAPIBase(util.DiskSetup, ExtraAssertions):
         ):
             with self.subTest(path_parts=path_parts):
                 yield path_parts
+
+    def assertEndsWith(self, string, suffix):
+        """Assert that `string` ends with `suffix`.
+
+        Used to ignore an architecture-specific UTF-16 byte-order mark."""
+        self.assertEqual(string[-len(suffix) :], suffix)
 
     def test_read_text(self):
         self.assertEqual(

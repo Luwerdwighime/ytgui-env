@@ -8,9 +8,8 @@ import unittest
 
 from importlib.util import cache_from_source
 from test.support.os_helper import create_empty_file
-from test.support.testcase import ExtraAssertions
 
-class TestImport(unittest.TestCase, ExtraAssertions):
+class TestImport(unittest.TestCase):
 
     def __init__(self, *args, **kw):
         self.package_name = 'PACKAGE_'
@@ -56,7 +55,7 @@ class TestImport(unittest.TestCase, ExtraAssertions):
         except SyntaxError: pass
         else: raise RuntimeError('Failed to induce SyntaxError') # self.fail()?
         self.assertNotIn(self.module_name, sys.modules)
-        self.assertNotHasAttr(sys.modules[self.package_name], 'foo')
+        self.assertFalse(hasattr(sys.modules[self.package_name], 'foo'))
 
         # ...make up a variable name that isn't bound in __builtins__
         var = 'a'

@@ -433,7 +433,6 @@ class RegressionTests(MemoryDatabaseMixin, unittest.TestCase):
             con.commit()
             cur = con.execute("select t from t")
             del cur
-            support.gc_collect()
             con.execute("drop table t")
             con.commit()
 
@@ -449,7 +448,6 @@ class RegressionTests(MemoryDatabaseMixin, unittest.TestCase):
             con.create_function("dup", 1, dup)
             cur = con.execute("select dup(t) from t")
             del cur
-            support.gc_collect()
             con.execute("drop table t")
             con.commit()
 

@@ -10,7 +10,6 @@ import pyclbr
 from unittest import TestCase, main as unittest_main
 from test.test_importlib import util as test_importlib_util
 import warnings
-from test.support.testcase import ExtraAssertions
 
 
 StaticMethodType = type(staticmethod(lambda: None))
@@ -23,7 +22,7 @@ ClassMethodType = type(classmethod(lambda c: None))
 # is imperfect (as designed), testModule is called with a set of
 # members to ignore.
 
-class PyclbrTest(TestCase, ExtraAssertions):
+class PyclbrTest(TestCase):
 
     def assertListEq(self, l1, l2, ignore):
         ''' succeed iff {l1} - {ignore} == {l2} - {ignore} '''
@@ -31,6 +30,14 @@ class PyclbrTest(TestCase, ExtraAssertions):
         if missing:
             print("l1=%r\nl2=%r\nignore=%r" % (l1, l2, ignore), file=sys.stderr)
             self.fail("%r missing" % missing.pop())
+
+    def assertHasattr(self, obj, attr, ignore):
+        ''' succeed iff hasattr(obj,attr) or attr in ignore. '''
+        if attr in ignore: return
+        if not hasattr(obj, attr): print("???", attr)
+        self.assertTrue(hasattr(obj, attr),
+                        'expected hasattr(%r, %r)' % (obj, attr))
+
 
     def assertHaskey(self, obj, key, ignore):
         ''' succeed iff key in obj or key in ignore. '''
@@ -79,7 +86,7 @@ class PyclbrTest(TestCase, ExtraAssertions):
         for name, value in dict.items():
             if name in ignore:
                 continue
-            self.assertHasAttr(module, name, ignore)
+            self.assertHasattr(module, name, ignore)
             py_item = getattr(module, name)
             if isinstance(value, pyclbr.Function):
                 self.assertIsInstance(py_item, (FunctionType, BuiltinFunctionType))
