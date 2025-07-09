@@ -1,6 +1,5 @@
 """Test that sys.modules is used properly by import."""
 from test.test_importlib import util
-from test.support.testcase import ExtraAssertions
 import sys
 from types import MethodType
 import unittest
@@ -46,7 +45,7 @@ class UseCache:
  ) = util.test_both(UseCache, __import__=util.__import__)
 
 
-class ImportlibUseCache(UseCache, unittest.TestCase, ExtraAssertions):
+class ImportlibUseCache(UseCache, unittest.TestCase):
 
     # Pertinent only to PEP 302; exec_module() doesn't return a module.
 
@@ -79,7 +78,7 @@ class ImportlibUseCache(UseCache, unittest.TestCase, ExtraAssertions):
             with self.create_mock('pkg.__init__', 'pkg.module') as importer:
                 with util.import_state(meta_path=[importer]):
                     module = self.__import__('pkg.module')
-                    self.assertHasAttr(module, 'module')
+                    self.assertTrue(hasattr(module, 'module'))
                     self.assertEqual(id(module.module),
                                     id(sys.modules['pkg.module']))
 
@@ -89,7 +88,7 @@ class ImportlibUseCache(UseCache, unittest.TestCase, ExtraAssertions):
         with self.create_mock('pkg.__init__', 'pkg.module') as importer:
             with util.import_state(meta_path=[importer]):
                 module = self.__import__('pkg', fromlist=['module'])
-                self.assertHasAttr(module, 'module')
+                self.assertTrue(hasattr(module, 'module'))
                 self.assertEqual(id(module.module),
                                  id(sys.modules['pkg.module']))
 

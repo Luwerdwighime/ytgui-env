@@ -769,12 +769,12 @@ class TestCase(unittest.TestCase):
 
                 # Because this is a ClassVar, it can be mutable.
                 @dataclass
-                class UsesMutableClassVar:
+                class C:
                     z: ClassVar[typ] = typ()
 
                 # Because this is a ClassVar, it can be mutable.
                 @dataclass
-                class UsesMutableClassVarWithSubType:
+                class C:
                     x: ClassVar[typ] = Subclass()
 
     def test_deliberately_mutable_defaults(self):
@@ -3590,6 +3590,7 @@ class TestSlots(unittest.TestCase):
         a_ref = weakref.ref(a)
         self.assertIs(a.__weakref__, a_ref)
 
+
     def test_dataclass_derived_weakref_slot(self):
         class A:
             pass
@@ -3669,7 +3670,7 @@ class TestSlots(unittest.TestCase):
         self.assertTrue(F.__weakref__)
         F()
 
-    def test_dataclass_derived_generic_from_slotted_base_with_weakref(self):
+    def test_dataclass_derived_generic_from_slotted_base(self):
         T = typing.TypeVar('T')
 
         class WithWeakrefSlot:
@@ -3705,25 +3706,6 @@ class TestSlots(unittest.TestCase):
         self.assertEqual(A.__slots__, ())
         self.assertEqual(A().__dict__, {})
         A()
-
-    @support.cpython_only
-    def test_dataclass_slot_dict_ctype(self):
-        # https://github.com/python/cpython/issues/123935
-        from test.support import import_helper
-        # Skips test if `_testcapi` is not present:
-        _testcapi = import_helper.import_module('_testcapi')
-
-        @dataclass(slots=True)
-        class HasDictOffset(_testcapi.HeapCTypeWithDict):
-            __dict__: dict = {}
-        self.assertNotEqual(_testcapi.HeapCTypeWithDict.__dictoffset__, 0)
-        self.assertEqual(HasDictOffset.__slots__, ())
-
-        @dataclass(slots=True)
-        class DoesNotHaveDictOffset(_testcapi.HeapCTypeWithWeakref):
-            __dict__: dict = {}
-        self.assertEqual(_testcapi.HeapCTypeWithWeakref.__dictoffset__, 0)
-        self.assertEqual(DoesNotHaveDictOffset.__slots__, ('__dict__',))
 
     @support.cpython_only
     def test_slots_with_wrong_init_subclass(self):
@@ -4802,7 +4784,7 @@ class TestKeywordArgs(unittest.TestCase):
 
         # But this usage is okay, since it's not using KW_ONLY.
         @dataclass
-        class NoDuplicateKwOnlyAnnotation:
+        class A:
             a: int
             _: KW_ONLY
             b: int
@@ -4810,13 +4792,13 @@ class TestKeywordArgs(unittest.TestCase):
 
         # And if inheriting, it's okay.
         @dataclass
-        class BaseUsesKwOnly:
+        class A:
             a: int
             _: KW_ONLY
             b: int
             c: int
         @dataclass
-        class SubclassUsesKwOnly(BaseUsesKwOnly):
+        class B(A):
             _: KW_ONLY
             d: int
 

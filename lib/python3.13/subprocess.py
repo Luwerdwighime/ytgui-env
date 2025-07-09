@@ -386,7 +386,7 @@ def _text_encoding():
 
 def call(*popenargs, timeout=None, **kwargs):
     """Run command with arguments.  Wait for command to complete or
-    for timeout seconds, then return the returncode attribute.
+    timeout, then return the returncode attribute.
 
     The arguments are the same as for the Popen constructor.  Example:
 
@@ -523,8 +523,8 @@ def run(*popenargs,
     in the returncode attribute, and output & stderr attributes if those streams
     were captured.
 
-    If timeout (seconds) is given and the process takes too long,
-     a TimeoutExpired exception will be raised.
+    If timeout is given, and the process takes too long, a TimeoutExpired
+    exception will be raised.
 
     There is an optional argument "input", allowing you to
     pass bytes or a string to the subprocess's stdin.  If you use this argument
@@ -714,9 +714,6 @@ def _use_posix_spawn():
     if _mswindows or not hasattr(os, 'posix_spawn'):
         # os.posix_spawn() is not available
         return False
-
-    if ((_env := os.environ.get('_PYTHON_SUBPROCESS_USE_POSIX_SPAWN')) in ('0', '1')):
-        return bool(int(_env))
 
     if sys.platform in ('darwin', 'sunos5'):
         # posix_spawn() is a syscall on both macOS and Solaris,
@@ -1237,11 +1234,8 @@ class Popen:
 
             finally:
                 self._communication_started = True
-            try:
-                sts = self.wait(timeout=self._remaining_time(endtime))
-            except TimeoutExpired as exc:
-                exc.timeout = timeout
-                raise
+
+            sts = self.wait(timeout=self._remaining_time(endtime))
 
         return (stdout, stderr)
 
@@ -2150,11 +2144,8 @@ class Popen:
                                 selector.unregister(key.fileobj)
                                 key.fileobj.close()
                             self._fileobj2output[key.fileobj].append(data)
-            try:
-                self.wait(timeout=self._remaining_time(endtime))
-            except TimeoutExpired as exc:
-                exc.timeout = orig_timeout
-                raise
+
+            self.wait(timeout=self._remaining_time(endtime))
 
             # All data exchanged.  Translate lists into strings.
             if stdout is not None:

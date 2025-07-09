@@ -2,7 +2,6 @@ import builtins
 import codecs
 import _datetime
 import gc
-import io
 import locale
 import operator
 import os
@@ -80,18 +79,6 @@ class DisplayHookTest(unittest.TestCase):
         with support.swap_attr(sys, 'displayhook', baddisplayhook):
             code = compile("42", "<string>", "single")
             self.assertRaises(ValueError, eval, code)
-
-    def test_gh130163(self):
-        class X:
-            def __repr__(self):
-                sys.stdout = io.StringIO()
-                support.gc_collect()
-                return 'foo'
-
-        with support.swap_attr(sys, 'stdout', None):
-            sys.stdout = io.StringIO()  # the only reference
-            sys.displayhook(X())  # should not crash
-
 
 class ActiveExceptionTests(unittest.TestCase):
     def test_exc_info_no_exception(self):
@@ -219,20 +206,6 @@ class SysModuleTest(unittest.TestCase):
         self.assertEqual(out, b'')
         self.assertEqual(err, b'')
 
-        # gh-125842: Windows uses 32-bit unsigned integers for exit codes
-        # so a -1 exit code is sometimes interpreted as 0xffff_ffff.
-        rc, out, err = assert_python_failure('-c', 'import sys; sys.exit(0xffff_ffff)')
-        self.assertIn(rc, (-1, 0xff, 0xffff_ffff))
-        self.assertEqual(out, b'')
-        self.assertEqual(err, b'')
-
-        # Overflow results in a -1 exit code, which may be converted to 0xff
-        # or 0xffff_ffff.
-        rc, out, err = assert_python_failure('-c', 'import sys; sys.exit(2**128)')
-        self.assertIn(rc, (-1, 0xff, 0xffff_ffff))
-        self.assertEqual(out, b'')
-        self.assertEqual(err, b'')
-
         # call with integer argument
         with self.assertRaises(SystemExit) as cm:
             sys.exit(42)
@@ -284,27 +257,6 @@ class SysModuleTest(unittest.TestCase):
         check_exit_message(
             r'import sys; sys.exit("h\xe9")',
             b"h\xe9", PYTHONIOENCODING='latin-1')
-
-    @support.requires_subprocess()
-    def test_exit_codes_under_repl(self):
-        # GH-129900: SystemExit, or things that raised it, didn't
-        # get their return code propagated by the REPL
-        import tempfile
-
-        exit_ways = [
-            "exit",
-            "__import__('sys').exit",
-            "raise SystemExit"
-        ]
-
-        for exitfunc in exit_ways:
-            for return_code in (0, 123):
-                with self.subTest(exitfunc=exitfunc, return_code=return_code):
-                    with tempfile.TemporaryFile("w+") as stdin:
-                        stdin.write(f"{exitfunc}({return_code})\n")
-                        stdin.seek(0)
-                        proc = subprocess.run([sys.executable], stdin=stdin)
-                        self.assertEqual(proc.returncode, return_code)
 
     def test_getdefaultencoding(self):
         self.assertRaises(TypeError, sys.getdefaultencoding, 42)
@@ -395,36 +347,6 @@ class SysModuleTest(unittest.TestCase):
                              "the limit is too low")
         finally:
             sys.setrecursionlimit(old_limit)
-
-    @unittest.skipUnless(support.Py_GIL_DISABLED, "only meaningful if the GIL is disabled")
-    @threading_helper.requires_working_threading()
-    def test_racing_recursion_limit(self):
-        from threading import Thread
-        def something_recursive():
-            def count(n):
-                if n > 0:
-                    return count(n - 1) + 1
-                return 0
-
-            count(50)
-
-        def set_recursion_limit():
-            for limit in range(100, 200):
-                sys.setrecursionlimit(limit)
-
-        threads = []
-        for _ in range(5):
-            threads.append(Thread(target=set_recursion_limit))
-
-        for _ in range(5):
-            threads.append(Thread(target=something_recursive))
-
-        with threading_helper.catch_threading_exception() as cm:
-            with threading_helper.start_threads(threads):
-                pass
-
-            if cm.exc_value:
-                raise cm.exc_value
 
     def test_getwindowsversion(self):
         # Raise SkipTest if sys doesn't have getwindowsversion attribute

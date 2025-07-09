@@ -838,11 +838,6 @@ class TestContentTransferEncoding(TestHeaderBase):
             '7bit',
             [errors.InvalidHeaderDefect]),
 
-        'extra_space_after_cte': (
-            'base64 ',
-            'base64',
-            []),
-
     }
 
 

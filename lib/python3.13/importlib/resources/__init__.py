@@ -1,11 +1,4 @@
-"""
-Read resources contained within a package.
-
-This codebase is shared between importlib.resources in the stdlib
-and importlib_resources in PyPI. See
-https://github.com/python/importlib_metadata/wiki/Development-Methodology
-for more detail.
-"""
+"""Read resources contained within a package."""
 
 from ._common import (
     as_file,

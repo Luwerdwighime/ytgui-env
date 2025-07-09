@@ -526,8 +526,7 @@ class ThreadTests(BaseTestCase):
         finally:
             sys.setswitchinterval(old_interval)
 
-    @support.bigmemtest(size=20, memuse=72*2**20, dry_run=False)
-    def test_join_from_multiple_threads(self, size):
+    def test_join_from_multiple_threads(self):
         # Thread.join() should be thread-safe
         errors = []
 
@@ -1172,71 +1171,6 @@ class ThreadTests(BaseTestCase):
         self.assertEqual(out.strip(), b"OK")
         self.assertIn(b"can't create new thread at interpreter shutdown", err)
 
-    def test_start_new_thread_failed(self):
-        # gh-109746: if Python fails to start newly created thread
-        # due to failure of underlying PyThread_start_new_thread() call,
-        # its state should be removed from interpreter' thread states list
-        # to avoid its double cleanup
-        try:
-            from resource import setrlimit, RLIMIT_NPROC
-        except ImportError as err:
-            self.skipTest(err)  # RLIMIT_NPROC is specific to Linux and BSD
-        code = """if 1:
-            import resource
-            import _thread
-
-            def f():
-                print("shouldn't be printed")
-
-            limits = resource.getrlimit(resource.RLIMIT_NPROC)
-            [_, hard] = limits
-            resource.setrlimit(resource.RLIMIT_NPROC, (0, hard))
-
-            try:
-                handle = _thread.start_joinable_thread(f)
-            except RuntimeError:
-                print('ok')
-            else:
-                print('!skip!')
-                handle.join()
-        """
-        _, out, err = assert_python_ok("-u", "-c", code)
-        out = out.strip()
-        if b'!skip!' in out:
-            self.skipTest('RLIMIT_NPROC had no effect; probably superuser')
-        self.assertEqual(out, b'ok')
-        self.assertEqual(err, b'')
-
-
-    @skip_unless_reliable_fork
-    @unittest.skipUnless(hasattr(threading, 'get_native_id'), "test needs threading.get_native_id()")
-    def test_native_id_after_fork(self):
-        script = """if True:
-            import threading
-            import os
-            from test import support
-
-            parent_thread_native_id = threading.current_thread().native_id
-            print(parent_thread_native_id, flush=True)
-            assert parent_thread_native_id == threading.get_native_id()
-            childpid = os.fork()
-            if childpid == 0:
-                print(threading.current_thread().native_id, flush=True)
-                assert threading.current_thread().native_id == threading.get_native_id()
-            else:
-                try:
-                    assert parent_thread_native_id == threading.current_thread().native_id
-                    assert parent_thread_native_id == threading.get_native_id()
-                finally:
-                    support.wait_process(childpid, exitcode=0)
-            """
-        rc, out, err = assert_python_ok('-c', script)
-        self.assertEqual(rc, 0)
-        self.assertEqual(err, b"")
-        native_ids = out.strip().splitlines()
-        self.assertEqual(len(native_ids), 2)
-        self.assertNotEqual(native_ids[0], native_ids[1])
-
 class ThreadJoinOnShutdown(BaseTestCase):
 
     def _run_and_join(self, script):
@@ -1317,8 +1251,7 @@ class ThreadJoinOnShutdown(BaseTestCase):
         self._run_and_join(script)
 
     @unittest.skipIf(sys.platform in platforms_to_skip, "due to known OS bug")
-    @support.bigmemtest(size=40, memuse=70*2**20, dry_run=False)
-    def test_4_daemon_threads(self, size):
+    def test_4_daemon_threads(self):
         # Check that a daemon thread cannot crash the interpreter on shutdown
         # by manipulating internal structures that are being disposed of in
         # the main thread.

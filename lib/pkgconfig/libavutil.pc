@@ -1,7 +1,7 @@
-prefix=/data/data/com.termux/files/home/ffmpeg-build
+prefix=/root/ytgui-env
 exec_prefix=${prefix}
-libdir=/data/data/com.termux/files/home/ffmpeg-build/lib
-includedir=/data/data/com.termux/files/home/ffmpeg-build/include
+libdir=/root/ytgui-env/lib
+includedir=/root/ytgui-env/include
 
 Name: libavutil
 Description: FFmpeg utility library
@@ -9,6 +9,6 @@ Version: 60.4.101
 Requires: 
 Requires.private: 
 Conflicts:
-Libs: -L${libdir}  -lavutil -lm -latomic -landroid -lmediandk -pthread
+Libs: -L${libdir}  -lavutil -lm -latomic -pthread
 Libs.private: 
 Cflags: -I${includedir}

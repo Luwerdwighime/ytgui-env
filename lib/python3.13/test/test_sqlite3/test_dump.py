@@ -4,14 +4,12 @@ import unittest
 
 from .util import memory_database
 from .util import MemoryDatabaseMixin
-from .util import requires_virtual_table
 
 
 class DumpTests(MemoryDatabaseMixin, unittest.TestCase):
 
     def test_table_dump(self):
         expected_sqls = [
-                "PRAGMA foreign_keys=OFF;",
                 """CREATE TABLE "index"("index" blob);"""
                 ,
                 """INSERT INTO "index" VALUES(X'01');"""
@@ -50,7 +48,7 @@ class DumpTests(MemoryDatabaseMixin, unittest.TestCase):
         expected_sqls = [
             "PRAGMA foreign_keys=OFF;",
             "BEGIN TRANSACTION;",
-            *expected_sqls[1:],
+            *expected_sqls,
             "COMMIT;",
         ]
         [self.assertEqual(expected_sqls[i], actual_sqls[i])
@@ -207,7 +205,6 @@ class DumpTests(MemoryDatabaseMixin, unittest.TestCase):
         self.assertEqual(expected, actual)
         self.assertEqual(self.cx.row_factory, dict_factory)
 
-    @requires_virtual_table("fts4")
     def test_dump_virtual_tables(self):
         # gh-64662
         expected = [

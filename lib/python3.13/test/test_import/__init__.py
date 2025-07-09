@@ -29,20 +29,9 @@ import _imp
 
 from test.support import os_helper
 from test.support import (
-    STDLIB_DIR,
-    swap_attr,
-    swap_item,
-    cpython_only,
-    is_apple_mobile,
-    is_emscripten,
-    is_wasi,
-    run_in_subinterp,
-    run_in_subinterp_with_config,
-    Py_TRACE_REFS,
-    requires_gil_enabled,
-    Py_GIL_DISABLED,
-    force_not_colorized_test_class,
-)
+    STDLIB_DIR, swap_attr, swap_item, cpython_only, is_apple_mobile, is_emscripten,
+    is_wasi, run_in_subinterp, run_in_subinterp_with_config, Py_TRACE_REFS,
+    requires_gil_enabled, Py_GIL_DISABLED)
 from test.support.import_helper import (
     forget, make_legacy_pyc, unlink, unload, ready_to_import,
     DirsOnSysPath, CleanImport, import_module)
@@ -50,7 +39,6 @@ from test.support.os_helper import (
     TESTFN, rmtree, temp_umask, TESTFN_UNENCODABLE)
 from test.support import script_helper
 from test.support import threading_helper
-from test.support.testcase import ExtraAssertions
 from test.test_importlib.util import uncache
 from types import ModuleType
 try:
@@ -364,8 +352,7 @@ class ModuleSnapshot(types.SimpleNamespace):
         return cls.parse(text.decode())
 
 
-@force_not_colorized_test_class
-class ImportTests(unittest.TestCase, ExtraAssertions):
+class ImportTests(unittest.TestCase):
 
     def setUp(self):
         remove_files(TESTFN)
@@ -402,14 +389,10 @@ class ImportTests(unittest.TestCase, ExtraAssertions):
             from _testcapi import i_dont_exist
         self.assertEqual(cm.exception.name, '_testcapi')
         if hasattr(_testcapi, "__file__"):
-            # The path on the exception is strictly the spec origin, not the
-            # module's __file__. For most cases, these are the same; but on
-            # iOS, the Framework relocation process results in the exception
-            # being raised from the spec location.
-            self.assertEqual(cm.exception.path, _testcapi.__spec__.origin)
+            self.assertEqual(cm.exception.path, _testcapi.__file__)
             self.assertRegex(
                 str(cm.exception),
-                r"cannot import name 'i_dont_exist' from '_testcapi' \(.*(\.(so|pyd))?\)"
+                r"cannot import name 'i_dont_exist' from '_testcapi' \(.*\.(so|fwork|pyd)\)"
             )
         else:
             self.assertEqual(
@@ -463,7 +446,7 @@ class ImportTests(unittest.TestCase, ExtraAssertions):
         # (SF bug 422177).
         from test.test_import.data import double_const
         unload('test.test_import.data.double_const')
-        from test.test_import.data import double_const  # noqa: F811
+        from test.test_import.data import double_const
 
     def test_import(self):
         def test_with_extension(ext):
@@ -571,7 +554,7 @@ class ImportTests(unittest.TestCase, ExtraAssertions):
         import test as x
         import test.support
         self.assertIs(x, test, x.__name__)
-        self.assertHasAttr(test.support, "__file__")
+        self.assertTrue(hasattr(test.support, "__file__"))
 
         # import x.y.z as w binds z as w
         import test.support as y
@@ -592,7 +575,7 @@ class ImportTests(unittest.TestCase, ExtraAssertions):
 
         # import in a 'for' loop resulted in segmentation fault
         for i in range(2):
-            import test.support.script_helper as x  # noqa: F811
+            import test.support.script_helper as x
 
     def test_failing_reload(self):
         # A failing reload should leave the module object in sys.modules.
@@ -642,7 +625,7 @@ class ImportTests(unittest.TestCase, ExtraAssertions):
         sys.path.insert(0, os.curdir)
         try:
             mod = __import__(TESTFN)
-            self.assertEndsWith(mod.__file__, '.py')
+            self.assertTrue(mod.__file__.endswith('.py'))
             os.remove(source)
             del sys.modules[TESTFN]
             make_legacy_pyc(source)
@@ -839,201 +822,105 @@ class ImportTests(unittest.TestCase, ExtraAssertions):
         self.assertIn("Frozen object named 'x' is invalid",
                       str(cm.exception))
 
-    def test_frozen_module_from_import_error(self):
-        with self.assertRaises(ImportError) as cm:
-            from os import this_will_never_exist
-        self.assertIn(
-            f"cannot import name 'this_will_never_exist' from 'os' ({os.__file__})",
-            str(cm.exception),
-        )
-        with self.assertRaises(ImportError) as cm:
-            from sys import this_will_never_exist
-        self.assertIn(
-            "cannot import name 'this_will_never_exist' from 'sys' (unknown location)",
-            str(cm.exception),
-        )
-
-        scripts = [
-            """
-import os
-os.__spec__.has_location = False
-os.__file__ = []
-from os import this_will_never_exist
-""",
-            """
-import os
-os.__spec__.has_location = False
-del os.__file__
-from os import this_will_never_exist
-""",
-              """
-import os
-os.__spec__.origin = []
-os.__file__ = []
-from os import this_will_never_exist
-"""
-        ]
-        for script in scripts:
-            with self.subTest(script=script):
-                expected_error = (
-                    b"cannot import name 'this_will_never_exist' "
-                    b"from 'os' (unknown location)"
-                )
-                popen = script_helper.spawn_python("-c", script)
-                stdout, stderr = popen.communicate()
-                self.assertIn(expected_error, stdout)
-
-    def test_non_module_from_import_error(self):
-        prefix = """
-import sys
-class NotAModule: ...
-nm = NotAModule()
-nm.symbol = 123
-sys.modules["not_a_module"] = nm
-from not_a_module import symbol
-"""
-        scripts = [
-            prefix + "from not_a_module import missing_symbol",
-            prefix + "nm.__spec__ = []\nfrom not_a_module import missing_symbol",
-        ]
-        for script in scripts:
-            with self.subTest(script=script):
-                expected_error = (
-                    b"ImportError: cannot import name 'missing_symbol' from "
-                    b"'<unknown module name>' (unknown location)"
-                )
-            popen = script_helper.spawn_python("-c", script)
-            stdout, stderr = popen.communicate()
-            self.assertIn(expected_error, stdout)
-
     def test_script_shadowing_stdlib(self):
-        script_errors = [
-            (
-                "import fractions\nfractions.Fraction",
-                rb"AttributeError: module 'fractions' has no attribute 'Fraction'"
-            ),
-            (
-                "from fractions import Fraction",
-                rb"ImportError: cannot import name 'Fraction' from 'fractions'"
+        with os_helper.temp_dir() as tmp:
+            with open(os.path.join(tmp, "fractions.py"), "w", encoding='utf-8') as f:
+                f.write("import fractions\nfractions.Fraction")
+
+            expected_error = (
+                rb"AttributeError: module 'fractions' has no attribute 'Fraction' "
+                rb"\(consider renaming '.*fractions.py' since it has the "
+                rb"same name as the standard library module named 'fractions' "
+                rb"and the import system gives it precedence\)"
             )
-        ]
-        for script, error in script_errors:
-            with self.subTest(script=script), os_helper.temp_dir() as tmp:
-                with open(os.path.join(tmp, "fractions.py"), "w", encoding='utf-8') as f:
-                    f.write(script)
 
-                expected_error = error + (
-                    rb" \(consider renaming '.*fractions.py' since it has the "
-                    rb"same name as the standard library module named 'fractions' "
-                    rb"and prevents importing that standard library module\)"
-                )
+            popen = script_helper.spawn_python(os.path.join(tmp, "fractions.py"), cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                popen = script_helper.spawn_python(os.path.join(tmp, "fractions.py"), cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            popen = script_helper.spawn_python('-m', 'fractions', cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                popen = script_helper.spawn_python('-m', 'fractions', cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            popen = script_helper.spawn_python('-c', 'import fractions', cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                popen = script_helper.spawn_python('-c', 'import fractions', cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            # and there's no error at all when using -P
+            popen = script_helper.spawn_python('-P', 'fractions.py', cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertEqual(stdout, b'')
 
-                # and there's no error at all when using -P
-                popen = script_helper.spawn_python('-P', 'fractions.py', cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertEqual(stdout, b'')
+            tmp_child = os.path.join(tmp, "child")
+            os.mkdir(tmp_child)
 
-                tmp_child = os.path.join(tmp, "child")
-                os.mkdir(tmp_child)
+            # test the logic with different cwd
+            popen = script_helper.spawn_python(os.path.join(tmp, "fractions.py"), cwd=tmp_child)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                # test the logic with different cwd
-                popen = script_helper.spawn_python(os.path.join(tmp, "fractions.py"), cwd=tmp_child)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            popen = script_helper.spawn_python('-m', 'fractions', cwd=tmp_child)
+            stdout, stderr = popen.communicate()
+            self.assertEqual(stdout, b'')  # no error
 
-                popen = script_helper.spawn_python('-m', 'fractions', cwd=tmp_child)
-                stdout, stderr = popen.communicate()
-                self.assertEqual(stdout, b'')  # no error
-
-                popen = script_helper.spawn_python('-c', 'import fractions', cwd=tmp_child)
-                stdout, stderr = popen.communicate()
-                self.assertEqual(stdout, b'')  # no error
+            popen = script_helper.spawn_python('-c', 'import fractions', cwd=tmp_child)
+            stdout, stderr = popen.communicate()
+            self.assertEqual(stdout, b'')  # no error
 
     def test_package_shadowing_stdlib_module(self):
-        script_errors = [
-            (
-                "fractions.Fraction",
-                rb"AttributeError: module 'fractions' has no attribute 'Fraction'"
-            ),
-            (
-                "from fractions import Fraction",
-                rb"ImportError: cannot import name 'Fraction' from 'fractions'"
+        with os_helper.temp_dir() as tmp:
+            os.mkdir(os.path.join(tmp, "fractions"))
+            with open(os.path.join(tmp, "fractions", "__init__.py"), "w", encoding='utf-8') as f:
+                f.write("shadowing_module = True")
+            with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
+                f.write("""
+import fractions
+fractions.shadowing_module
+fractions.Fraction
+""")
+
+            expected_error = (
+                rb"AttributeError: module 'fractions' has no attribute 'Fraction' "
+                rb"\(consider renaming '.*fractions.__init__.py' since it has the "
+                rb"same name as the standard library module named 'fractions' "
+                rb"and the import system gives it precedence\)"
             )
-        ]
-        for script, error in script_errors:
-            with self.subTest(script=script), os_helper.temp_dir() as tmp:
-                os.mkdir(os.path.join(tmp, "fractions"))
-                with open(
-                    os.path.join(tmp, "fractions", "__init__.py"), "w", encoding='utf-8'
-                ) as f:
-                    f.write("shadowing_module = True")
-                with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
-                    f.write("import fractions; fractions.shadowing_module\n")
-                    f.write(script)
 
-                expected_error = error + (
-                    rb" \(consider renaming '.*[\\/]fractions[\\/]+__init__.py' since it has the "
-                    rb"same name as the standard library module named 'fractions' "
-                    rb"and prevents importing that standard library module\)"
-                )
+            popen = script_helper.spawn_python(os.path.join(tmp, "main.py"), cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                popen = script_helper.spawn_python(os.path.join(tmp, "main.py"), cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            popen = script_helper.spawn_python('-m', 'main', cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                popen = script_helper.spawn_python('-m', 'main', cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
-
-                # and there's no shadowing at all when using -P
-                popen = script_helper.spawn_python('-P', 'main.py', cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, b"module 'fractions' has no attribute 'shadowing_module'")
+            # and there's no shadowing at all when using -P
+            popen = script_helper.spawn_python('-P', 'main.py', cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, b"module 'fractions' has no attribute 'shadowing_module'")
 
     def test_script_shadowing_third_party(self):
-        script_errors = [
-            (
-                "import numpy\nnumpy.array",
-                rb"AttributeError: module 'numpy' has no attribute 'array'"
-            ),
-            (
-                "from numpy import array",
-                rb"ImportError: cannot import name 'array' from 'numpy'"
+        with os_helper.temp_dir() as tmp:
+            with open(os.path.join(tmp, "numpy.py"), "w", encoding='utf-8') as f:
+                f.write("import numpy\nnumpy.array")
+
+            expected_error = (
+                rb"AttributeError: module 'numpy' has no attribute 'array' "
+                rb"\(consider renaming '.*numpy.py' if it has the "
+                rb"same name as a third-party module you intended to import\)\s+\Z"
             )
-        ]
-        for script, error in script_errors:
-            with self.subTest(script=script), os_helper.temp_dir() as tmp:
-                with open(os.path.join(tmp, "numpy.py"), "w", encoding='utf-8') as f:
-                    f.write(script)
 
-                expected_error = error + (
-                    rb" \(consider renaming '.*numpy.py' if it has the "
-                    rb"same name as a library you intended to import\)\s+\Z"
-                )
+            popen = script_helper.spawn_python(os.path.join(tmp, "numpy.py"))
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                popen = script_helper.spawn_python(os.path.join(tmp, "numpy.py"))
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            popen = script_helper.spawn_python('-m', 'numpy', cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
-                popen = script_helper.spawn_python('-m', 'numpy', cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
-
-                popen = script_helper.spawn_python('-c', 'import numpy', cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            popen = script_helper.spawn_python('-c', 'import numpy', cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
     def test_script_maybe_not_shadowing_third_party(self):
         with os_helper.temp_dir() as tmp:
@@ -1043,14 +930,8 @@ from not_a_module import symbol
             expected_error = (
                 rb"AttributeError: module 'numpy' has no attribute 'attr'\s+\Z"
             )
-            popen = script_helper.spawn_python('-c', 'import numpy; numpy.attr', cwd=tmp)
-            stdout, stderr = popen.communicate()
-            self.assertRegex(stdout, expected_error)
 
-            expected_error = (
-                rb"ImportError: cannot import name 'attr' from 'numpy' \(.*\)\s+\Z"
-            )
-            popen = script_helper.spawn_python('-c', 'from numpy import attr', cwd=tmp)
+            popen = script_helper.spawn_python('-c', 'import numpy; numpy.attr', cwd=tmp)
             stdout, stderr = popen.communicate()
             self.assertRegex(stdout, expected_error)
 
@@ -1058,8 +939,6 @@ from not_a_module import symbol
         with os_helper.temp_dir() as tmp:
             with open(os.path.join(tmp, "fractions.py"), "w", encoding='utf-8') as f:
                 f.write("shadowing_module = True")
-
-            # Unhashable str subclass
             with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
                 f.write("""
 import fractions
@@ -1072,28 +951,11 @@ try:
 except TypeError as e:
     print(str(e))
 """)
-            popen = script_helper.spawn_python("main.py", cwd=tmp)
-            stdout, stderr = popen.communicate()
-            self.assertEqual(stdout.rstrip(), b"unhashable type: 'substr'")
-
-            with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
-                f.write("""
-import fractions
-fractions.shadowing_module
-class substr(str):
-    __hash__ = None
-fractions.__name__ = substr('fractions')
-try:
-    from fractions import Fraction
-except TypeError as e:
-    print(str(e))
-""")
 
             popen = script_helper.spawn_python("main.py", cwd=tmp)
             stdout, stderr = popen.communicate()
             self.assertEqual(stdout.rstrip(), b"unhashable type: 'substr'")
 
-            # Various issues with sys module
             with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
                 f.write("""
 import fractions
@@ -1118,45 +980,18 @@ try:
 except AttributeError as e:
     print(str(e))
 """)
+
             popen = script_helper.spawn_python("main.py", cwd=tmp)
             stdout, stderr = popen.communicate()
-            lines = stdout.splitlines()
-            self.assertEqual(len(lines), 3)
-            for line in lines:
-                self.assertEqual(line, b"module 'fractions' has no attribute 'Fraction'")
+            self.assertEqual(
+                stdout.splitlines(),
+                [
+                    b"module 'fractions' has no attribute 'Fraction'",
+                    b"module 'fractions' has no attribute 'Fraction'",
+                    b"module 'fractions' has no attribute 'Fraction'",
+                ],
+            )
 
-            with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
-                f.write("""
-import fractions
-fractions.shadowing_module
-
-import sys
-sys.stdlib_module_names = None
-try:
-    from fractions import Fraction
-except ImportError as e:
-    print(str(e))
-
-del sys.stdlib_module_names
-try:
-    from fractions import Fraction
-except ImportError as e:
-    print(str(e))
-
-sys.path = [0]
-try:
-    from fractions import Fraction
-except ImportError as e:
-    print(str(e))
-""")
-            popen = script_helper.spawn_python("main.py", cwd=tmp)
-            stdout, stderr = popen.communicate()
-            lines = stdout.splitlines()
-            self.assertEqual(len(lines), 3)
-            for line in lines:
-                self.assertRegex(line, rb"cannot import name 'Fraction' from 'fractions' \(.*\)")
-
-            # Various issues with origin
             with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
                 f.write("""
 import fractions
@@ -1167,7 +1002,7 @@ try:
 except AttributeError as e:
     print(str(e))
 
-fractions.__spec__.origin = []
+fractions.__spec__.origin = 0
 try:
     fractions.Fraction
 except AttributeError as e:
@@ -1176,97 +1011,37 @@ except AttributeError as e:
 
             popen = script_helper.spawn_python("main.py", cwd=tmp)
             stdout, stderr = popen.communicate()
-            lines = stdout.splitlines()
-            self.assertEqual(len(lines), 2)
-            for line in lines:
-                self.assertEqual(line, b"module 'fractions' has no attribute 'Fraction'")
-
-            with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
-                f.write("""
-import fractions
-fractions.shadowing_module
-del fractions.__spec__.origin
-try:
-    from fractions import Fraction
-except ImportError as e:
-    print(str(e))
-
-fractions.__spec__.origin = []
-try:
-    from fractions import Fraction
-except ImportError as e:
-    print(str(e))
-""")
-            popen = script_helper.spawn_python("main.py", cwd=tmp)
-            stdout, stderr = popen.communicate()
-            lines = stdout.splitlines()
-            self.assertEqual(len(lines), 2)
-            for line in lines:
-                self.assertRegex(line, rb"cannot import name 'Fraction' from 'fractions' \(.*\)")
-
-    @unittest.skipIf(sys.platform == 'win32', 'Cannot delete cwd on Windows')
-    @unittest.skipIf(sys.platform == 'sunos5', 'Cannot delete cwd on Solaris/Illumos')
-    def test_script_shadowing_stdlib_cwd_failure(self):
-        with os_helper.temp_dir() as tmp:
-            subtmp = os.path.join(tmp, "subtmp")
-            os.mkdir(subtmp)
-            with open(os.path.join(subtmp, "main.py"), "w", encoding='utf-8') as f:
-                f.write(f"""
-import sys
-assert sys.path[0] == ''
-
-import os
-import shutil
-shutil.rmtree(os.getcwd())
-
-os.does_not_exist
-""")
-            # Use -c to ensure sys.path[0] is ""
-            popen = script_helper.spawn_python("-c", "import main", cwd=subtmp)
-            stdout, stderr = popen.communicate()
-            expected_error = rb"AttributeError: module 'os' has no attribute 'does_not_exist'"
-            self.assertRegex(stdout, expected_error)
+            self.assertEqual(
+                stdout.splitlines(),
+                [
+                    b"module 'fractions' has no attribute 'Fraction'",
+                    b"module 'fractions' has no attribute 'Fraction'"
+                ],
+            )
 
     def test_script_shadowing_stdlib_sys_path_modification(self):
-        script_errors = [
-            (
-                "import fractions\nfractions.Fraction",
-                rb"AttributeError: module 'fractions' has no attribute 'Fraction'"
-            ),
-            (
-                "from fractions import Fraction",
-                rb"ImportError: cannot import name 'Fraction' from 'fractions'"
+        with os_helper.temp_dir() as tmp:
+            with open(os.path.join(tmp, "fractions.py"), "w", encoding='utf-8') as f:
+                f.write("shadowing_module = True")
+
+            expected_error = (
+                rb"AttributeError: module 'fractions' has no attribute 'Fraction' "
+                rb"\(consider renaming '.*fractions.py' since it has the "
+                rb"same name as the standard library module named 'fractions' "
+                rb"and the import system gives it precedence\)"
             )
-        ]
-        for script, error in script_errors:
-            with self.subTest(script=script), os_helper.temp_dir() as tmp:
-                with open(os.path.join(tmp, "fractions.py"), "w", encoding='utf-8') as f:
-                    f.write("shadowing_module = True")
-                with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
-                    f.write('import sys; sys.path.insert(0, "this_folder_does_not_exist")\n')
-                    f.write(script)
-                expected_error = error + (
-                    rb" \(consider renaming '.*fractions.py' since it has the "
-                    rb"same name as the standard library module named 'fractions' "
-                    rb"and prevents importing that standard library module\)"
-                )
 
-                popen = script_helper.spawn_python("main.py", cwd=tmp)
-                stdout, stderr = popen.communicate()
-                self.assertRegex(stdout, expected_error)
+            with open(os.path.join(tmp, "main.py"), "w", encoding='utf-8') as f:
+                f.write("""
+import sys
+sys.path.insert(0, "this_folder_does_not_exist")
+import fractions
+fractions.Fraction
+""")
 
-    def test_create_dynamic_null(self):
-        with self.assertRaisesRegex(ValueError, 'embedded null character'):
-            class Spec:
-                name = "a\x00b"
-                origin = "abc"
-            _imp.create_dynamic(Spec())
-
-        with self.assertRaisesRegex(ValueError, 'embedded null character'):
-            class Spec2:
-                name = "abc"
-                origin = "a\x00b"
-            _imp.create_dynamic(Spec2())
+            popen = script_helper.spawn_python("main.py", cwd=tmp)
+            stdout, stderr = popen.communicate()
+            self.assertRegex(stdout, expected_error)
 
 
 @skip_if_dont_write_bytecode
@@ -1448,7 +1223,7 @@ func_filename = func.__code__.co_filename
         self.assertEqual(mod.constant.co_filename, foreign_code.co_filename)
 
 
-class PathsTests(unittest.TestCase, ExtraAssertions):
+class PathsTests(unittest.TestCase):
     SAMPLES = ('test', 'test\u00e4\u00f6\u00fc\u00df', 'test\u00e9\u00e8',
                'test\u00b0\u00b3\u00b2')
     path = TESTFN
@@ -1498,11 +1273,11 @@ class PathsTests(unittest.TestCase, ExtraAssertions):
             self.fail("could not import 'test_unc_path' from %r: %r"
                       % (unc, e))
         self.assertEqual(mod.testdata, 'test_unc_path')
-        self.assertStartsWith(mod.__file__, unc)
+        self.assertTrue(mod.__file__.startswith(unc), mod.__file__)
         unload("test_unc_path")
 
 
-class RelativeImportTests(unittest.TestCase, ExtraAssertions):
+class RelativeImportTests(unittest.TestCase):
 
     def tearDown(self):
         unload("test.relimport")
@@ -1511,7 +1286,7 @@ class RelativeImportTests(unittest.TestCase, ExtraAssertions):
     def test_relimport_star(self):
         # This will import * from .test_import.
         from .. import relimport
-        self.assertHasAttr(relimport, "RelativeImportTests")
+        self.assertTrue(hasattr(relimport, "RelativeImportTests"))
 
     def test_issue3221(self):
         # Note for mergers: the 'absolute' tests from the 2.x branch
@@ -1828,7 +1603,7 @@ class TestSymbolicallyLinkedPackage(unittest.TestCase):
 
 
 @cpython_only
-class ImportlibBootstrapTests(unittest.TestCase, ExtraAssertions):
+class ImportlibBootstrapTests(unittest.TestCase):
     # These tests check that importlib is bootstrapped.
 
     def test_frozen_importlib(self):
@@ -1841,7 +1616,7 @@ class ImportlibBootstrapTests(unittest.TestCase, ExtraAssertions):
         self.assertIs(mod, _bootstrap)
         self.assertEqual(mod.__name__, 'importlib._bootstrap')
         self.assertEqual(mod.__package__, 'importlib')
-        self.assertEndsWith(mod.__file__, '_bootstrap.py')
+        self.assertTrue(mod.__file__.endswith('_bootstrap.py'), mod.__file__)
 
     def test_frozen_importlib_external_is_bootstrap_external(self):
         from importlib import _bootstrap_external
@@ -1849,7 +1624,7 @@ class ImportlibBootstrapTests(unittest.TestCase, ExtraAssertions):
         self.assertIs(mod, _bootstrap_external)
         self.assertEqual(mod.__name__, 'importlib._bootstrap_external')
         self.assertEqual(mod.__package__, 'importlib')
-        self.assertEndsWith(mod.__file__, '_bootstrap_external.py')
+        self.assertTrue(mod.__file__.endswith('_bootstrap_external.py'), mod.__file__)
 
     def test_there_can_be_only_one(self):
         # Issue #15386 revealed a tricky loophole in the bootstrapping
@@ -2428,10 +2203,8 @@ class SubinterpImportTests(unittest.TestCase):
 
     @unittest.skipIf(_testmultiphase is None, "test requires _testmultiphase module")
     def test_multi_init_extension_compat(self):
-        # Module with Py_MOD_PER_INTERPRETER_GIL_SUPPORTED
         module = '_testmultiphase'
         require_extension(module)
-
         if not Py_GIL_DISABLED:
             with self.subTest(f'{module}: not strict'):
                 self.check_compatible_here(module, strict=False)
@@ -2442,8 +2215,6 @@ class SubinterpImportTests(unittest.TestCase):
 
     @unittest.skipIf(_testmultiphase is None, "test requires _testmultiphase module")
     def test_multi_init_extension_non_isolated_compat(self):
-        # Module with Py_MOD_MULTIPLE_INTERPRETERS_NOT_SUPPORTED
-        # and Py_MOD_GIL_NOT_USED
         modname = '_test_non_isolated'
         filename = _testmultiphase.__file__
         module = import_extension_from_file(modname, filename)
@@ -2459,31 +2230,20 @@ class SubinterpImportTests(unittest.TestCase):
 
     @unittest.skipIf(_testmultiphase is None, "test requires _testmultiphase module")
     def test_multi_init_extension_per_interpreter_gil_compat(self):
+        modname = '_test_shared_gil_only'
+        filename = _testmultiphase.__file__
+        module = import_extension_from_file(modname, filename)
 
-        # _test_shared_gil_only:
-        #   Explicit Py_MOD_MULTIPLE_INTERPRETERS_SUPPORTED (default)
-        #   and Py_MOD_GIL_NOT_USED
-        # _test_no_multiple_interpreter_slot:
-        #   No Py_mod_multiple_interpreters slot
-        #   and Py_MOD_GIL_NOT_USED
-        for modname in ('_test_shared_gil_only',
-                        '_test_no_multiple_interpreter_slot'):
-            with self.subTest(modname=modname):
-
-                filename = _testmultiphase.__file__
-                module = import_extension_from_file(modname, filename)
-
-                require_extension(module)
-                with self.subTest(f'{modname}: isolated, strict'):
-                    self.check_incompatible_here(modname, filename,
-                                                 isolated=True)
-                with self.subTest(f'{modname}: not isolated, strict'):
-                    self.check_compatible_here(modname, filename,
-                                               strict=True, isolated=False)
-                if not Py_GIL_DISABLED:
-                    with self.subTest(f'{modname}: not isolated, not strict'):
-                        self.check_compatible_here(
-                            modname, filename, strict=False, isolated=False)
+        require_extension(module)
+        with self.subTest(f'{modname}: isolated, strict'):
+            self.check_incompatible_here(modname, filename, isolated=True)
+        with self.subTest(f'{modname}: not isolated, strict'):
+            self.check_compatible_here(modname, filename,
+                                       strict=True, isolated=False)
+        if not Py_GIL_DISABLED:
+            with self.subTest(f'{modname}: not isolated, not strict'):
+                self.check_compatible_here(modname, filename,
+                                           strict=False, isolated=False)
 
     @unittest.skipIf(_testinternalcapi is None, "requires _testinternalcapi")
     def test_python_compat(self):
@@ -2699,7 +2459,7 @@ class TestSinglePhaseSnapshot(ModuleSnapshot):
 
 
 @requires_singlephase_init
-class SinglephaseInitTests(unittest.TestCase, ExtraAssertions):
+class SinglephaseInitTests(unittest.TestCase):
 
     NAME = '_testsinglephase'
 
@@ -2870,7 +2630,7 @@ class SinglephaseInitTests(unittest.TestCase, ExtraAssertions):
         self.assertEqual(mod.__file__, self.FILE)
         self.assertEqual(mod.__spec__.origin, self.ORIGIN)
         if not isolated:
-            self.assertIsSubclass(mod.error, Exception)
+            self.assertTrue(issubclass(mod.error, Exception))
         self.assertEqual(mod.int_const, 1969)
         self.assertEqual(mod.str_const, 'something different')
         self.assertIsInstance(mod._module_initialized, float)
@@ -3379,6 +3139,30 @@ class SinglephaseInitTests(unittest.TestCase, ExtraAssertions):
         #  * mod init func ran again
         #  * m_copy was copied from interp2 (was from interp1)
         #  * module's global state was initialized, not reset
+
+
+@cpython_only
+class CAPITests(unittest.TestCase):
+    def test_pyimport_addmodule(self):
+        # gh-105922: Test PyImport_AddModuleRef(), PyImport_AddModule()
+        # and PyImport_AddModuleObject()
+        _testcapi = import_module("_testcapi")
+        for name in (
+            'sys',     # frozen module
+            'test',    # package
+            __name__,  # package.module
+        ):
+            _testcapi.check_pyimport_addmodule(name)
+
+    def test_pyimport_addmodule_create(self):
+        # gh-105922: Test PyImport_AddModuleRef(), create a new module
+        _testcapi = import_module("_testcapi")
+        name = 'dontexist'
+        self.assertNotIn(name, sys.modules)
+        self.addCleanup(unload, name)
+
+        mod = _testcapi.check_pyimport_addmodule(name)
+        self.assertIs(mod, sys.modules[name])
 
 
 if __name__ == '__main__':

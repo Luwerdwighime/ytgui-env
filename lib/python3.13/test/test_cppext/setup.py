@@ -3,7 +3,6 @@
 import os
 import platform
 import shlex
-import sys
 import sysconfig
 from test import support
 
@@ -11,7 +10,6 @@ from setuptools import setup, Extension
 
 
 SOURCE = 'extension.cpp'
-
 if not support.MS_WINDOWS:
     # C++ compiler flags for GCC and clang
     CPPFLAGS = [
@@ -21,20 +19,14 @@ if not support.MS_WINDOWS:
         '-Werror',
     ]
 else:
-    # MSVC compiler flags
-    CPPFLAGS = [
-        # Display warnings level 1 to 4
-        '/W4',
-        # Treat all compiler warnings as compiler errors
-        '/WX',
-    ]
+    # Don't pass any compiler flag to MSVC
+    CPPFLAGS = []
 
 
 def main():
     cppflags = list(CPPFLAGS)
     std = os.environ.get("CPYTHON_TEST_CPP_STD", "")
     module_name = os.environ["CPYTHON_TEST_EXT_NAME"]
-    limited = bool(os.environ.get("CPYTHON_TEST_LIMITED", ""))
 
     cppflags = list(CPPFLAGS)
     cppflags.append(f'-DMODULE_NAME={module_name}')
@@ -60,11 +52,6 @@ def main():
         cmd = shlex.join(cmd)
         # CC env var overrides sysconfig CC variable in setuptools
         os.environ['CC'] = cmd
-
-    # Define Py_LIMITED_API macro
-    if limited:
-        version = sys.hexversion
-        cppflags.append(f'-DPy_LIMITED_API={version:#x}')
 
     # On Windows, add PCbuild\amd64\ to include and library directories
     include_dirs = []

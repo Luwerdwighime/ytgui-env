@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/home/ytgui-env/bin/python3.13
+#!/root/ytgui-env/bin/python3.13
 
 import pydoc
 if __name__ == '__main__':

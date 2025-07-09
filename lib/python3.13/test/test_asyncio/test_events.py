@@ -1,7 +1,6 @@
 """Tests for events.py."""
 
 import concurrent.futures
-import contextlib
 import functools
 import io
 import multiprocessing
@@ -58,9 +57,9 @@ def _test_get_event_loop_new_process__sub_proc():
     async def doit():
         return 'hello'
 
-    with contextlib.closing(asyncio.new_event_loop()) as loop:
-        asyncio.set_event_loop(loop)
-        return loop.run_until_complete(doit())
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    return loop.run_until_complete(doit())
 
 
 class CoroLike:
@@ -2889,22 +2888,6 @@ class GetEventLoopTestsMixin:
             self.assertEqual(
                 self.loop.run_until_complete(main()),
                 'hello')
-
-    def test_get_running_loop_already_running(self):
-        async def main():
-            running_loop = asyncio.get_running_loop()
-            with contextlib.closing(asyncio.new_event_loop()) as loop:
-                try:
-                    loop.run_forever()
-                except RuntimeError:
-                    pass
-                else:
-                    self.fail("RuntimeError not raised")
-
-            self.assertIs(asyncio.get_running_loop(), running_loop)
-
-        self.loop.run_until_complete(main())
-
 
     def test_get_event_loop_returns_running_loop(self):
         class TestError(Exception):

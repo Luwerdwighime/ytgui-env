@@ -413,9 +413,6 @@ class IOBase(metaclass=abc.ABCMeta):
         if closed:
             return
 
-        if dealloc_warn := getattr(self, "_dealloc_warn", None):
-            dealloc_warn(self)
-
         # If close() fails, the caller logs the exception with
         # sys.unraisablehook. close() must be called at the end at __del__().
         self.close()
@@ -654,6 +651,8 @@ class RawIOBase(IOBase):
         self._unsupported("write")
 
 io.RawIOBase.register(RawIOBase)
+from _io import FileIO
+RawIOBase.register(FileIO)
 
 
 class BufferedIOBase(IOBase):
@@ -859,10 +858,6 @@ class _BufferedIOMixin(BufferedIOBase):
             return "<{}.{}>".format(modname, clsname)
         else:
             return "<{}.{} name={!r}>".format(modname, clsname, name)
-
-    def _dealloc_warn(self, source):
-        if dealloc_warn := getattr(self.raw, "_dealloc_warn", None):
-            dealloc_warn(source)
 
     ### Lower-level APIs ###
 
@@ -1564,8 +1559,7 @@ class FileIO(RawIOBase):
                     if not isinstance(fd, int):
                         raise TypeError('expected integer from opener')
                     if fd < 0:
-                        # bpo-27066: Raise a ValueError for bad value.
-                        raise ValueError(f'opener returned {fd}')
+                        raise OSError('Negative file descriptor')
                 owned_fd = fd
                 if not noinherit_flag:
                     os.set_inheritable(fd, False)
@@ -1604,11 +1598,12 @@ class FileIO(RawIOBase):
             raise
         self._fd = fd
 
-    def _dealloc_warn(self, source):
+    def __del__(self):
         if self._fd >= 0 and self._closefd and not self.closed:
             import warnings
-            warnings.warn(f'unclosed file {source!r}', ResourceWarning,
+            warnings.warn('unclosed file %r' % (self,), ResourceWarning,
                           stacklevel=2, source=self)
+            self.close()
 
     def __getstate__(self):
         raise TypeError(f"cannot pickle {self.__class__.__name__!r} object")
@@ -1752,7 +1747,7 @@ class FileIO(RawIOBase):
         """
         if not self.closed:
             try:
-                if self._closefd and self._fd >= 0:
+                if self._closefd:
                     os.close(self._fd)
             finally:
                 super().close()
@@ -2643,10 +2638,6 @@ class TextIOWrapper(TextIOBase):
     @property
     def newlines(self):
         return self._decoder.newlines if self._decoder else None
-
-    def _dealloc_warn(self, source):
-        if dealloc_warn := getattr(self.buffer, "_dealloc_warn", None):
-            dealloc_warn(source)
 
 
 class StringIO(TextIOWrapper):

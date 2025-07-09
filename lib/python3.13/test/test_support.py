@@ -1,8 +1,6 @@
-import contextlib
 import errno
 import importlib
 import io
-import logging
 import os
 import shutil
 import socket
@@ -21,37 +19,11 @@ from test.support import os_helper
 from test.support import script_helper
 from test.support import socket_helper
 from test.support import warnings_helper
-from test.support.testcase import ExtraAssertions
 
 TESTFN = os_helper.TESTFN
 
 
-class LogCaptureHandler(logging.StreamHandler):
-    # Inspired by pytest's caplog
-    def __init__(self):
-        super().__init__(io.StringIO())
-        self.records = []
-
-    def emit(self, record) -> None:
-        self.records.append(record)
-        super().emit(record)
-
-    def handleError(self, record):
-        raise
-
-
-@contextlib.contextmanager
-def _caplog():
-    handler = LogCaptureHandler()
-    root_logger = logging.getLogger()
-    root_logger.addHandler(handler)
-    try:
-        yield handler
-    finally:
-        root_logger.removeHandler(handler)
-
-
-class TestSupport(unittest.TestCase, ExtraAssertions):
+class TestSupport(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         orig_filter_len = len(warnings.filters)
@@ -214,7 +186,7 @@ class TestSupport(unittest.TestCase, ExtraAssertions):
         path = os.path.realpath(path)
 
         try:
-            with warnings_helper.check_warnings() as recorder, _caplog() as caplog:
+            with warnings_helper.check_warnings() as recorder:
                 with os_helper.temp_dir(path, quiet=True) as temp_path:
                     self.assertEqual(path, temp_path)
                 warnings = [str(w.message) for w in recorder.warnings]
@@ -223,14 +195,11 @@ class TestSupport(unittest.TestCase, ExtraAssertions):
         finally:
             shutil.rmtree(path)
 
-        self.assertListEqual(warnings, [])
-        self.assertEqual(len(caplog.records), 1)
-        record = caplog.records[0]
-        self.assertStartsWith(
-            record.getMessage(),
-            f'tests may fail, unable to create '
-            f'temporary directory {path!r}: '
-        )
+        self.assertEqual(len(warnings), 1, warnings)
+        warn = warnings[0]
+        self.assertTrue(warn.startswith(f'tests may fail, unable to create '
+                                        f'temporary directory {path!r}: '),
+                        warn)
 
     @support.requires_fork()
     def test_temp_dir__forked_child(self):
@@ -290,41 +259,35 @@ class TestSupport(unittest.TestCase, ExtraAssertions):
 
         with os_helper.temp_dir() as parent_dir:
             bad_dir = os.path.join(parent_dir, 'does_not_exist')
-            with warnings_helper.check_warnings() as recorder, _caplog() as caplog:
+            with warnings_helper.check_warnings() as recorder:
                 with os_helper.change_cwd(bad_dir, quiet=True) as new_cwd:
                     self.assertEqual(new_cwd, original_cwd)
                     self.assertEqual(os.getcwd(), new_cwd)
                 warnings = [str(w.message) for w in recorder.warnings]
 
-        self.assertListEqual(warnings, [])
-        self.assertEqual(len(caplog.records), 1)
-        record = caplog.records[0]
-        self.assertStartsWith(
-            record.getMessage(),
-            f'tests may fail, unable to change '
-            f'the current working directory '
-            f'to {bad_dir!r}: '
-        )
+        self.assertEqual(len(warnings), 1, warnings)
+        warn = warnings[0]
+        self.assertTrue(warn.startswith(f'tests may fail, unable to change '
+                                        f'the current working directory '
+                                        f'to {bad_dir!r}: '),
+                        warn)
 
     # Tests for change_cwd()
 
     def test_change_cwd__chdir_warning(self):
         """Check the warning message when os.chdir() fails."""
         path = TESTFN + '_does_not_exist'
-        with warnings_helper.check_warnings() as recorder, _caplog() as caplog:
+        with warnings_helper.check_warnings() as recorder:
             with os_helper.change_cwd(path=path, quiet=True):
                 pass
             messages = [str(w.message) for w in recorder.warnings]
 
-        self.assertListEqual(messages, [])
-        self.assertEqual(len(caplog.records), 1)
-        record = caplog.records[0]
-        self.assertStartsWith(
-            record.getMessage(),
-            f'tests may fail, unable to change '
-            f'the current working directory '
-            f'to {path!r}: ',
-        )
+        self.assertEqual(len(messages), 1, messages)
+        msg = messages[0]
+        self.assertTrue(msg.startswith(f'tests may fail, unable to change '
+                                       f'the current working directory '
+                                       f'to {path!r}: '),
+                        msg)
 
     # Tests for temp_cwd()
 
@@ -769,10 +732,6 @@ class TestSupport(unittest.TestCase, ExtraAssertions):
         path = os.path.join(src_dir, 'Objects')
         self.assertEqual(support.copy_python_src_ignore(path, os.listdir(path)),
                          ignored)
-
-    def test_linked_to_musl(self):
-        linked = support.linked_to_musl()
-        self.assertIsInstance(linked, bool)
 
     # XXX -follows a list of untested API
     # make_legacy_pyc

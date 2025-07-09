@@ -402,8 +402,6 @@ def _parse_hh_mm_ss_ff(tstr):
             raise ValueError("Invalid microsecond component")
         else:
             pos += 1
-            if not all(map(_is_ascii_digit, tstr[pos:])):
-                raise ValueError("Non-digit values in fraction")
 
             len_remainder = len_str - pos
 
@@ -415,6 +413,9 @@ def _parse_hh_mm_ss_ff(tstr):
             time_comps[3] = int(tstr[pos:(pos+to_parse)])
             if to_parse < 6:
                 time_comps[3] *= _FRACTION_CORRECTION[to_parse-1]
+            if (len_remainder > to_parse
+                    and not all(map(_is_ascii_digit, tstr[(pos+to_parse):]))):
+                raise ValueError("Non-digit values in unparsed fraction")
 
     return time_comps
 
@@ -1056,8 +1057,8 @@ class date:
         This is 'YYYY-MM-DD'.
 
         References:
-        - https://www.w3.org/TR/NOTE-datetime
-        - https://www.cl.cam.ac.uk/~mgk25/iso-time.html
+        - http://www.w3.org/TR/NOTE-datetime
+        - http://www.cl.cam.ac.uk/~mgk25/iso-time.html
         """
         return "%04d-%02d-%02d" % (self._year, self._month, self._day)
 
@@ -1191,7 +1192,7 @@ class date:
         The first week is 1; Monday is 1 ... Sunday is 7.
 
         ISO calendar algorithm taken from
-        https://www.phys.uu.nl/~vgent/calendar/isocalendar.htm
+        http://www.phys.uu.nl/~vgent/calendar/isocalendar.htm
         (used with permission)
         """
         year = self._year
@@ -2305,6 +2306,7 @@ datetime.resolution = timedelta(microseconds=1)
 
 def _isoweek1monday(year):
     # Helper to calculate the day number of the Monday starting week 1
+    # XXX This could be done more efficiently
     THURSDAY = 3
     firstday = _ymd2ord(year, 1, 1)
     firstweekday = (firstday + 6) % 7  # See weekday() above

@@ -9,10 +9,8 @@ import unittest
 
 from test import support
 from test.support.testcase import FloatsAreIdenticalMixin
-from test.support.numbers import (
-    VALID_UNDERSCORE_LITERALS,
-    INVALID_UNDERSCORE_LITERALS,
-)
+from test.test_grammar import (VALID_UNDERSCORE_LITERALS,
+                               INVALID_UNDERSCORE_LITERALS)
 from math import isinf, isnan, copysign, ldexp
 import math
 
@@ -155,7 +153,7 @@ class GeneralFloatCases(unittest.TestCase):
         # non-UTF-8 byte string
         check(b'123\xa0')
 
-    @support.run_with_locale('LC_NUMERIC', 'fr_FR', 'de_DE', '')
+    @support.run_with_locale('LC_NUMERIC', 'fr_FR', 'de_DE')
     def test_float_with_comma(self):
         # set locale to something that doesn't use '.' for the decimal point
         # float must not accept the locale specific decimal point but

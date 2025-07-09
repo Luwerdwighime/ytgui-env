@@ -4,7 +4,6 @@ import unittest
 
 from importlib import resources
 from . import util
-from test.support.testcase import ExtraAssertions
 
 
 class CommonTests(util.CommonTests, unittest.TestCase):
@@ -13,7 +12,7 @@ class CommonTests(util.CommonTests, unittest.TestCase):
             pass
 
 
-class PathTests(ExtraAssertions):
+class PathTests:
     def test_reading(self):
         """
         Path should be readable and a pathlib.Path instance.
@@ -21,7 +20,7 @@ class PathTests(ExtraAssertions):
         target = resources.files(self.data) / 'utf-8.file'
         with resources.as_file(target) as path:
             self.assertIsInstance(path, pathlib.Path)
-            self.assertEndsWith(path.name, "utf-8.file")
+            self.assertTrue(path.name.endswith("utf-8.file"), repr(path))
             self.assertEqual('Hello, UTF-8 world!\n', path.read_text(encoding='utf-8'))
 
 

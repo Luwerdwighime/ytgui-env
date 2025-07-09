@@ -2,30 +2,34 @@ import itertools
 import functools
 import rlcompleter
 from unittest import TestCase
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
-from .support import handle_all_events, handle_events_narrow_console
-from .support import ScreenEqualMixin, code_to_events
-from .support import prepare_reader, prepare_console
+from .support import handle_all_events, handle_events_narrow_console, code_to_events, prepare_reader
+from test.support import import_helper
 from _pyrepl.console import Event
 from _pyrepl.reader import Reader
 
 
-class TestReader(ScreenEqualMixin, TestCase):
+class TestReader(TestCase):
+    def assert_screen_equals(self, reader, expected):
+        actual = reader.screen
+        expected = expected.split("\n")
+        self.assertListEqual(actual, expected)
+
     def test_calc_screen_wrap_simple(self):
         events = code_to_events(10 * "a")
         reader, _ = handle_events_narrow_console(events)
-        self.assert_screen_equal(reader, f"{9*"a"}\\\na")
+        self.assert_screen_equals(reader, f"{9*"a"}\\\na")
 
     def test_calc_screen_wrap_wide_characters(self):
         events = code_to_events(8 * "a" + "樂")
         reader, _ = handle_events_narrow_console(events)
-        self.assert_screen_equal(reader, f"{8*"a"}\\\n樂")
+        self.assert_screen_equals(reader, f"{8*"a"}\\\n樂")
 
     def test_calc_screen_wrap_three_lines(self):
         events = code_to_events(20 * "a")
         reader, _ = handle_events_narrow_console(events)
-        self.assert_screen_equal(reader, f"{9*"a"}\\\n{9*"a"}\\\naa")
+        self.assert_screen_equals(reader, f"{9*"a"}\\\n{9*"a"}\\\naa")
 
     def test_calc_screen_prompt_handling(self):
         def prepare_reader_keep_prompts(*args, **kwargs):
@@ -45,7 +49,7 @@ class TestReader(ScreenEqualMixin, TestCase):
             prepare_reader=prepare_reader_keep_prompts,
         )
         # fmt: off
-        self.assert_screen_equal(
+        self.assert_screen_equals(
             reader,
             (
             ">>> if so\\\n"
@@ -71,17 +75,13 @@ class TestReader(ScreenEqualMixin, TestCase):
         reader, _ = handle_events_narrow_console(events)
 
         # fmt: off
-        self.assert_screen_equal(
-            reader,
-            (
-                "def f():\n"
-               f"  {7*"a"}\\\n"
-                "a\n"
-               f"  {3*"樂"}\\\n"
-                "樂樂"
-            ),
-            clean=True,
-        )
+        self.assert_screen_equals(reader, (
+            "def f():\n"
+           f"  {7*"a"}\\\n"
+            "a\n"
+           f"  {3*"樂"}\\\n"
+            "樂樂"
+        ))
         # fmt: on
 
     def test_calc_screen_backspace(self):
@@ -92,7 +92,7 @@ class TestReader(ScreenEqualMixin, TestCase):
             ],
         )
         reader, _ = handle_all_events(events)
-        self.assert_screen_equal(reader, "aa")
+        self.assert_screen_equals(reader, "aa")
 
     def test_calc_screen_wrap_removes_after_backspace(self):
         events = itertools.chain(
@@ -102,7 +102,7 @@ class TestReader(ScreenEqualMixin, TestCase):
             ],
         )
         reader, _ = handle_events_narrow_console(events)
-        self.assert_screen_equal(reader, 9 * "a")
+        self.assert_screen_equals(reader, 9 * "a")
 
     def test_calc_screen_backspace_in_second_line_after_wrap(self):
         events = itertools.chain(
@@ -112,7 +112,7 @@ class TestReader(ScreenEqualMixin, TestCase):
             ],
         )
         reader, _ = handle_events_narrow_console(events)
-        self.assert_screen_equal(reader, f"{9*"a"}\\\na")
+        self.assert_screen_equals(reader, f"{9*"a"}\\\na")
 
     def test_setpos_for_xy_simple(self):
         events = code_to_events("11+11")
@@ -124,7 +124,7 @@ class TestReader(ScreenEqualMixin, TestCase):
         code = 'flag = "🏳️‍🌈"'
         events = code_to_events(code)
         reader, _ = handle_all_events(events)
-        self.assert_screen_equal(reader, 'flag = "🏳️\\u200d🌈"', clean=True)
+        self.assert_screen_equals(reader, 'flag = "🏳️\\u200d🌈"')
 
     def test_setpos_from_xy_multiple_lines(self):
         # fmt: off
@@ -174,7 +174,7 @@ class TestReader(ScreenEqualMixin, TestCase):
         )
 
         reader, _ = handle_all_events(events)
-        self.assert_screen_equal(reader, "")
+        self.assert_screen_equals(reader, "")
 
     def test_newline_within_block_trailing_whitespace(self):
         # fmt: off
@@ -213,14 +213,13 @@ class TestReader(ScreenEqualMixin, TestCase):
             "    \n"
             "    a = 1\n"
             "    \n"
-            "    "  # HistoricalReader will trim trailing whitespace
+            "    "    # HistoricalReader will trim trailing whitespace
         )
-        self.assert_screen_equal(reader, expected, clean=True)
+        self.assert_screen_equals(reader, expected)
         self.assertTrue(reader.finished)
 
     def test_input_hook_is_called_if_set(self):
         input_hook = MagicMock()
-
         def _prepare_console(events):
             console = MagicMock()
             console.get_event.side_effect = events
@@ -237,35 +236,18 @@ class TestReader(ScreenEqualMixin, TestCase):
     def test_keyboard_interrupt_clears_screen(self):
         namespace = {"itertools": itertools}
         code = "import itertools\nitertools."
-        events = itertools.chain(
-            code_to_events(code),
-            [
-                # Two tabs for completion
-                Event(evt="key", data="\t", raw=bytearray(b"\t")),
-                Event(evt="key", data="\t", raw=bytearray(b"\t")),
-                Event(evt="key", data="\x03", raw=bytearray(b"\x03")),  # Ctrl-C
-            ],
+        events = itertools.chain(code_to_events(code), [
+            Event(evt='key', data='\t', raw=bytearray(b'\t')),  # Two tabs for completion
+            Event(evt='key', data='\t', raw=bytearray(b'\t')),
+            Event(evt='key', data='\x03', raw=bytearray(b'\x03')),  # Ctrl-C
+        ])
+
+        completing_reader = functools.partial(
+            prepare_reader,
+            readline_completer=rlcompleter.Completer(namespace).complete
         )
-        console = prepare_console(events)
-        reader = prepare_reader(
-            console,
-            readline_completer=rlcompleter.Completer(namespace).complete,
-        )
-        try:
-            # we're not using handle_all_events() here to be able to
-            # follow the KeyboardInterrupt sequence of events. Normally this
-            # happens in simple_interact.run_multiline_interactive_console.
-            while True:
-                reader.handle1()
-        except KeyboardInterrupt:
-            # at this point the completions are still visible
-            self.assertTrue(len(reader.screen) > 2)
-            reader.refresh()
-            # after the refresh, they are gone
-            self.assertEqual(len(reader.screen), 2)
-            self.assert_screen_equal(reader, code, clean=True)
-        else:
-            self.fail("KeyboardInterrupt not raised.")
+        reader, _ = handle_all_events(events, prepare_reader=completing_reader)
+        self.assertEqual(reader.calc_screen(), code.split("\n"))
 
     def test_prompt_length(self):
         # Handles simple ASCII prompt
@@ -301,57 +283,33 @@ class TestReader(ScreenEqualMixin, TestCase):
     def test_completions_updated_on_key_press(self):
         namespace = {"itertools": itertools}
         code = "itertools."
-        events = itertools.chain(
-            code_to_events(code),
-            [
-                # Two tabs for completion
-                Event(evt="key", data="\t", raw=bytearray(b"\t")),
-                Event(evt="key", data="\t", raw=bytearray(b"\t")),
-            ],
-            code_to_events("a"),
-        )
+        events = itertools.chain(code_to_events(code), [
+            Event(evt='key', data='\t', raw=bytearray(b'\t')),  # Two tabs for completion
+            Event(evt='key', data='\t', raw=bytearray(b'\t')),
+        ], code_to_events("a"))
 
         completing_reader = functools.partial(
             prepare_reader,
-            readline_completer=rlcompleter.Completer(namespace).complete,
+            readline_completer=rlcompleter.Completer(namespace).complete
         )
         reader, _ = handle_all_events(events, prepare_reader=completing_reader)
 
         actual = reader.screen
         self.assertEqual(len(actual), 2)
-        self.assertEqual(actual[0], f"{code}a")
-        self.assertEqual(actual[1].rstrip(), "itertools.accumulate(")
+        self.assertEqual(actual[0].rstrip(), "itertools.accumulate(")
+        self.assertEqual(actual[1], f"{code}a")
 
     def test_key_press_on_tab_press_once(self):
         namespace = {"itertools": itertools}
         code = "itertools."
-        events = itertools.chain(
-            code_to_events(code),
-            [
-                Event(evt="key", data="\t", raw=bytearray(b"\t")),
-            ],
-            code_to_events("a"),
-        )
+        events = itertools.chain(code_to_events(code), [
+            Event(evt='key', data='\t', raw=bytearray(b'\t')),
+        ], code_to_events("a"))
 
         completing_reader = functools.partial(
             prepare_reader,
-            readline_completer=rlcompleter.Completer(namespace).complete,
+            readline_completer=rlcompleter.Completer(namespace).complete
         )
         reader, _ = handle_all_events(events, prepare_reader=completing_reader)
 
-        self.assert_screen_equal(reader, f"{code}a")
-
-    def test_pos2xy_with_no_columns(self):
-        console = prepare_console([])
-        reader = prepare_reader(console)
-        # Simulate a resize to 0 columns
-        reader.screeninfo = []
-        self.assertEqual(reader.pos2xy(), (0, 0))
-
-    def test_setpos_from_xy_for_non_printing_char(self):
-        code = "# non \u200c printing character"
-        events = code_to_events(code)
-
-        reader, _ = handle_all_events(events)
-        reader.setpos_from_xy(8, 0)
-        self.assertEqual(reader.pos, 7)
+        self.assert_screen_equals(reader, f"{code}a")

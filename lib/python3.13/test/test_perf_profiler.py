@@ -252,8 +252,6 @@ def perf_command_works():
             cmd = (
                 "perf",
                 "record",
-                "--no-buildid",
-                "--no-buildid-cache",
                 "-g",
                 "--call-graph=fp",
                 "-o",
@@ -283,22 +281,11 @@ def run_perf(cwd, *args, use_jit=False, **env_vars):
         env = None
     output_file = cwd + "/perf_output.perf"
     if not use_jit:
-        base_cmd = (
-            "perf",
-            "record",
-            "--no-buildid",
-            "--no-buildid-cache",
-            "-g",
-            "--call-graph=fp",
-            "-o", output_file,
-            "--"
-        )
+        base_cmd = ("perf", "record", "-g", "--call-graph=fp", "-o", output_file, "--")
     else:
         base_cmd = (
             "perf",
             "record",
-            "--no-buildid",
-            "--no-buildid-cache",
             "-g",
             "--call-graph=dwarf,65528",
             "-F99",
@@ -495,8 +482,7 @@ class TestPerfProfiler(unittest.TestCase, TestPerfProfilerMixin):
 
 def _is_perf_vesion_at_least(major, minor):
     # The output of perf --version looks like "perf version 6.7-3" but
-    # it can also be perf version "perf version 5.15.143", or even include
-    # a commit hash in the version string, like "6.12.9.g242e6068fd5c"
+    # it can also be perf version "perf version 5.15.143"
     try:
         output = subprocess.check_output(["perf", "--version"], text=True)
     except (subprocess.CalledProcessError, FileNotFoundError):
@@ -504,7 +490,7 @@ def _is_perf_vesion_at_least(major, minor):
     version = output.split()[2]
     version = version.split("-")[0]
     version = version.split(".")
-    version = tuple(map(int, version[:2]))
+    version = tuple(map(int, version))
     return version >= (major, minor)
 
 
