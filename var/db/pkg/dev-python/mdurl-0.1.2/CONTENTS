@@ -1,0 +1,38 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/mdurl-0.1.2
+obj /usr/share/doc/mdurl-0.1.2/README.md.bz2 42e8ad403abec9e4f166a5d89f050383 1752175098
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/mdurl-0.1.2.dist-info
+obj /usr/lib/python3.13/site-packages/mdurl-0.1.2.dist-info/METADATA dc8171f41af2f8dc61fa96709358208b 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl-0.1.2.dist-info/WHEEL eca1d2e32987c5c9fd85f21a0c92d672 1752175096
+dir /usr/lib/python3.13/site-packages/mdurl
+dir /usr/lib/python3.13/site-packages/mdurl/__pycache__
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_url.cpython-313.opt-2.pyc b719009c603d2789dd87ccadf4ce81b7 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_url.cpython-313.opt-1.pyc b719009c603d2789dd87ccadf4ce81b7 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_url.cpython-313.pyc b719009c603d2789dd87ccadf4ce81b7 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_parse.cpython-313.opt-2.pyc f936d21cc836e15a36d3ee571ef9550c 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_parse.cpython-313.opt-1.pyc f936d21cc836e15a36d3ee571ef9550c 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_parse.cpython-313.pyc f936d21cc836e15a36d3ee571ef9550c 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_format.cpython-313.opt-2.pyc 33a2ac78387e71e3ca7d3f8b04dd7976 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_format.cpython-313.opt-1.pyc 33a2ac78387e71e3ca7d3f8b04dd7976 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_format.cpython-313.pyc 33a2ac78387e71e3ca7d3f8b04dd7976 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_encode.cpython-313.opt-2.pyc ff96287b4cd7402da319f413e1b570c7 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_encode.cpython-313.opt-1.pyc ff96287b4cd7402da319f413e1b570c7 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_encode.cpython-313.pyc ff96287b4cd7402da319f413e1b570c7 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_decode.cpython-313.opt-2.pyc 43b3efbda0fbe65bc590d83ad7eea58d 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_decode.cpython-313.opt-1.pyc 43b3efbda0fbe65bc590d83ad7eea58d 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/_decode.cpython-313.pyc 43b3efbda0fbe65bc590d83ad7eea58d 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/__init__.cpython-313.opt-2.pyc c5751036bcf359c10d2c3fc4f58893fb 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/__init__.cpython-313.opt-1.pyc c5751036bcf359c10d2c3fc4f58893fb 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__pycache__/__init__.cpython-313.pyc c5751036bcf359c10d2c3fc4f58893fb 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/py.typed bd2fa011a5e69d2b68df68fbc59f8be6 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/_url.py ffc3e4ec590fdd325d67d27d44c7db9f 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/_parse.py 417fe388bce99f56f38393c70ded712b 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/_format.py 7377edfe5f6854ed36e168d68a2848a5 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/_encode.py 0df48bb428f16ce5bd76ef6e62120e73 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/_decode.py ddc57bb691b2b7ed16320904407fa3da 1752175096
+obj /usr/lib/python3.13/site-packages/mdurl/__init__.py 16caaad69eeb1c6230717f36b183c99b 1752175096

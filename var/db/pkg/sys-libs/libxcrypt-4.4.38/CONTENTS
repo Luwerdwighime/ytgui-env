@@ -1,0 +1,36 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/libxcrypt-4.4.38
+obj /usr/share/doc/libxcrypt-4.4.38/ChangeLog.bz2 e1ed6231c514fef2671b2e537faeb69d 1752169336
+obj /usr/share/doc/libxcrypt-4.4.38/README.bz2 9142ae0dd3b756b224cebe70aef0b15a 1752169335
+obj /usr/share/doc/libxcrypt-4.4.38/THANKS.bz2 2fb6c354391ea13ec45e6e6cd4954861 1752169337
+obj /usr/share/doc/libxcrypt-4.4.38/TODO.bz2 b99134167770bc4882ba8c56d664f1f1 1752169336
+obj /usr/share/doc/libxcrypt-4.4.38/NEWS.bz2 d4f6166dab469f537722f2475f99c41c 1752169336
+obj /usr/share/doc/libxcrypt-4.4.38/AUTHORS.bz2 57a15e850c0a4ac3e319097aee3083bd 1752169336
+dir /usr/share/man
+dir /usr/share/man/man5
+obj /usr/share/man/man5/crypt.5.bz2 697e68cd71e5b0d1aeba05a859841475 1752169335
+dir /usr/share/man/man3
+obj /usr/share/man/man3/crypt_preferred_method.3.bz2 4008c60da3443a83a938342f91ea0bf5 1752169335
+obj /usr/share/man/man3/crypt_checksalt.3.bz2 852a65e186af943e7bd4144f55220a3f 1752169335
+obj /usr/share/man/man3/crypt_rn.3 0181e8e9de8038c821b66df3f7d40348 1752169335
+obj /usr/share/man/man3/crypt_ra.3 0181e8e9de8038c821b66df3f7d40348 1752169335
+obj /usr/share/man/man3/crypt_gensalt_rn.3 0345770ca0db5eaf927ac86fc58a6c57 1752169335
+obj /usr/share/man/man3/crypt_gensalt_ra.3 0345770ca0db5eaf927ac86fc58a6c57 1752169335
+obj /usr/share/man/man3/crypt_gensalt.3.bz2 b080211c11431d7be5826723b2647584 1752169335
+dir /usr/include
+obj /usr/include/xcrypt.h 5a8158261115858ce9515d7710f26e78 1752169335
+obj /usr/include/crypt.h 2fa4c44a0d70a1d0a36bc79d2de52f2c 1752169335
+dir /usr/lib64
+obj /usr/lib64/libcrypt.a be655855fe89c7dd8b0ef11b657a7e4a 1752169339
+obj /usr/lib64/libcrypt.so.2.0.0 76cf76eb43de68dfb9cc49717099d99e 1752169339
+sym /usr/lib64/libcrypt.so -> libcrypt.so.2.0.0 1752169335
+obj /usr/lib64/libcrypt.so.1.1.0 2e8115d778041888a46bbd5aceefb8d5 1752169339
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libxcrypt.pc 1f0a4bffd62b78bb98394b93df7901a9 1752169335
+sym /usr/lib64/pkgconfig/libcrypt.pc -> libxcrypt.pc 1752169335
+sym /usr/lib64/libcrypt.so.1 -> libcrypt.so.1.1.0 1752169333
+sym /usr/lib64/libowcrypt.so -> libcrypt.so 1752169333
+sym /usr/lib64/libowcrypt.so.1 -> libcrypt.so.1 1752169333
+sym /usr/lib64/libcrypt.so.2 -> libcrypt.so.2.0.0 1752169335

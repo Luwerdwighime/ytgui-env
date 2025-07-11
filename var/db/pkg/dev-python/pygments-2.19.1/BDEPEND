@@ -1,0 +1,1 @@
+dev-lang/python:3.13 >=dev-python/gpep517-16[python_targets_python3_13(-)] >=dev-python/hatchling-1.27.0[python_targets_python3_13(-)]

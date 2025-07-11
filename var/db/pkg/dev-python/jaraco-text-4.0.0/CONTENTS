@@ -1,0 +1,23 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/jaraco-text-4.0.0
+obj /usr/share/doc/jaraco-text-4.0.0/README.rst.bz2 3d65a3a5d2d8f578de396d8634602a08 1752175304
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/jaraco.text-4.0.0.dist-info
+obj /usr/lib/python3.13/site-packages/jaraco.text-4.0.0.dist-info/METADATA 1f5c2160461102c2e964e02b96e8448a 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco.text-4.0.0.dist-info/WHEEL 9f23d6bff077dd28ec0eeb019a33459c 1752175301
+dir /usr/lib/python3.13/site-packages/jaraco
+dir /usr/lib/python3.13/site-packages/jaraco/text
+dir /usr/lib/python3.13/site-packages/jaraco/text/__pycache__
+obj /usr/lib/python3.13/site-packages/jaraco/text/__pycache__/__init__.cpython-313.pyc 045baa2307800dfa0f11105685254ac6 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/__pycache__/__init__.cpython-313.opt-1.pyc 045baa2307800dfa0f11105685254ac6 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/__pycache__/layouts.cpython-313.opt-2.pyc f893f84b71fe944b74db6dbb4016166f 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/__pycache__/layouts.cpython-313.pyc 035acf550aae344df16a96940b552067 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/__pycache__/__init__.cpython-313.opt-2.pyc 48064dd80516c0904076ed6fcbcb9237 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/__pycache__/layouts.cpython-313.opt-1.pyc 035acf550aae344df16a96940b552067 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/__init__.py 70607ced760ef4f0f2407feec2a74929 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/layouts.py f4e96357b93823fb4f257388fe1b6ec5 1752175301
+obj /usr/lib/python3.13/site-packages/jaraco/text/Lorem ipsum.txt 4ce7501f6608f6ce4011d627979e1ae4 1752175301

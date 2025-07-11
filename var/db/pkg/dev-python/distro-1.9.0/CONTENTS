@@ -1,0 +1,33 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/distro-1.9.0
+obj /usr/share/doc/distro-1.9.0/README.md.bz2 d6ddb094387103a457c291a2ec7d1fab 1752174931
+dir /usr/bin
+sym /usr/bin/distro -> ../lib/python-exec/python-exec2 1752174930
+dir /usr/lib
+dir /usr/lib/python-exec
+dir /usr/lib/python-exec/python3.13
+obj /usr/lib/python-exec/python3.13/distro 04428e5ddc4801e92cda211184a53f9e 1752174928
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/distro-1.9.0.dist-info
+obj /usr/lib/python3.13/site-packages/distro-1.9.0.dist-info/top_level.txt a6234878be2d64a751865bd16f6fff03 1752174928
+obj /usr/lib/python3.13/site-packages/distro-1.9.0.dist-info/WHEEL 08dd01ac2afdbb287cc668d51c7056c8 1752174928
+obj /usr/lib/python3.13/site-packages/distro-1.9.0.dist-info/METADATA 16f8cfe50b790a9391ad7cc0f447c323 1752174928
+obj /usr/lib/python3.13/site-packages/distro-1.9.0.dist-info/entry_points.txt 5cfa67bd39c62cfd27b6540ab658249d 1752174928
+dir /usr/lib/python3.13/site-packages/distro
+dir /usr/lib/python3.13/site-packages/distro/__pycache__
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/distro.cpython-313.opt-2.pyc 40571985079d685aeb5b225ffb183f89 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/distro.cpython-313.opt-1.pyc 3d86a7144d1db7d1034f7c458a54e3ca 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/distro.cpython-313.pyc 5791cb95947e9b3820dcffa535fae509 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/__main__.cpython-313.opt-2.pyc ae8abe45a6040d1efa8d90ecb90b0a87 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/__main__.cpython-313.pyc ae8abe45a6040d1efa8d90ecb90b0a87 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/__init__.cpython-313.opt-2.pyc 7c2e4e87982c1c09ec61f826667b9104 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/__init__.cpython-313.opt-1.pyc 7c2e4e87982c1c09ec61f826667b9104 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/__init__.cpython-313.pyc 7c2e4e87982c1c09ec61f826667b9104 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__pycache__/__main__.cpython-313.opt-1.pyc ae8abe45a6040d1efa8d90ecb90b0a87 1752174928
+obj /usr/lib/python3.13/site-packages/distro/py.typed d41d8cd98f00b204e9800998ecf8427e 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__main__.py 9ba2b2b4dfc91b521f07858fc5547a23 1752174928
+obj /usr/lib/python3.13/site-packages/distro/__init__.py 5b9b7efb166424292d033eb05b9de265 1752174928
+obj /usr/lib/python3.13/site-packages/distro/distro.py 7d770f8e9463818bf6b8ea645aac445e 1752174928

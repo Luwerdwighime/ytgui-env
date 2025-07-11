@@ -1,0 +1,10 @@
+/usr/lib64/libgpm.so.1.20.0 libncurses.so.6,libtinfo.so.6,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/mev libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/hltest libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/mouse-test libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/disable-paste libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/display-buttons libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/display-coords libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/get-versions libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/gpm-root libgpm.so.1,libc.so.6,ld-linux-aarch64.so.1
+/usr/sbin/gpm libc.so.6,ld-linux-aarch64.so.1

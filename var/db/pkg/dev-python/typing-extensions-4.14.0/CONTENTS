@@ -1,0 +1,16 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/typing-extensions-4.14.0
+obj /usr/share/doc/typing-extensions-4.14.0/README.md.bz2 cece181c5bc74282bf0bedb875251f3e 1752175010
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/typing_extensions-4.14.0.dist-info
+obj /usr/lib/python3.13/site-packages/typing_extensions-4.14.0.dist-info/WHEEL eca1d2e32987c5c9fd85f21a0c92d672 1752175007
+obj /usr/lib/python3.13/site-packages/typing_extensions-4.14.0.dist-info/METADATA 6b0f893623e73d8ae7a660375f6463a7 1752175007
+obj /usr/lib/python3.13/site-packages/typing_extensions.py 925527fbd81837e91d1160b3634df1f3 1752175007
+dir /usr/lib/python3.13/site-packages/__pycache__
+obj /usr/lib/python3.13/site-packages/__pycache__/typing_extensions.cpython-313.opt-2.pyc 77c2f09f94887f33fa9e492042e3c71b 1752175007
+obj /usr/lib/python3.13/site-packages/__pycache__/typing_extensions.cpython-313.pyc 58b1d87a0a853ede6481d9c92f962f2e 1752175007
+obj /usr/lib/python3.13/site-packages/__pycache__/typing_extensions.cpython-313.opt-1.pyc 36611a087f2976b689519efb264c3b74 1752175007

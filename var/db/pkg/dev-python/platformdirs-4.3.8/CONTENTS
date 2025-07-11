@@ -1,0 +1,46 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/platformdirs-4.3.8
+obj /usr/share/doc/platformdirs-4.3.8/README.rst.bz2 51dcc13b7d02f818f4603d161c2a172f 1752174856
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/platformdirs-4.3.8.dist-info
+obj /usr/lib/python3.13/site-packages/platformdirs-4.3.8.dist-info/METADATA 986165d44aa4a301d8dca6eac33b3ccf 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs-4.3.8.dist-info/WHEEL 9f23d6bff077dd28ec0eeb019a33459c 1752174852
+dir /usr/lib/python3.13/site-packages/platformdirs
+obj /usr/lib/python3.13/site-packages/platformdirs/windows.py 128f39361500fcc1dcaefd721a400356 1752174852
+dir /usr/lib/python3.13/site-packages/platformdirs/__pycache__
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/android.cpython-313.opt-2.pyc aca422e7f36ff7df7f72b99621aed802 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/windows.cpython-313.opt-2.pyc f2ca9f12374b7ab072e955f1c03c516f 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/__main__.cpython-313.opt-1.pyc 082d9a1876cdd83e1dd27699899e8c01 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/__main__.cpython-313.opt-2.pyc 6bfb049db73d36ed3f76aa73161ad4fe 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/unix.cpython-313.pyc aa121fc32025a79f376d42c03f1e809d 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/unix.cpython-313.opt-2.pyc 02570cc989d49a6f06df815284195435 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/__init__.cpython-313.pyc b03892514e8ad1a5358b98eb375ade80 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/__init__.cpython-313.opt-2.pyc 37e0a4402cf2e64f7316768de517c6dc 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/version.cpython-313.opt-1.pyc a98ec4086d4243e2a99576324c72525d 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/version.cpython-313.opt-2.pyc a98ec4086d4243e2a99576324c72525d 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/version.cpython-313.pyc a98ec4086d4243e2a99576324c72525d 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/unix.cpython-313.opt-1.pyc aa121fc32025a79f376d42c03f1e809d 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/macos.cpython-313.pyc 6ca854b144bc97d89c0a31f6381893ea 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/api.cpython-313.pyc 52a44124a1160def20d17a6231fb2bf6 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/api.cpython-313.opt-2.pyc aeb7789fd4861be8fae0f0890e6418ad 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/macos.cpython-313.opt-2.pyc 9c5a9d1b2900b8e850e3e35b9d120b2b 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/macos.cpython-313.opt-1.pyc 6ca854b144bc97d89c0a31f6381893ea 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/api.cpython-313.opt-1.pyc 52a44124a1160def20d17a6231fb2bf6 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/android.cpython-313.pyc 461ec0b34bf26166264ee51ecc635e50 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/android.cpython-313.opt-1.pyc 461ec0b34bf26166264ee51ecc635e50 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/windows.cpython-313.pyc 5e012107032fb0e45c2bff1049525248 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/__init__.cpython-313.opt-1.pyc b03892514e8ad1a5358b98eb375ade80 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/windows.cpython-313.opt-1.pyc 5e012107032fb0e45c2bff1049525248 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__pycache__/__main__.cpython-313.pyc 082d9a1876cdd83e1dd27699899e8c01 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__main__.py 9fff79e4182d27eb4edfb33133a1ac43 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/android.py 4d7d8fbd0cfc9de62d8e6317079fe2f9 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/unix.py c29478676a7a3761e48cdb01dd30d20c 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/__init__.py a79aa7e36581a0bf45fde4e949b56d18 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/api.py 8337f99effafca4ee834e11b6e26aa49 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/macos.py d57523d85c284a26e794098ac0e6f249 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/py.typed d41d8cd98f00b204e9800998ecf8427e 1752174852
+obj /usr/lib/python3.13/site-packages/platformdirs/version.py ecc7596af943f261dd1f34c99cc01154 1752174852

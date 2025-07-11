@@ -1,0 +1,25 @@
+dir /usr
+dir /usr/include
+obj /usr/include/zconf.h 1af3a867c248eab18d119ab79b7f3d1d 1752117651
+obj /usr/include/zlib.h fbab4a455b2970c36a44c9464c9625e4 1752117651
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/zlib-1.3.1-r1
+obj /usr/share/doc/zlib-1.3.1-r1/algorithm.txt.bz2 e58a999fe004317d1c5a04cc8288b31e 1752117651
+obj /usr/share/doc/zlib-1.3.1-r1/README.bz2 71b955912dba9145b8ae59e3c2118e1e 1752117651
+obj /usr/share/doc/zlib-1.3.1-r1/ChangeLog.bz2 e6ad889b6aa546311be5fa0785ba606b 1752117651
+obj /usr/share/doc/zlib-1.3.1-r1/FAQ.bz2 5e47e39cfb3dff9c7dcaf6e78a14edfd 1752117651
+obj /usr/share/doc/zlib-1.3.1-r1/txtvsbin.txt.bz2 7e9f8406bb692878dbe192eabb1e74e9 1752117651
+obj /usr/share/doc/zlib-1.3.1-r1/rfc1952.txt.bz2 ad8beb5ec4ab80b62a9fcceec1cd16d8 1752117651
+obj /usr/share/doc/zlib-1.3.1-r1/rfc1951.txt.bz2 ae9d5af5197cb1212b22fe81259959a5 1752117651
+obj /usr/share/doc/zlib-1.3.1-r1/rfc1950.txt.bz2 f8a202b177cd70b346552b82dda01d34 1752117651
+dir /usr/share/man
+dir /usr/share/man/man3
+obj /usr/share/man/man3/zlib.3.bz2 9cd31595644c8d8240fa3d8a6013b49d 1752117651
+dir /usr/lib64
+obj /usr/lib64/libz.so.1.3.1 a93cdedcdbd7bdf4812b8aae2ea80f88 1752117653
+obj /usr/lib64/libz.a b5a44bd7bc6f6b4737774cbf5162abc4 1752117653
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/zlib.pc 397adf14aa45ef9920e0f913b6363387 1752117651
+sym /usr/lib64/libz.so -> libz.so.1.3.1 1752117651
+sym /usr/lib64/libz.so.1 -> libz.so.1.3.1 1752117651

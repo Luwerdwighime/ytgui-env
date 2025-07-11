@@ -1,0 +1,33 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/zstd-1.5.7-r1
+obj /usr/share/doc/zstd-1.5.7-r1/README.md.bz2 62c01367c1a6f8954fbb2a0e8f636e36 1752118644
+dir /usr/share/man
+dir /usr/share/man/man1
+obj /usr/share/man/man1/zstdless.1.bz2 53558268823710bb041239da9636dba2 1739923464
+obj /usr/share/man/man1/zstd.1.bz2 4d760f0abed1656ff84c266560d03ee6 1739923464
+sym /usr/share/man/man1/zstdmt.1.bz2 -> zstd.1.bz2 1752118646
+sym /usr/share/man/man1/unzstd.1.bz2 -> zstd.1.bz2 1752118646
+obj /usr/share/man/man1/zstdgrep.1.bz2 ba250b37ec628bd67667e951e80ff271 1739923464
+sym /usr/share/man/man1/zstdcat.1.bz2 -> zstd.1.bz2 1752118646
+dir /usr/include
+obj /usr/include/zstd_errors.h c41245e70dc8b3520adab14d208c8b46 1739923464
+obj /usr/include/zdict.h 6576e2f31efa67d1609fe87d23b25950 1739923464
+obj /usr/include/zstd.h c156aefa14f44d2dfb74516f26919bed 1752118592
+dir /usr/bin
+obj /usr/bin/zstdless f96f2accbe640e420a7cfd312d411732 1739923464
+obj /usr/bin/zstdgrep 4e16657238c1d51e2067380425cea68c 1739923464
+obj /usr/bin/pzstd bb11def980b8a37b4a00590131c5dcc4 1752118646
+obj /usr/bin/zstd-frugal ead08512dba35bd8f25efc8fd072a7fa 1752118646
+obj /usr/bin/zstd f8ed3327be3e95544b86b2b12361aac5 1752118646
+dir /usr/lib64
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libzstd.pc 153cbdd53539c004e9b2846de76e6877 1752118598
+obj /usr/lib64/libzstd.a f0ab1025c6a1553e2d5b98a9632d3160 1752118646
+obj /usr/lib64/libzstd.so.1.5.7 2a9ab7b9f261c535ecfbc8c9a3c2f256 1752118646
+sym /usr/lib64/libzstd.so.1 -> libzstd.so.1.5.7 1752118643
+sym /usr/lib64/libzstd.so -> libzstd.so.1 1752118643
+sym /usr/bin/zstdcat -> zstd 1752118643
+sym /usr/bin/unzstd -> zstd 1752118643
+sym /usr/bin/zstdmt -> zstd 1752118644

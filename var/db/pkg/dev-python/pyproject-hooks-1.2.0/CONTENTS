@@ -1,0 +1,32 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/pyproject-hooks-1.2.0
+obj /usr/share/doc/pyproject-hooks-1.2.0/README.rst.bz2 9727f48f296c8c7a5a9e0f35890f10ab 1752174946
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/pyproject_hooks-1.2.0.dist-info
+obj /usr/lib/python3.13/site-packages/pyproject_hooks-1.2.0.dist-info/WHEEL eca1d2e32987c5c9fd85f21a0c92d672 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks-1.2.0.dist-info/METADATA ec67ed838cf8953018b9195e60e79bba 1752174944
+dir /usr/lib/python3.13/site-packages/pyproject_hooks
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/__init__.py b37ad098a097311e209fb2afceaeaccd 1752174944
+dir /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process
+dir /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__pycache__
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__pycache__/_in_process.cpython-313.opt-2.pyc 5a03b1b4ceefed7359796ea3518b1d03 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__pycache__/_in_process.cpython-313.opt-1.pyc 690e08a2df62a81766b3027141bb270d 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__pycache__/_in_process.cpython-313.pyc 690e08a2df62a81766b3027141bb270d 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__pycache__/__init__.cpython-313.opt-2.pyc 615e424952ad56a9fbdb01c176e1fc8e 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__pycache__/__init__.cpython-313.opt-1.pyc 9ae6096c20ecd7a3dfb7af0b1e3aa000 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__pycache__/__init__.cpython-313.pyc 9ae6096c20ecd7a3dfb7af0b1e3aa000 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/_in_process.py fcbf3d8e0957f76062f67265b9783df0 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/__init__.py effca49956796f5fee6d6a0edb6562c5 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/py.typed d41d8cd98f00b204e9800998ecf8427e 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/_impl.py fffdb398cbd451cb6925ed1f756b022b 1752174944
+dir /usr/lib/python3.13/site-packages/pyproject_hooks/__pycache__
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/__pycache__/__init__.cpython-313.opt-2.pyc 35c4fff17a0bd29bd616eeab0e2bcea7 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/__pycache__/__init__.cpython-313.opt-1.pyc 4f46622c587a1612438a894988ea4a0e 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/__pycache__/__init__.cpython-313.pyc 4f46622c587a1612438a894988ea4a0e 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/__pycache__/_impl.cpython-313.opt-2.pyc 3b20e7e306da86e13f18733ee931a9b2 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/__pycache__/_impl.cpython-313.pyc af9ec3c05fcd3a86dc0ffea062fe35a7 1752174944
+obj /usr/lib/python3.13/site-packages/pyproject_hooks/__pycache__/_impl.cpython-313.opt-1.pyc af9ec3c05fcd3a86dc0ffea062fe35a7 1752174944

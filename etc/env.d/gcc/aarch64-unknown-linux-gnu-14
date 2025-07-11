@@ -1,0 +1,8 @@
+GCC_PATH="/usr/aarch64-unknown-linux-gnu/gcc-bin/14"
+LDPATH="/usr/lib/gcc/aarch64-unknown-linux-gnu/14"
+MANPATH="/usr/share/gcc-data/aarch64-unknown-linux-gnu/14/man"
+INFOPATH="/usr/share/gcc-data/aarch64-unknown-linux-gnu/14/info"
+STDCXX_INCDIR="g++-v14"
+CTARGET="aarch64-unknown-linux-gnu"
+GCC_SPECS=""
+MULTIOSDIRS="../lib64"

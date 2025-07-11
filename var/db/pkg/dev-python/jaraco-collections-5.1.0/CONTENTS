@@ -1,0 +1,19 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/jaraco-collections-5.1.0
+obj /usr/share/doc/jaraco-collections-5.1.0/README.rst.bz2 06e96438d2c0237ba6429df49a0c14ce 1752175394
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/jaraco_collections-5.1.0.dist-info
+obj /usr/lib/python3.13/site-packages/jaraco_collections-5.1.0.dist-info/METADATA 627e731a7c03a1a37ce4d5a844ae8c09 1752175391
+obj /usr/lib/python3.13/site-packages/jaraco_collections-5.1.0.dist-info/WHEEL eca1d2e32987c5c9fd85f21a0c92d672 1752175391
+dir /usr/lib/python3.13/site-packages/jaraco
+dir /usr/lib/python3.13/site-packages/jaraco/collections
+obj /usr/lib/python3.13/site-packages/jaraco/collections/__init__.py 7d6cdbeb10d84db1814f560b1bde2a17 1752175391
+obj /usr/lib/python3.13/site-packages/jaraco/collections/py.typed d41d8cd98f00b204e9800998ecf8427e 1752175391
+dir /usr/lib/python3.13/site-packages/jaraco/collections/__pycache__
+obj /usr/lib/python3.13/site-packages/jaraco/collections/__pycache__/__init__.cpython-313.opt-2.pyc 3a1389b2054b7030a891b139e8498ccf 1752175391
+obj /usr/lib/python3.13/site-packages/jaraco/collections/__pycache__/__init__.cpython-313.opt-1.pyc 8839e79a16d41a574bc61047a2a42acf 1752175391
+obj /usr/lib/python3.13/site-packages/jaraco/collections/__pycache__/__init__.cpython-313.pyc 8839e79a16d41a574bc61047a2a42acf 1752175391

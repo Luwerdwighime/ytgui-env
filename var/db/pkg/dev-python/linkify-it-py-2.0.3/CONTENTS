@@ -1,0 +1,30 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/linkify-it-py-2.0.3
+obj /usr/share/doc/linkify-it-py-2.0.3/README.md.bz2 1698d4097aa9123d8d559c2931418ef9 1752175247
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/linkify_it_py-2.0.3.dist-info
+obj /usr/lib/python3.13/site-packages/linkify_it_py-2.0.3.dist-info/METADATA d70ebe381e3c289f2b0ed40fa8c888cf 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it_py-2.0.3.dist-info/top_level.txt d4a0ab652685da545f2b024f39170374 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it_py-2.0.3.dist-info/WHEEL 08dd01ac2afdbb287cc668d51c7056c8 1752175245
+dir /usr/lib/python3.13/site-packages/linkify_it
+obj /usr/lib/python3.13/site-packages/linkify_it/ucre.py 4a06b856725c248e6baed1244b0f8404 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__init__.py 8197de1d23381cdddcb77df668c67a25 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/tlds.py a49cfaa0be0934b011ceb300263c24e1 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/main.py dc1e3ce2ed9508f51a5e92c34738dba2 1752175245
+dir /usr/lib/python3.13/site-packages/linkify_it/__pycache__
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/__init__.cpython-313.opt-1.pyc 987253a988b11b7687fd3b52047fca4d 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/tlds.cpython-313.opt-1.pyc 65b0b0beeb67f4bcfc352650d979b6d1 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/ucre.cpython-313.opt-2.pyc 01840f8c8869fab84cd0ddc88125cbe2 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/ucre.cpython-313.pyc d13923c1e7949c99b8cf26fa0a06d1a5 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/tlds.cpython-313.pyc 65b0b0beeb67f4bcfc352650d979b6d1 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/main.cpython-313.pyc 869d75cbd16f72343a0705faf50cd861 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/ucre.cpython-313.opt-1.pyc d13923c1e7949c99b8cf26fa0a06d1a5 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/main.cpython-313.opt-2.pyc 41e328105cb72458c9c8af7e5bc70e14 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/tlds.cpython-313.opt-2.pyc e3e3841955035c1c53c3b5bea7f36edb 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/__init__.cpython-313.opt-2.pyc 987253a988b11b7687fd3b52047fca4d 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/main.cpython-313.opt-1.pyc 869d75cbd16f72343a0705faf50cd861 1752175245
+obj /usr/lib/python3.13/site-packages/linkify_it/__pycache__/__init__.cpython-313.pyc 987253a988b11b7687fd3b52047fca4d 1752175245

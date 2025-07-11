@@ -1,0 +1,42 @@
+dir /usr
+dir /usr/bin
+obj /usr/bin/gdbm_dump 0e690c075118e99973fed14dcb8e23a4 1752170131
+obj /usr/bin/gdbm_load 9eb60fd589fb135ba713a350013cf1ea 1752170131
+obj /usr/bin/gdbmtool 77a91634c4ee95558ad9e129add158ba 1752170131
+dir /usr/include
+obj /usr/include/gdbm.h daf76350352c54c426183c610b85839c 1752170126
+dir /usr/include/gdbm
+obj /usr/include/gdbm/ndbm.h c8738efca70680598ccdb59823613294 1752170126
+obj /usr/include/gdbm/dbm.h f0c089a14083ab13ce44318b16ced7a6 1752170126
+dir /usr/lib64
+obj /usr/lib64/libgdbm_compat.a 04ab5d6aa6584c3c123f831ad192250b 1752170131
+obj /usr/lib64/libgdbm_compat.la 4e6cbe0a0238a2bc00b60a0b6ac3e404 1752170129
+obj /usr/lib64/libgdbm_compat.so.4.0.0 c695baa857553850153e09475776b3d1 1752170131
+obj /usr/lib64/libgdbm.a 3b94ce455cef5307a8730a512ead2863 1752170131
+obj /usr/lib64/libgdbm.la a008aee60604de9ef678646635c1499f 1752170126
+obj /usr/lib64/libgdbm.so.6.0.0 7aa3360af3c19d194e11345bc8ef395b 1752170131
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/gdbm-1.25
+obj /usr/share/doc/gdbm-1.25/ChangeLog.bz2 4ceb4fc165f50b33e8084a46f8c372b2 1752170128
+obj /usr/share/doc/gdbm-1.25/THANKS.bz2 78f2824ad1c8c18d0f012d00c534b2aa 1752170128
+obj /usr/share/doc/gdbm-1.25/README.bz2 8fce54186f35fb00a5ebf835491a4f86 1752170127
+obj /usr/share/doc/gdbm-1.25/AUTHORS 8f58ec79b2fa7dd61baff91dbf9e43c2 1752170128
+obj /usr/share/doc/gdbm-1.25/NEWS.bz2 2c64bb2f394b48183c4e3b0c805bb60e 1752170128
+dir /usr/share/info
+obj /usr/share/info/gdbm.info.bz2 8c883311f7963c9025b5cfa3ade2f5dc 1752170126
+dir /usr/share/man
+dir /usr/share/man/man3
+obj /usr/share/man/man3/gdbm.3.bz2 707a1ff6089cb93903ba015c0bdd1187 1752170126
+dir /usr/share/man/man1
+obj /usr/share/man/man1/gdbm_load.1.bz2 24bf9e2c359c1fadade7cee58b1c0ed7 1752170126
+obj /usr/share/man/man1/gdbmtool.1.bz2 3cf730360affc7e56ad2853398a58930 1752170126
+obj /usr/share/man/man1/gdbm_dump.1.bz2 6b55ffb78273da4794276218f6917248 1752170126
+dir /usr/share/locale
+dir /usr/share/locale/ru
+dir /usr/share/locale/ru/LC_MESSAGES
+obj /usr/share/locale/ru/LC_MESSAGES/gdbm.mo 969f075d8b79ecdd0868bbdc71eb3386 1752170126
+sym /usr/lib64/libgdbm.so.6 -> libgdbm.so.6.0.0 1752170126
+sym /usr/lib64/libgdbm.so -> libgdbm.so.6.0.0 1752170126
+sym /usr/lib64/libgdbm_compat.so.4 -> libgdbm_compat.so.4.0.0 1752170127
+sym /usr/lib64/libgdbm_compat.so -> libgdbm_compat.so.4.0.0 1752170127

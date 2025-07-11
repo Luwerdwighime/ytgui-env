@@ -1,0 +1,80 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/uc-micro-py-1.0.3
+obj /usr/share/doc/uc-micro-py-1.0.3/README.md.bz2 396db6df122cf1945b477d9034748555 1752175116
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/uc_micro_py-1.0.3.dist-info
+obj /usr/lib/python3.13/site-packages/uc_micro_py-1.0.3.dist-info/top_level.txt 1da86a99d9be3e20c94a41468bb63797 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro_py-1.0.3.dist-info/WHEEL 08dd01ac2afdbb287cc668d51c7056c8 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro_py-1.0.3.dist-info/METADATA d358627658c8b9d7963e0f7557bcacc4 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro
+dir /usr/lib/python3.13/site-packages/uc_micro/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/__pycache__/__init__.cpython-313.opt-2.pyc aea2056925f9be059fab44b56a9fd568 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/__pycache__/__init__.cpython-313.opt-1.pyc aea2056925f9be059fab44b56a9fd568 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/__pycache__/__init__.cpython-313.pyc aea2056925f9be059fab44b56a9fd568 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro/properties
+dir /usr/lib/python3.13/site-packages/uc_micro/properties/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/__pycache__/__init__.cpython-313.opt-2.pyc 26d180dac05ec767171b4154e684c8e5 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/__pycache__/__init__.cpython-313.opt-1.pyc 26d180dac05ec767171b4154e684c8e5 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/__pycache__/__init__.cpython-313.pyc 26d180dac05ec767171b4154e684c8e5 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro/properties/Any
+dir /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__pycache__/regex.cpython-313.opt-2.pyc 559c5552ad37988c17a272e77e437b25 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__pycache__/regex.cpython-313.opt-1.pyc 559c5552ad37988c17a272e77e437b25 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__pycache__/regex.cpython-313.pyc 559c5552ad37988c17a272e77e437b25 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__pycache__/__init__.cpython-313.opt-2.pyc 6a1b3789e54da527d7a2b5397263e27f 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__pycache__/__init__.cpython-313.opt-1.pyc 6a1b3789e54da527d7a2b5397263e27f 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__pycache__/__init__.cpython-313.pyc 6a1b3789e54da527d7a2b5397263e27f 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/regex.py 7bc7464fde679618adf4c1a589171cbf 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/Any/__init__.py a816f79ad9fdba93d008123864b62058 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/properties/__init__.py d523ac42e7c64df590c493e454b74185 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro/categories
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/__pycache__/__init__.cpython-313.opt-2.pyc e5141234bd7ee134d930749bf8da6aa1 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/__pycache__/__init__.cpython-313.opt-1.pyc e5141234bd7ee134d930749bf8da6aa1 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/__pycache__/__init__.cpython-313.pyc e5141234bd7ee134d930749bf8da6aa1 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/Z
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__pycache__/regex.cpython-313.opt-2.pyc 6da657891c0657968d55749c15e8bab2 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__pycache__/regex.cpython-313.opt-1.pyc 6da657891c0657968d55749c15e8bab2 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__pycache__/regex.cpython-313.pyc 6da657891c0657968d55749c15e8bab2 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__pycache__/__init__.cpython-313.opt-2.pyc 3bc180fe1f9dac6da51f872d64921ddc 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__pycache__/__init__.cpython-313.opt-1.pyc 3bc180fe1f9dac6da51f872d64921ddc 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__pycache__/__init__.cpython-313.pyc 3bc180fe1f9dac6da51f872d64921ddc 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/regex.py c9ad72a77196f22b9d1e81b97e7977eb 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Z/__init__.py a816f79ad9fdba93d008123864b62058 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/P
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/P/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/__pycache__/regex.cpython-313.opt-2.pyc 7e5e7cf7091723adca89a889d0742dbb 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/__pycache__/regex.cpython-313.opt-1.pyc 7e5e7cf7091723adca89a889d0742dbb 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/__pycache__/regex.cpython-313.pyc 7e5e7cf7091723adca89a889d0742dbb 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/__pycache__/__init__.cpython-313.opt-2.pyc d1a394c8180ef87761e9e5379d566559 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/__pycache__/__init__.cpython-313.opt-1.pyc d1a394c8180ef87761e9e5379d566559 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/__pycache__/__init__.cpython-313.pyc d1a394c8180ef87761e9e5379d566559 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/regex.py 674945c33c311720afe9ed2800cb2ce1 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/P/__init__.py a816f79ad9fdba93d008123864b62058 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/Cf
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__pycache__/regex.cpython-313.opt-2.pyc 3bb3cc50f308c7a5e98a47b8535cdc9f 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__pycache__/regex.cpython-313.opt-1.pyc 3bb3cc50f308c7a5e98a47b8535cdc9f 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__pycache__/regex.cpython-313.pyc 3bb3cc50f308c7a5e98a47b8535cdc9f 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__pycache__/__init__.cpython-313.opt-2.pyc e6d4ecb1f87de26541d284c3a9577f6d 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__pycache__/__init__.cpython-313.opt-1.pyc e6d4ecb1f87de26541d284c3a9577f6d 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__pycache__/__init__.cpython-313.pyc e6d4ecb1f87de26541d284c3a9577f6d 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/regex.py c7108388f5ddec67f0e9bd906b640c09 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cf/__init__.py a816f79ad9fdba93d008123864b62058 1752175114
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/Cc
+dir /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__pycache__
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__pycache__/regex.cpython-313.opt-2.pyc 9dc2ec2f9a7df51bec58e3997bde5f91 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__pycache__/regex.cpython-313.opt-1.pyc 9dc2ec2f9a7df51bec58e3997bde5f91 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__pycache__/regex.cpython-313.pyc 9dc2ec2f9a7df51bec58e3997bde5f91 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__pycache__/__init__.cpython-313.opt-2.pyc b8a9a68763a26b3ee1e42ca3d5a5b143 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__pycache__/__init__.cpython-313.opt-1.pyc b8a9a68763a26b3ee1e42ca3d5a5b143 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__pycache__/__init__.cpython-313.pyc b8a9a68763a26b3ee1e42ca3d5a5b143 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/regex.py 5dbc003e4f850c17dff75af9ac420480 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/Cc/__init__.py a816f79ad9fdba93d008123864b62058 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/categories/__init__.py b7aefea5bd1bfef37a616b8786b2ea52 1752175114
+obj /usr/lib/python3.13/site-packages/uc_micro/__init__.py 006afb21c0b2d8e243c69040e78988ad 1752175114

@@ -1,0 +1,136 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/setuptools-scm-8.3.1
+obj /usr/share/doc/setuptools-scm-8.3.1/README.md.bz2 0b14b235d91a43203e141efb8206b558 1752176143
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/setuptools_scm-8.3.1.dist-info
+obj /usr/lib/python3.13/site-packages/setuptools_scm-8.3.1.dist-info/METADATA 54e40759399aaa2d1ff7db085a60ebdb 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm-8.3.1.dist-info/entry_points.txt 8e305537b506f036bf0b63d48359b167 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm-8.3.1.dist-info/top_level.txt d1df003b4bf108bf6bc5e7f2244bca46 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm-8.3.1.dist-info/WHEEL 08dd01ac2afdbb287cc668d51c7056c8 1752176141
+dir /usr/lib/python3.13/site-packages/setuptools_scm
+obj /usr/lib/python3.13/site-packages/setuptools_scm/version.py 26895b2ad4c12106c2660d823d7b906b 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/integration.py e8a65412bf887fe240cff1aba043a731 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/scm_workdir.py ac0be5a91571bf3d99821c624fcf03bd 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/hg_git.py 81e17f030ed7ba9b0b20d0bcd4f6a88d 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/git.py 2a2a791d4dcff962cbec49859f91ac0d 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/hg.py ea636e2ab22fb06440b14dc0069f6466 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_version_cls.py fd63e38922cf9892bc3d05f1306c623c 1752176141
+dir /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/version.cpython-313.opt-1.pyc 7e84681e46596fed50ca20a2b2950e76 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/version.cpython-313.opt-2.pyc 1bedb8d6affdabd19854237f602a124c 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/scm_workdir.cpython-313.opt-1.pyc 97c15ed8927ec17ecb20b03f8be90636 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/hg_git.cpython-313.pyc 766e9e6bff7ca310c05478da7972be71 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/hg_git.cpython-313.opt-1.pyc 12152cb45934e622ec03b4806961aced 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/hg_git.cpython-313.opt-2.pyc 7695eff06c1a828f8c5d8ed2a643946a 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/git.cpython-313.opt-1.pyc dbd6e7fa30474e221eb2e24f2a5b5b0e 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/hg.cpython-313.opt-2.pyc 605cb3a718b5c2d7ca9bc12d3a92d25a 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/hg.cpython-313.opt-1.pyc 605cb3a718b5c2d7ca9bc12d3a92d25a 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/hg.cpython-313.pyc 39e315dc8954740d4bb024766aebe3d0 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/scm_workdir.cpython-313.opt-2.pyc 97c15ed8927ec17ecb20b03f8be90636 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/version.cpython-313.pyc 9971e1cfe07f5d451b9ec71bc74bf27d 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/integration.cpython-313.opt-2.pyc 9859e8fe11dedc7c1d0809a39e7b592e 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/integration.cpython-313.pyc f2ffa44e68b449a74c84d195041e3693 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/integration.cpython-313.opt-1.pyc f2ffa44e68b449a74c84d195041e3693 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/scm_workdir.cpython-313.pyc 97c15ed8927ec17ecb20b03f8be90636 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/git.cpython-313.pyc 9b3f3431f632de4dd90599baf539b757 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/git.cpython-313.opt-2.pyc 84c865589d71c1c21c79e6a43aff063b 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/fallbacks.cpython-313.opt-1.pyc 80256ba406df3fb8460a595c309cdbe8 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/fallbacks.cpython-313.pyc 80256ba406df3fb8460a595c309cdbe8 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/fallbacks.cpython-313.opt-2.pyc 80256ba406df3fb8460a595c309cdbe8 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/discover.cpython-313.opt-2.pyc 3a3a6ed51914e42284a2eb14e2a5b1c2 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_modify_version.cpython-313.opt-2.pyc ac2971cc409d6dba007b9f9c8c896f8a 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/discover.cpython-313.pyc 2acd597eb53fa6e4807569c872c1b7bd 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_version_cls.cpython-313.opt-2.pyc 2c5a61b47414cf1d4e1c693bc04c9c73 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/discover.cpython-313.opt-1.pyc 2acd597eb53fa6e4807569c872c1b7bd 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_version_cls.cpython-313.pyc 9fc4defcc453fe0b6f662d51c39ad5b3 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_types.cpython-313.opt-2.pyc 6dcf1ec520e251ca8eff7a0199bb3410 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_version_cls.cpython-313.opt-1.pyc 9fc4defcc453fe0b6f662d51c39ad5b3 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_types.cpython-313.pyc 6dcf1ec520e251ca8eff7a0199bb3410 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_run_cmd.cpython-313.opt-2.pyc 0c3de5278f14cfcc788fee1d6681f8e4 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_types.cpython-313.opt-1.pyc 6dcf1ec520e251ca8eff7a0199bb3410 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_run_cmd.cpython-313.pyc 13d56a877ceed1122c29d91580180d87 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_overrides.cpython-313.opt-2.pyc c86b49aa8de73800b722783e25c9729f 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_run_cmd.cpython-313.opt-1.pyc 13d56a877ceed1122c29d91580180d87 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_overrides.cpython-313.pyc 7aba16a9efe379dd99b55427959bf4e3 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_get_version_impl.cpython-313.opt-1.pyc d6a952eb1ec2fabfd75ef62a4583dda1 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_overrides.cpython-313.opt-1.pyc 7aba16a9efe379dd99b55427959bf4e3 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_modify_version.cpython-313.pyc ac2971cc409d6dba007b9f9c8c896f8a 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_log.cpython-313.opt-2.pyc 6fed84979faf9a0f5d0ea3942128d99f 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_modify_version.cpython-313.opt-1.pyc ac2971cc409d6dba007b9f9c8c896f8a 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_log.cpython-313.pyc 794554a32c97a97124f2dce36ea86265 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_get_version_impl.cpython-313.opt-2.pyc 00c70957ce64d30fd5f597a7cb3ec115 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_log.cpython-313.opt-1.pyc 652ad34dbdb91f83f66ed703bcc29be8 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_get_version_impl.cpython-313.pyc cde0efad3f69f4796b6dea2bc9f3684c 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_config.cpython-313.opt-1.pyc e97281a5475a54da94afa05f2f8c37ed 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_config.cpython-313.pyc e97281a5475a54da94afa05f2f8c37ed 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_cli.cpython-313.opt-2.pyc 7e93c4e822433f97e4d57e6da23be9a9 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/__main__.cpython-313.opt-2.pyc 07224a36348fbd1ce20fc7dec6e544b0 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_cli.cpython-313.opt-1.pyc 7e93c4e822433f97e4d57e6da23be9a9 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_cli.cpython-313.pyc 7e93c4e822433f97e4d57e6da23be9a9 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/__main__.cpython-313.opt-1.pyc 07224a36348fbd1ce20fc7dec6e544b0 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/__main__.cpython-313.pyc 07224a36348fbd1ce20fc7dec6e544b0 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/__init__.cpython-313.opt-1.pyc 16cd01840f4dad112cbca62a5b4014ef 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/__init__.cpython-313.pyc 16cd01840f4dad112cbca62a5b4014ef 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/__init__.cpython-313.opt-2.pyc cdd8c6f108d44303eed445ba1fa5b32f 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_config.cpython-313.opt-2.pyc 5100dae5ca2fdbc31a75cec706824dc1 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_entrypoints.cpython-313.opt-1.pyc 48819e3e2f86b03ac7f1de069dce8824 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_entrypoints.cpython-313.opt-2.pyc 48819e3e2f86b03ac7f1de069dce8824 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__pycache__/_entrypoints.cpython-313.pyc 48819e3e2f86b03ac7f1de069dce8824 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/fallbacks.py 9e3620c0eec384200d3323af8f6f7551 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/discover.py 50818038fe8efd19d90ef7fc79f3dfe5 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_overrides.py 6b64b1c9395dd4ec46a688f6adbd1977 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_types.py 90df30f02e701ca0b36211f4140ff5de 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_run_cmd.py 14b9b407c49536cf338b3ee20cd32242 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_log.py 9ce2772be1277d4c30fd359a84c3d7f0 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_modify_version.py 4913ebcc2a2723ca52103f664a9af13e 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_get_version_impl.py 0ec598b21008a7054cecd30cbb849649 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_entrypoints.py 3129bd1db7bad659e54d9882b6534855 1752176141
+dir /usr/lib/python3.13/site-packages/setuptools_scm/_integration
+dir /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/toml.cpython-313.opt-1.pyc 96549f8b02e7192f0bea8302f669f6a2 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/toml.cpython-313.pyc 96549f8b02e7192f0bea8302f669f6a2 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/__init__.cpython-313.opt-1.pyc 66e8c5a4b9b5f250e2dd15f81096fbf2 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/__init__.cpython-313.pyc 66e8c5a4b9b5f250e2dd15f81096fbf2 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/pyproject_reading.cpython-313.opt-1.pyc e90ded3cbdc4378c8cc1aa404f2b4ba8 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/setuptools.cpython-313.opt-2.pyc 9950540cd585f4282ca3388cf0bcf926 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/setuptools.cpython-313.pyc 2d99ff424cf70e58251bc9a5156830af 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/pyproject_reading.cpython-313.opt-2.pyc 04a0848ea5b68b2cf4bc630ac8acd621 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/pyproject_reading.cpython-313.pyc 125ac194bb93cec18cfe9a73cc553009 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/dump_version.cpython-313.opt-1.pyc 1b2c6ba85c6f331d6ab0667d8d41890e 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/dump_version.cpython-313.opt-2.pyc 1b2c6ba85c6f331d6ab0667d8d41890e 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/dump_version.cpython-313.pyc 1bb399ac732e3f918aa8722add948b19 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/__init__.cpython-313.opt-2.pyc 66e8c5a4b9b5f250e2dd15f81096fbf2 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/setuptools.cpython-313.opt-1.pyc 9950540cd585f4282ca3388cf0bcf926 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__pycache__/toml.cpython-313.opt-2.pyc 827feee22320ec99648820360c9ff29c 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/toml.py ac32eb6bf0648061a04228a1ca322391 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/pyproject_reading.py 9d6bb42f88daa82b1219c76d1550be47 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/setuptools.py d2f59cc1997f442925441497c5726271 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/__init__.py d41d8cd98f00b204e9800998ecf8427e 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_integration/dump_version.py f14ed01a00e02aa301c2dd6633aa5145 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_cli.py 20c8619f095b90a4337479c1bda7c36b 1752176141
+dir /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders
+dir /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/__init__.cpython-313.pyc 72fc41c95dc626f02f92e2beecabbb1d 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/__init__.cpython-313.opt-2.pyc 4042215e4e8ec59eafc55a0cc85d48a0 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/__init__.cpython-313.opt-1.pyc 72fc41c95dc626f02f92e2beecabbb1d 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/pathtools.cpython-313.opt-1.pyc 58b8c54ba4e270e69b4d29bfea75962c 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/pathtools.cpython-313.opt-2.pyc 58b8c54ba4e270e69b4d29bfea75962c 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/pathtools.cpython-313.pyc 58b8c54ba4e270e69b4d29bfea75962c 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/hg.cpython-313.opt-1.pyc 6ae93ff6a541b02ba8f27d2fe1e43dfc 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/hg.cpython-313.opt-2.pyc 6ae93ff6a541b02ba8f27d2fe1e43dfc 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/hg.cpython-313.pyc fdc1dae898369cc8e65059245879c34b 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/git.cpython-313.opt-2.pyc 9a81273c1e92528e2bb97af77f833782 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/git.cpython-313.pyc ae04f667ed240a195cf7ce8c32d755b7 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__pycache__/git.cpython-313.opt-1.pyc 9a81273c1e92528e2bb97af77f833782 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/pathtools.py 883398e30595d596c257888ddf270b56 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/hg.py dd66fbd1915b321d15e4c1eadb400234 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/git.py 2052c8fba07a9c87a9adb0f9a7d8e622 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_file_finders/__init__.py faff047a5555ceb68134a2b242932e62 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__main__.py 780e61e57fbf2b4a51429f873b95a52c 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/.git_archival.txt a2d2d7038c01f06722c3d50067c0ac29 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/__init__.py 578b80e69aedba3c073352af86563d39 1752176141
+obj /usr/lib/python3.13/site-packages/setuptools_scm/_config.py 9d639551b53e83cdb74ab9b2afc3265f 1752176141

@@ -1,0 +1,251 @@
+dir /usr
+dir /usr/share
+dir /usr/share/man
+dir /usr/share/man/uk
+dir /usr/share/man/uk/man1
+obj /usr/share/man/uk/man1/xzless.1.bz2 f4c1f2ec8edc45677235f653a5da60de 1752117942
+obj /usr/share/man/uk/man1/xzgrep.1.bz2 b0d4f1f84a33af6feb1645c1a6a9654a 1752117942
+obj /usr/share/man/uk/man1/xzdiff.1.bz2 6f84ba46bd466a278ce8f29d8edb3611 1752117942
+obj /usr/share/man/uk/man1/xzdec.1.bz2 a6f246161bf89e42222f3825291eb4d8 1752117939
+obj /usr/share/man/uk/man1/xz.1.bz2 20b7f2342a1f736f34a4ee04324c98ca 1752117940
+sym /usr/share/man/uk/man1/lzless.1.bz2 -> xzless.1.bz2 1752117948
+sym /usr/share/man/uk/man1/lzfgrep.1.bz2 -> xzgrep.1.bz2 1752117948
+sym /usr/share/man/uk/man1/lzegrep.1.bz2 -> xzgrep.1.bz2 1752117948
+sym /usr/share/man/uk/man1/lzgrep.1.bz2 -> xzgrep.1.bz2 1752117948
+sym /usr/share/man/uk/man1/lzdiff.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/uk/man1/xzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/uk/man1/xzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/uk/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+obj /usr/share/man/uk/man1/lzmainfo.1.bz2 791ac500631910d8085ed5456a65f338 1752117941
+obj /usr/share/man/uk/man1/xzmore.1.bz2 d940f20aba2bad99a14af53d998c523e 1752117942
+sym /usr/share/man/uk/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/uk/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/uk/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/uk/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+dir /usr/share/man/sr
+dir /usr/share/man/sr/man1
+obj /usr/share/man/sr/man1/xzless.1.bz2 a2b3099e176864bd060cffde93108f70 1752117942
+obj /usr/share/man/sr/man1/xzmore.1.bz2 dc86ee345ea5c52e9136f407505006bd 1752117942
+obj /usr/share/man/sr/man1/lzmainfo.1.bz2 577f3bff4b12304578a6a77e690dbfca 1752117941
+obj /usr/share/man/sr/man1/xzdec.1.bz2 21afff973bc3eec5644a8d7be8ad653f 1752117939
+sym /usr/share/man/sr/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+obj /usr/share/man/sr/man1/xzgrep.1.bz2 e051b4e77df21bb255f4078c64919ebd 1752117942
+obj /usr/share/man/sr/man1/xzdiff.1.bz2 cca405ccdf9fb4d1e69b7c29de980f8b 1752117942
+sym /usr/share/man/sr/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+obj /usr/share/man/sr/man1/xz.1.bz2 45f3336cc66fa03a8d65ed0d394b84e4 1752117940
+dir /usr/share/man/ro
+dir /usr/share/man/ro/man1
+obj /usr/share/man/ro/man1/xzless.1.bz2 e36304f9438e361f0ace2e9bceb36400 1752117942
+obj /usr/share/man/ro/man1/xzgrep.1.bz2 f7bd318441bdbaacca35e66c196a0a95 1752117942
+obj /usr/share/man/ro/man1/xzdiff.1.bz2 4ddbe8533e65c423ab973950b413f9b6 1752117942
+obj /usr/share/man/ro/man1/lzmainfo.1.bz2 7281c369fafaf88ca154e807d560555a 1752117941
+obj /usr/share/man/ro/man1/xz.1.bz2 9c53140795c92dcbd8b36a11dc238c9a 1752117940
+sym /usr/share/man/ro/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzdiff.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/ro/man1/xzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ro/man1/xzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+obj /usr/share/man/ro/man1/xzmore.1.bz2 6a7dce88515e6034ca45de164529dcaf 1752117942
+obj /usr/share/man/ro/man1/xzdec.1.bz2 66e26fb580aa8298dd9555b9feb844ac 1752117939
+sym /usr/share/man/ro/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ro/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ro/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+dir /usr/share/man/pt_BR
+dir /usr/share/man/pt_BR/man1
+obj /usr/share/man/pt_BR/man1/lzmainfo.1.bz2 74aa6f406c4f6e47054b84bc5d4355b7 1752117941
+obj /usr/share/man/pt_BR/man1/xzdec.1.bz2 39bdcc6fe8845f95514890469a23c353 1752117939
+obj /usr/share/man/pt_BR/man1/xzless.1.bz2 63c3dce7e8ab0359527cac0ca3424471 1752117942
+sym /usr/share/man/pt_BR/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+obj /usr/share/man/pt_BR/man1/xz.1.bz2 6178b95ba4e4bae8894a11976bb98e3e 1752117940
+dir /usr/share/man/ko
+dir /usr/share/man/ko/man1
+obj /usr/share/man/ko/man1/xzless.1.bz2 6f14f67a4451b484859454f094832177 1752117942
+obj /usr/share/man/ko/man1/xzmore.1.bz2 fa6bc28b5cc928a53a79a74908a42365 1752117942
+obj /usr/share/man/ko/man1/lzmainfo.1.bz2 677c88ec2425c7bb323c3c8f85e65bb8 1752117941
+obj /usr/share/man/ko/man1/xzdec.1.bz2 c87b7a09c1c4f171ed3a8d99e46b5785 1752117939
+sym /usr/share/man/ko/man1/lzmore.1.bz2 -> xzmore.1.bz2 1752117947
+obj /usr/share/man/ko/man1/xzdiff.1.bz2 b993e60afc31796049410a2681fd0e36 1752117942
+obj /usr/share/man/ko/man1/xzgrep.1.bz2 1eba3aeb727c4ccdeb5c77979c49c94e 1752117942
+sym /usr/share/man/ko/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+obj /usr/share/man/ko/man1/xz.1.bz2 e56020b289e87e4d32989fbe07a6d844 1752117940
+dir /usr/share/man/it
+dir /usr/share/man/it/man1
+obj /usr/share/man/it/man1/xzmore.1.bz2 a7a633ad79845c633fa0a670e8e7ddd6 1752117942
+obj /usr/share/man/it/man1/xzless.1.bz2 4bf71d2f7bcdd9e46ef30a9da25c0bcd 1752117942
+obj /usr/share/man/it/man1/lzmainfo.1.bz2 2939b4f125a112df63d8e9845998817c 1752117941
+obj /usr/share/man/it/man1/xzdec.1.bz2 1125a03c3c69bb3d727d6f1ede3ebe19 1752117939
+obj /usr/share/man/it/man1/xz.1.bz2 5a6c323e9eed74c909d4032d12f93e3d 1752117940
+sym /usr/share/man/it/man1/lzmore.1.bz2 -> xzmore.1.bz2 1752117947
+obj /usr/share/man/it/man1/xzdiff.1.bz2 c52d540403e025f97a03bae8e9cd68fd 1752117942
+obj /usr/share/man/it/man1/xzgrep.1.bz2 15f545db44bc8e4d9abd1f0c841357a3 1752117942
+sym /usr/share/man/it/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/it/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/it/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+dir /usr/share/man/fr
+dir /usr/share/man/fr/man1
+obj /usr/share/man/fr/man1/lzmainfo.1.bz2 e7ce1f3c46bdc061ba2eac383ce105b9 1752117941
+obj /usr/share/man/fr/man1/xzdec.1.bz2 0ea11532020257a7f2e82bb097a8c1c1 1752117939
+obj /usr/share/man/fr/man1/xzless.1.bz2 db2fa78432009b92d9e231da0d3bfebe 1752117941
+sym /usr/share/man/fr/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+obj /usr/share/man/fr/man1/xz.1.bz2 92ab215df5f148736c8d644dfe15dfa4 1752117940
+dir /usr/share/man/de
+dir /usr/share/man/de/man1
+obj /usr/share/man/de/man1/xzgrep.1.bz2 a0c1485bbd4896466e97cc561cffa5bc 1752117941
+obj /usr/share/man/de/man1/xzless.1.bz2 58f650614c572a262417de425372e46d 1752117941
+obj /usr/share/man/de/man1/xzmore.1.bz2 2f89f14f17eb36bbab8ee14e5d00ff8e 1752117941
+obj /usr/share/man/de/man1/lzmainfo.1.bz2 8a5b3df1d1e6be98841127b3d158ca42 1752117941
+obj /usr/share/man/de/man1/xzdec.1.bz2 7a283cdd9acb1ff06cd35e437a574b47 1752117939
+sym /usr/share/man/de/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/de/man1/xzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/de/man1/xzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+obj /usr/share/man/de/man1/xzdiff.1.bz2 26f8522d49c520e0719f5818bd4573c4 1752117941
+sym /usr/share/man/de/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117947
+obj /usr/share/man/de/man1/xz.1.bz2 e056f8dbe947a5462905c3155c55e666 1752117939
+dir /usr/share/man/man1
+obj /usr/share/man/man1/xzless.1.bz2 53f7044bcce6e0142e7cc0ec99d09694 1752117941
+obj /usr/share/man/man1/lzmainfo.1.bz2 d79b83f2f6f0b364844ae309e2424ed2 1752117941
+obj /usr/share/man/man1/xzmore.1.bz2 42fbd08d3dba19982b005de7f1ee4b0f 1752117941
+obj /usr/share/man/man1/xzgrep.1.bz2 98d27c6520f79eff6184917ff81e01cb 1752117941
+obj /usr/share/man/man1/xzdec.1.bz2 02304bc8f0ac19954b10a58541adec5f 1752117938
+sym /usr/share/man/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+sym /usr/share/man/man1/lzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/man1/lzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/man1/lzgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/man1/xzfgrep.1.bz2 -> xzgrep.1.bz2 1752117946
+sym /usr/share/man/man1/xzegrep.1.bz2 -> xzgrep.1.bz2 1752117946
+obj /usr/share/man/man1/xzdiff.1.bz2 6b67892db33a663488534b11de046f6c 1752117941
+sym /usr/share/man/man1/lzmadec.1.bz2 -> xzdec.1.bz2 1752117946
+obj /usr/share/man/man1/xz.1.bz2 6fd570b544e0e16699f43d5e46e6a09d 1752117939
+dir /usr/bin
+obj /usr/bin/xzless 73418d62905d55b8c6153bef9eca76be 1752117941
+obj /usr/bin/xzmore a7a549b4b4e36a5f5b9399bd6f8c4e5c 1752117941
+obj /usr/bin/xzgrep 27b6d29fe099e450ed3737ce82ba5587 1752117941
+obj /usr/bin/xzdiff 684bb3b22fe90b6f160a212b148c5626 1752117941
+obj /usr/bin/lzmainfo a8bb390f7cf63fca539bdd898bc5632e 1752117948
+obj /usr/bin/xz cb7f82cf2ced639e8b27c6ab1fb0b410 1752117948
+obj /usr/bin/lzmadec 37281bd07c2f62db84fdfe22709bac4a 1752117948
+obj /usr/bin/xzdec dfd19b5291bbf8ea3a4ef2378e1151fe 1752117948
+dir /usr/lib64
+obj /usr/lib64/liblzma.a c07d06201955232dda631c1ba8cc420b 1752117948
+obj /usr/lib64/liblzma.so.5.8.1 15a04c7d92ec70e10f0480bba2cb72d4 1752117948
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/liblzma.pc c107e8af6fa24559a9434e09f60daa66 1752117938
+dir /usr/include
+obj /usr/include/lzma.h 8a59a5d898044120b0d08b473c2c1b52 1752117938
+dir /usr/include/lzma
+obj /usr/include/lzma/vli.h 72483d8be715677c58f5067b75b8e397 1752117938
+obj /usr/include/lzma/version.h 9bb5a802780a2a713b8f4eaf780ba414 1752117938
+obj /usr/include/lzma/stream_flags.h 7dcf737023d0f9a220581c1a7f11c94b 1752117938
+obj /usr/include/lzma/lzma12.h 7211c29a8ab65f17ef574157572ba81c 1752117938
+obj /usr/include/lzma/index_hash.h 1c84e25992ec2d235ac46e768697ba65 1752117938
+obj /usr/include/lzma/index.h 1522cce69e14449c2ed11418d7564ebc 1752117938
+obj /usr/include/lzma/hardware.h d7115ac20b3f58d4a53520e7c9c349f5 1752117938
+obj /usr/include/lzma/filter.h e6e07f2848d2614c35f9f6c2f793a28c 1752117938
+obj /usr/include/lzma/delta.h d0ab27afeb727c159211acfa83f3fff1 1752117938
+obj /usr/include/lzma/container.h 37bf14925c8bd620b6861951e275669f 1752117938
+obj /usr/include/lzma/check.h e984746dbff7de489b90efb1be7693a1 1752117938
+obj /usr/include/lzma/block.h 2fdebfa15efb51ffdb2efa53403d5b79 1752117938
+obj /usr/include/lzma/bcj.h 06f7a900de29d4b5fd6ba39843fbb3c2 1752117938
+obj /usr/include/lzma/base.h 80996bd7919cac5d930df4d5a4898599 1752117938
+sym /usr/lib64/liblzma.so.5 -> liblzma.so.5.8.1 1752117938
+sym /usr/lib64/liblzma.so -> liblzma.so.5.8.1 1752117938
+sym /usr/bin/unxz -> xz 1752117939
+sym /usr/bin/xzcat -> xz 1752117939
+sym /usr/bin/lzma -> xz 1752117939
+sym /usr/bin/unlzma -> xz 1752117939
+sym /usr/bin/lzcat -> xz 1752117939
+sym /usr/bin/xzcmp -> xzdiff 1752117941
+sym /usr/bin/xzegrep -> xzgrep 1752117941
+sym /usr/bin/xzfgrep -> xzgrep 1752117941
+sym /usr/bin/lzdiff -> xzdiff 1752117941
+sym /usr/bin/lzcmp -> xzdiff 1752117941
+sym /usr/bin/lzgrep -> xzgrep 1752117942
+sym /usr/bin/lzegrep -> xzgrep 1752117942
+sym /usr/bin/lzfgrep -> xzgrep 1752117942
+sym /usr/bin/lzmore -> xzmore 1752117942
+sym /usr/bin/lzless -> xzless 1752117942
+sym /usr/share/man/man1/unxz.1.bz2 -> xz.1.bz2 1752117946
+sym /usr/share/man/man1/lzma.1.bz2 -> xz.1.bz2 1752117946
+sym /usr/share/man/man1/lzcat.1.bz2 -> xz.1.bz2 1752117946
+sym /usr/share/man/man1/xzcat.1.bz2 -> xz.1.bz2 1752117946
+sym /usr/share/man/man1/unlzma.1.bz2 -> xz.1.bz2 1752117946
+sym /usr/share/man/man1/lzdiff.1.bz2 -> xzdiff.1.bz2 1752117946
+sym /usr/share/man/man1/xzcmp.1.bz2 -> xzdiff.1.bz2 1752117946
+sym /usr/share/man/man1/lzcmp.1.bz2 -> xzdiff.1.bz2 1752117946
+sym /usr/share/man/man1/lzmore.1.bz2 -> xzmore.1.bz2 1752117947
+sym /usr/share/man/de/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/de/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/de/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzdiff.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/de/man1/xzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/de/man1/lzmore.1.bz2 -> xzmore.1.bz2 1752117947
+sym /usr/share/man/fr/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/fr/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/fr/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/fr/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+sym /usr/share/man/fr/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/fr/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/it/man1/xzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/it/man1/xzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/it/man1/xzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzdiff.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/it/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+sym /usr/share/man/ko/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ko/man1/xzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/ko/man1/xzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ko/man1/xzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ko/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ko/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzdiff.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/ko/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+sym /usr/share/man/pt_BR/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/pt_BR/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/pt_BR/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/pt_BR/man1/lzless.1.bz2 -> xzless.1.bz2 1752117947
+sym /usr/share/man/pt_BR/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/pt_BR/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/ro/man1/xzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/ro/man1/lzmore.1.bz2 -> xzmore.1.bz2 1752117947
+sym /usr/share/man/sr/man1/unxz.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/sr/man1/xzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/sr/man1/xzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/sr/man1/xzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzdiff.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzegrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzfgrep.1.bz2 -> xzgrep.1.bz2 1752117947
+sym /usr/share/man/sr/man1/unlzma.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/sr/man1/xzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/sr/man1/lzmore.1.bz2 -> xzmore.1.bz2 1752117947
+sym /usr/share/man/uk/man1/lzcat.1.bz2 -> xz.1.bz2 1752117947
+sym /usr/share/man/uk/man1/xzcmp.1.bz2 -> xzdiff.1.bz2 1752117947
+sym /usr/share/man/uk/man1/lzcmp.1.bz2 -> xzdiff.1.bz2 1752117948
+sym /usr/share/man/uk/man1/lzmore.1.bz2 -> xzmore.1.bz2 1752117948

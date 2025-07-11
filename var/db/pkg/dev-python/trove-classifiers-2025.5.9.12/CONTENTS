@@ -1,0 +1,28 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/trove-classifiers-2025.5.9.12
+obj /usr/share/doc/trove-classifiers-2025.5.9.12/README.md.bz2 a58b85435586fa2b8125963c478d3ef6 1752175025
+dir /usr/bin
+sym /usr/bin/trove-classifiers -> ../lib/python-exec/python-exec2 1752175025
+dir /usr/lib
+dir /usr/lib/python-exec
+dir /usr/lib/python-exec/python3.13
+obj /usr/lib/python-exec/python3.13/trove-classifiers 4190c73d715e1d3b54770bbc5c8d98e4 1752175023
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/trove_classifiers
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__init__.py ff834b5bbdb60c5a3c02c1965fe4b9a3 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__main__.py 50914f0cc8327a169ede98be8c2d1d41 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers/py.typed d41d8cd98f00b204e9800998ecf8427e 1752175023
+dir /usr/lib/python3.13/site-packages/trove_classifiers/__pycache__
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__pycache__/__init__.cpython-313.pyc 9b2a313e0ed1dcc3cb2983a0541c18d8 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__pycache__/__main__.cpython-313.opt-2.pyc 351b696bde1774c5e787db64f4f3f57a 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__pycache__/__init__.cpython-313.opt-1.pyc 9b2a313e0ed1dcc3cb2983a0541c18d8 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__pycache__/__main__.cpython-313.pyc 351b696bde1774c5e787db64f4f3f57a 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__pycache__/__main__.cpython-313.opt-1.pyc 351b696bde1774c5e787db64f4f3f57a 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers/__pycache__/__init__.cpython-313.opt-2.pyc 9b2a313e0ed1dcc3cb2983a0541c18d8 1752175023
+dir /usr/lib/python3.13/site-packages/trove_classifiers-2025.5.9.12.dist-info
+obj /usr/lib/python3.13/site-packages/trove_classifiers-2025.5.9.12.dist-info/WHEEL 9f23d6bff077dd28ec0eeb019a33459c 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers-2025.5.9.12.dist-info/entry_points.txt cc8a525b38ad445a3fff715376714411 1752175023
+obj /usr/lib/python3.13/site-packages/trove_classifiers-2025.5.9.12.dist-info/METADATA 2f490c95795954d95fdf9cd82077802b 1752175023

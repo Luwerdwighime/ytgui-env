@@ -1,0 +1,47 @@
+dir /etc
+dir /etc/skel
+obj /etc/skel/.bashrc d210b9cd7fc07420736480f2062d7d7f 1752194583
+obj /etc/skel/.bash_profile d3322040528c46743ea8e4b0b9a186bc 1752194583
+obj /etc/skel/.bash_logout 7d8a8ef90c1818a0cd66808ac2740638 1752194582
+dir /etc/bash
+dir /etc/bash/bashrc.d
+obj /etc/bash/bashrc.d/15-gentoo-bashrc-check.bash 76440d1dd0aaa3bb91314c0ba95530ca 1752194582
+obj /etc/bash/bashrc.d/10-gentoo-title.bash 651b13d89747459010d2985d1a8efb78 1752194582
+obj /etc/bash/bashrc.d/10-gentoo-color.bash 66c55bd1754feb170d398c6535a6e4e6 1752194582
+obj /etc/bash/bashrc a6d66b478b9e1047e27b09b6b6824f6c 1752194581
+obj /etc/bash/bash_logout 229ccc2980a94877f2e87f957e9da7bf 1752194581
+dir /bin
+obj /bin/bash 3d34730eb092f4bdc684fc4399e40fa2 1752194586
+dir /usr
+dir /usr/share
+dir /usr/share/locale
+dir /usr/share/locale/ru
+dir /usr/share/locale/ru/LC_MESSAGES
+obj /usr/share/locale/ru/LC_MESSAGES/bash.mo fa9097ab0c1c8df3277cbaaeaac751da 1752194579
+dir /usr/share/doc
+dir /usr/share/doc/bash-5.2_p37-r3
+obj /usr/share/doc/bash-5.2_p37-r3/INTRO.bz2 0adb1e98d3ad2a3a012d696ea17e5547 1752194579
+obj /usr/share/doc/bash-5.2_p37-r3/ChangeLog.bz2 ce111817c824b2219853dccec71b32e4 1752194583
+obj /usr/share/doc/bash-5.2_p37-r3/RBASH.bz2 e4f36f0e769cb93cc83a1ee6e3ded15b 1752194579
+obj /usr/share/doc/bash-5.2_p37-r3/POSIX.bz2 141aa53518d8e91975dbe501ab48356a 1752194579
+obj /usr/share/doc/bash-5.2_p37-r3/COMPAT.bz2 cc997b8d0017a8b3540f813d7cc55e64 1752194579
+obj /usr/share/doc/bash-5.2_p37-r3/CHANGES.bz2 38eb0db0c24d90bd96d935db3f584cb8 1752194581
+obj /usr/share/doc/bash-5.2_p37-r3/AUTHORS.bz2 65f88febe33195919919139655121a7f 1752194580
+dir /usr/share/doc/bash-5.2_p37-r3/html
+obj /usr/share/doc/bash-5.2_p37-r3/html/bashref.html 62c10756b86ee42a311985d56eb8e91c 1752194579
+obj /usr/share/doc/bash-5.2_p37-r3/html/bash.html 28085708d3884d18e68b1b9fc11253cc 1752194579
+obj /usr/share/doc/bash-5.2_p37-r3/FAQ.bz2 c2d1b2ee5eaeb2b136f1c3e317916309 1752194579
+obj /usr/share/doc/bash-5.2_p37-r3/README.bz2 d3bd5af96dab32e5c85d2d3e8ae52c72 1752194580
+obj /usr/share/doc/bash-5.2_p37-r3/NEWS.bz2 7b03ccf4cfaf3c42b8f0b0980aefdbbc 1752194580
+dir /usr/share/info
+obj /usr/share/info/bash.info.bz2 c92d7228a697efbefda4b387f34e2a00 1752194579
+sym /usr/share/info/bashref.info.bz2 -> bash.info.bz2 1752194585
+dir /usr/share/man
+dir /usr/share/man/man1
+obj /usr/share/man/man1/bash_builtins.1.bz2 56e4791953db09fda8ac7017d48a659b 1752194583
+obj /usr/share/man/man1/bashbug.1.bz2 9d12dc1958d8e640264182b801e24316 1752194579
+obj /usr/share/man/man1/bash.1.bz2 11906b8f10c8b78276f51174bc2b3f01 1752194579
+obj /usr/share/man/man1/rbash.1.bz2 af1c6fee4dd34c857713fac87914538d 1752194583
+dir /usr/bin
+obj /usr/bin/bashbug 34046fe6451cf681a6f29bb2a4d8c10c 1752194579
+sym /bin/rbash -> bash 1752194581

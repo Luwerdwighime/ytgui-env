@@ -1,0 +1,81 @@
+{
+	"info": {
+		"/tmp/python_min/usr/share/gcc-data/aarch64-unknown-linux-gnu/14/info": 1752176176,
+		"/tmp/python_min/usr/share/info": 1752196726
+	},
+	"ldpath": {
+		"/tmp/python_min/lib": 1752169271,
+		"/tmp/python_min/lib64": 1752172368,
+		"/tmp/python_min/usr/lib": 1752173805,
+		"/tmp/python_min/usr/lib64": 1752196518
+	},
+	"resume_backup": {
+		"binpkgs": [],
+		"favorites": [
+			"dev-libs/openssl",
+			"dev-libs/libffi",
+			"sys-libs/zlib",
+			"sys-libs/glibc"
+		],
+		"mergelist": [
+			[
+				"ebuild",
+				"/tmp/python_min/",
+				"dev-libs/libunistring-1.3",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/tmp/python_min/",
+				"sys-libs/timezone-data-2025b",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/tmp/python_min/",
+				"app-misc/ca-certificates-20240203.3.98",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/tmp/python_min/",
+				"net-dns/libidn2-2.3.8",
+				"merge"
+			]
+		],
+		"myopts": {
+			"--onlydeps": true,
+			"--regex-search-auto": "y",
+			"--root": "/tmp/python_min",
+			"--usepkg": true
+		}
+	},
+	"starttime": 0,
+	"updates": {
+		"/var/db/repos/gentoo/profiles/updates/1Q-2020": 1732356664,
+		"/var/db/repos/gentoo/profiles/updates/1Q-2021": 1639991409,
+		"/var/db/repos/gentoo/profiles/updates/1Q-2023": 1702671048,
+		"/var/db/repos/gentoo/profiles/updates/1Q-2024": 1745318464,
+		"/var/db/repos/gentoo/profiles/updates/1Q-2025": 1743956152,
+		"/var/db/repos/gentoo/profiles/updates/2Q-2020": 1666642223,
+		"/var/db/repos/gentoo/profiles/updates/2Q-2021": 1624403379,
+		"/var/db/repos/gentoo/profiles/updates/2Q-2022": 1678117222,
+		"/var/db/repos/gentoo/profiles/updates/2Q-2023": 1702671048,
+		"/var/db/repos/gentoo/profiles/updates/2Q-2024": 1719769276,
+		"/var/db/repos/gentoo/profiles/updates/2Q-2025": 1749429684,
+		"/var/db/repos/gentoo/profiles/updates/3Q-2020": 1720640460,
+		"/var/db/repos/gentoo/profiles/updates/3Q-2021": 1697812845,
+		"/var/db/repos/gentoo/profiles/updates/3Q-2022": 1732371221,
+		"/var/db/repos/gentoo/profiles/updates/3Q-2023": 1720809663,
+		"/var/db/repos/gentoo/profiles/updates/3Q-2024": 1728582180,
+		"/var/db/repos/gentoo/profiles/updates/4Q-2020": 1710097843,
+		"/var/db/repos/gentoo/profiles/updates/4Q-2021": 1743956152,
+		"/var/db/repos/gentoo/profiles/updates/4Q-2022": 1732309862,
+		"/var/db/repos/gentoo/profiles/updates/4Q-2023": 1738336298,
+		"/var/db/repos/gentoo/profiles/updates/4Q-2024": 1748140877,
+		"/var/db/repos/steam-overlay/profiles/updates/1Q-2013": 1730417817,
+		"/var/db/repos/steam-overlay/profiles/updates/4Q-2012": 1730417817,
+		"/var/db/repos/steam-overlay/profiles/updates/4Q-2020": 1730417817
+	},
+	"version": "3.0.67"
+}
