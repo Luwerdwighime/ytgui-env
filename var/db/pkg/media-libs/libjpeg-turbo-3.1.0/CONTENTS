@@ -1,0 +1,57 @@
+dir /usr
+dir /usr/share
+dir /usr/share/man
+dir /usr/share/man/man1
+obj /usr/share/man/man1/jpegexiforient.1.bz2 cca8c7957aef5a83137e6b902f801911 1752383212
+obj /usr/share/man/man1/exifautotran.1.bz2 d8cb1446f34e05fa16d1e6f676f32fe0 1752383212
+obj /usr/share/man/man1/djpeg.1.bz2 25813595b50beddcab48cab56fb788a9 1734036411
+obj /usr/share/man/man1/cjpeg.1.bz2 3a7e4f0a1315d390c37b4032012ee50e 1734036411
+obj /usr/share/man/man1/rdjpgcom.1.bz2 b631a1889c1a93f8bf299d45979fb8e2 1734036411
+obj /usr/share/man/man1/wrjpgcom.1.bz2 1ed424fa3d7b8a5d706e9bc9697a2c1c 1734036411
+obj /usr/share/man/man1/jpegtran.1.bz2 8f85ab4b2f15b27db13a3815896f087e 1734036411
+dir /usr/share/doc
+dir /usr/share/doc/libjpeg-turbo-3.1.0
+obj /usr/share/doc/libjpeg-turbo-3.1.0/structure.txt.bz2 999e08dd3839d89287d42cadad02b071 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/tjtran.c.bz2 27067a8f839e7bee0ab49b6e9c88224d 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/example.c.bz2 63979f9e6a084e03ea5c6d236d98e702 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/README.md.bz2 d531b4cd5ebf30828b694748e33e6e09 1752383211
+obj /usr/share/doc/libjpeg-turbo-3.1.0/ChangeLog.md.bz2 01e7ba7aa9e8275d1d2d22af50700192 1752383211
+obj /usr/share/doc/libjpeg-turbo-3.1.0/changelog.debian.bz2 0b14b13392f31ba9debee8e96f90732a 1752383212
+obj /usr/share/doc/libjpeg-turbo-3.1.0/LICENSE.md.bz2 61b1fedbbbbc2be01b05cc734b36ca23 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/usage.txt.bz2 803a660ac05673adb9313d6fed35f98b 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/wizard.txt.bz2 4843e0a92300d5ebbbf4181ecbf6b60d 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/libjpeg.txt.bz2 d7ce5402f585bdc90ce338b4ce00b637 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/tjdecomp.c.bz2 cfe3f054d8402f1185d00b11f6086bda 1734036411
+obj /usr/share/doc/libjpeg-turbo-3.1.0/README.ijg.bz2 4b5c4c6ba8dbf7e16e2e133b84042cf5 1752383211
+obj /usr/share/doc/libjpeg-turbo-3.1.0/tjcomp.c.bz2 049fb2d9f51cde754c3d9dc7923662c4 1734036411
+dir /usr/include
+obj /usr/include/jpeglib.h e7e5ee10f51816f7269f330d90de207e 1734036411
+obj /usr/include/jmorecfg.h 787a02d7df9c261c568e6a0da5c71bc4 1734036411
+obj /usr/include/jerror.h 3bf27f91838944e7fc7319b745f849cc 1734036411
+obj /usr/include/jconfig.h 68f1b7dea586e38ecb8e94943e733b2d 1752383173
+obj /usr/include/turbojpeg.h 9e5f95137d67bb80ae1a0a77057777ae 1734036411
+dir /usr/bin
+obj /usr/bin/exifautotran 1d48688e9eb459a7af8e24238521e11a 1752383212
+obj /usr/bin/jpegexiforient 1a13998d46e583c70fb4edcc2d303023 1752383214
+obj /usr/bin/wrjpgcom 680a116212132768b586f25a89ebb834 1752383214
+obj /usr/bin/rdjpgcom 373bc45944d7c0cc5d63397c1331c140 1752383214
+obj /usr/bin/tjbench 66de6ced3cba822ca7a44e367fb922ec 1752383214
+obj /usr/bin/jpegtran 27af43d815cd4db4735f08c18f3fee8a 1752383214
+obj /usr/bin/djpeg 57697dc5b3e743c90589dbcb8a5c8a29 1752383214
+obj /usr/bin/cjpeg e120e727ab5dcf3dcc84008d61711e40 1752383214
+dir /usr/lib64
+dir /usr/lib64/cmake
+dir /usr/lib64/cmake/libjpeg-turbo
+obj /usr/lib64/cmake/libjpeg-turbo/libjpeg-turboTargets-relwithdebinfo.cmake 620f9c50a77ecb1506b6125626d44e57 1752383173
+obj /usr/lib64/cmake/libjpeg-turbo/libjpeg-turboTargets.cmake 7f78ab275bb1edb46abb5af4e4f62602 1752383173
+obj /usr/lib64/cmake/libjpeg-turbo/libjpeg-turboConfigVersion.cmake d7352f65545b5c4fddf6fa9f4d408d4e 1752383173
+obj /usr/lib64/cmake/libjpeg-turbo/libjpeg-turboConfig.cmake 9c2ccecb1dc6a01ccd88b3b4f9122b9c 1752383173
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libturbojpeg.pc 3daf8d41659e0c25c27ac8f4422cad2d 1752383173
+obj /usr/lib64/pkgconfig/libjpeg.pc 79bfcb27acaf5d053e8ca91cbeb3f22a 1752383173
+obj /usr/lib64/libturbojpeg.so.0.4.0 b9d489d648580b20e110e44ed413b4a1 1752383214
+obj /usr/lib64/libjpeg.so.62.4.0 9d8a1e5cf0dd793f9e007269f773444d 1752383214
+sym /usr/lib64/libjpeg.so.62 -> libjpeg.so.62.4.0 1752383210
+sym /usr/lib64/libjpeg.so -> libjpeg.so.62 1752383210
+sym /usr/lib64/libturbojpeg.so.0 -> libturbojpeg.so.0.4.0 1752383210
+sym /usr/lib64/libturbojpeg.so -> libturbojpeg.so.0 1752383210

@@ -1,0 +1,2 @@
+/usr/lib64/libx265.so.209 libstdc++.so.6,libm.so.6,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/x265 libx265.so.209,libstdc++.so.6,libc.so.6,ld-linux-aarch64.so.1

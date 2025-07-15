@@ -1,0 +1,13 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/libtommath-1.3.0
+obj /usr/share/doc/libtommath-1.3.0/changes.txt.bz2 542d71fba28897bc0817602a706855ad 1752383374
+dir /usr/include
+obj /usr/include/tommath.h 1dc09ebc505c97fb5a112029fc0e7e07 1752383374
+dir /usr/lib64
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libtommath.pc b15a95e775d2c224bdfa2580a5a5a255 1752383374
+obj /usr/lib64/libtommath.so.1.3.0 b973809df5740fa479ca9da4f75ffc29 1752383376
+sym /usr/lib64/libtommath.so.1 -> libtommath.so.1.3.0 1752383374
+sym /usr/lib64/libtommath.so -> libtommath.so.1.3.0 1752383374

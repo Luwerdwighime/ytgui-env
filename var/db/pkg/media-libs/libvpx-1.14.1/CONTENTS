@@ -1,0 +1,30 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/libvpx-1.14.1
+obj /usr/share/doc/libvpx-1.14.1/CHANGELOG.bz2 c847f23237937faa9c0f8d16a7355242 1752382398
+obj /usr/share/doc/libvpx-1.14.1/README.bz2 25ebbfb7215bb49b0f29db8a1769a065 1752382397
+obj /usr/share/doc/libvpx-1.14.1/AUTHORS.bz2 05f00b99cbf9a7337e109e9c45ac0b11 1752382397
+dir /usr/bin
+obj /usr/bin/vpxenc 444ab0d013430262ab72d413429c5f46 1752382401
+obj /usr/bin/vpxdec 0c4c22e817aae243c8f8f19c284cce21 1752382401
+dir /usr/lib64
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/vpx.pc b5194bcc844707fcc5a4d904853705ae 1752382377
+obj /usr/lib64/libvpx.so.9.0.1 4a2114bde2368ab8966cf5154ee7c903 1752382401
+sym /usr/lib64/libvpx.so.9 -> libvpx.so.9.0.1 1752382397
+sym /usr/lib64/libvpx.so -> libvpx.so.9.0.1 1752382397
+dir /usr/include
+dir /usr/include/vpx
+obj /usr/include/vpx/vpx_tpl.h cc6566a19d50f1fc9dccca7d3afd529e 1717012823
+obj /usr/include/vpx/vpx_encoder.h 21b3c978ce087950cc8b983230e6bbcd 1717012823
+obj /usr/include/vpx/vpx_decoder.h c6832764b34b5c151082e8309024f007 1717012823
+obj /usr/include/vpx/vpx_integer.h f690fc57c5dc5a62619e42bfc464c765 1717012823
+obj /usr/include/vpx/vpx_image.h 49ea7c574138245f5e0968845d5ecefd 1717012823
+obj /usr/include/vpx/vpx_frame_buffer.h 2bdab50e78ce99bd4a9e7f56f0b3936a 1717012823
+obj /usr/include/vpx/vpx_codec.h 4775fcdcf7a4ed8fe3c86181f12dfebd 1717012823
+obj /usr/include/vpx/vp8dx.h ce5eaf0a636a11b01d22c3a4b5c445b0 1717012823
+obj /usr/include/vpx/vpx_ext_ratectrl.h 7b6820d13fcb788941c987676e24c4a8 1717012823
+obj /usr/include/vpx/vp8cx.h b6957709749554aa0fc210f262a8bb63 1717012823
+obj /usr/include/vpx/vp8.h 4d975dd83eef09c4ad700eb2ce0eab00 1717012823
+sym /usr/lib64/libvpx.so.9.0 -> libvpx.so.9.0.1 1752382397

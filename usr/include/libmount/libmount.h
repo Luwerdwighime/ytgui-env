@@ -31,6 +31,7 @@ extern "C" {
 #include <stdio.h>
 #include <mntent.h>
 #include <sys/types.h>
+#include <stdint.h>
 
 /* Make sure libc MS_* definitions are used by default. Note that MS_* flags
  * may be already defined by linux/fs.h or another file -- in this case we
@@ -40,10 +41,10 @@ extern "C" {
 # include <sys/mount.h>
 #endif
 
-#define LIBMOUNT_VERSION   "2.40.4"
+#define LIBMOUNT_VERSION   "2.41.1"
 #define LIBMOUNT_MAJOR_VERSION   2
-#define LIBMOUNT_MINOR_VERSION   40
-#define LIBMOUNT_PATCH_VERSION   4
+#define LIBMOUNT_MINOR_VERSION   41
+#define LIBMOUNT_PATCH_VERSION   1
 
 /**
  * libmnt_cache:
@@ -139,6 +140,13 @@ struct libmnt_tabdiff;
  * Describes mount namespace
  */
 struct libmnt_ns;
+
+/**
+ * libmnt_statmnt
+ *
+ * Setting for statmount()
+ */
+struct libmnt_statmnt;
 
 /*
  * Actions
@@ -241,6 +249,13 @@ enum {
  * filesystem mounted, but subsequent X-mount.idmap= failed
  */
 #define MNT_ERR_IDMAP    5013
+/**
+ * MNT_ERR_EXEC:
+ *
+ * failed to execute external program
+ */
+#define MNT_ERR_EXEC	5014
+
 
 
 /*
@@ -305,6 +320,12 @@ enum {
  */
 #define MNT_EX_SOMEOK	64
 
+/**
+ * MNT_EX_EXEC:
+ *
+ * [u]mount(8) exit code: external program execution failed
+ */
+#define MNT_EX_EXEC	126
 
 
 #ifndef __GNUC_PREREQ
@@ -354,6 +375,8 @@ extern char *mnt_get_mountpoint(const char *path)
 			__ul_attribute__((warn_unused_result));
 extern int mnt_guess_system_root(dev_t devno, struct libmnt_cache *cache, char **path)
 			__ul_attribute__((nonnull(3)));
+
+extern int mnt_id_from_path(const char *path, uint64_t *uniq_id, int *id);
 
 /* cache.c */
 extern struct libmnt_cache *mnt_new_cache(void)
@@ -517,8 +540,17 @@ extern const char *mnt_fs_get_root(struct libmnt_fs *fs);
 extern int mnt_fs_set_root(struct libmnt_fs *fs, const char *path);
 extern const char *mnt_fs_get_bindsrc(struct libmnt_fs *fs);
 extern int mnt_fs_set_bindsrc(struct libmnt_fs *fs, const char *src);
+
 extern int mnt_fs_get_id(struct libmnt_fs *fs);
+extern uint64_t mnt_fs_get_uniq_id(struct libmnt_fs *fs);
+extern int mnt_fs_set_uniq_id(struct libmnt_fs *fs, uint64_t id);
+
 extern int mnt_fs_get_parent_id(struct libmnt_fs *fs);
+extern uint64_t mnt_fs_get_parent_uniq_id(struct libmnt_fs *fs);
+
+extern uint64_t mnt_fs_get_ns(struct libmnt_fs *fs);
+extern int mnt_fs_set_ns(struct libmnt_fs *fs, uint64_t id);
+
 extern dev_t mnt_fs_get_devno(struct libmnt_fs *fs);
 extern pid_t mnt_fs_get_tid(struct libmnt_fs *fs);
 
@@ -549,7 +581,18 @@ extern int mnt_fs_is_regularfs(struct libmnt_fs *fs);
 extern void mnt_free_mntent(struct mntent *mnt);
 extern int mnt_fs_to_mntent(struct libmnt_fs *fs, struct mntent **mnt);
 
-/* tab-parse.c */
+/* fs_statmount.c */
+extern struct libmnt_statmnt *mnt_new_statmnt(void);
+extern void mnt_ref_statmnt(struct libmnt_statmnt *sm);
+extern void mnt_unref_statmnt(struct libmnt_statmnt *sm);
+extern int mnt_statmnt_set_mask(struct libmnt_statmnt *sm, uint64_t mask);
+extern int mnt_statmnt_disable_fetching(struct libmnt_statmnt *sm, int disable);
+
+extern int mnt_fs_refer_statmnt(struct libmnt_fs *fs, struct libmnt_statmnt *sm);
+extern struct libmnt_statmnt *mnt_fs_get_statmnt(struct libmnt_fs *fs);
+extern int mnt_fs_fetch_statmount(struct libmnt_fs *fs, uint64_t mask);
+
+/* tab_parse.c */
 extern struct libmnt_table *mnt_new_table_from_file(const char *filename)
 			__ul_attribute__((warn_unused_result));
 extern struct libmnt_table *mnt_new_table_from_dir(const char *dirname)
@@ -576,6 +619,8 @@ extern void mnt_unref_table(struct libmnt_table *tb);
 extern int mnt_reset_table(struct libmnt_table *tb);
 extern int mnt_table_get_nents(struct libmnt_table *tb);
 extern int mnt_table_is_empty(struct libmnt_table *tb);
+
+extern int mnt_table_refer_statmnt(struct libmnt_table *tb, struct libmnt_statmnt *sm);
 
 extern int mnt_table_set_userdata(struct libmnt_table *tb, void *data);
 extern void *mnt_table_get_userdata(struct libmnt_table *tb);
@@ -636,6 +681,8 @@ extern struct libmnt_fs *mnt_table_find_pair(struct libmnt_table *tb,
 				const char *target, int direction);
 extern struct libmnt_fs *mnt_table_find_devno(struct libmnt_table *tb,
 				dev_t devno, int direction);
+extern struct libmnt_fs *mnt_table_find_uniq_id(struct libmnt_table *tb, uint64_t id);
+extern struct libmnt_fs *mnt_table_find_id(struct libmnt_table *tb, int id);
 
 extern int mnt_table_find_next_fs(struct libmnt_table *tb,
 			struct libmnt_iter *itr,
@@ -644,6 +691,14 @@ extern int mnt_table_find_next_fs(struct libmnt_table *tb,
 		        struct libmnt_fs **fs);
 
 extern int mnt_table_is_fs_mounted(struct libmnt_table *tb, struct libmnt_fs *fstab_fs);
+
+/* tab_listmount.c */
+extern int mnt_table_listmount_set_id(struct libmnt_table *tb, uint64_t id);
+extern int mnt_table_listmount_set_ns(struct libmnt_table *tb, uint64_t ns);
+extern int mnt_table_listmount_set_stepsiz(struct libmnt_table *tb, size_t sz);
+
+extern int mnt_table_enable_listmount(struct libmnt_table *tb, int enable);
+extern int mnt_table_fetch_listmount(struct libmnt_table *tb);
 
 /* tab_update.c */
 extern struct libmnt_update *mnt_new_update(void)
@@ -872,6 +927,9 @@ extern int mnt_context_get_helper_status(struct libmnt_context *cxt);
 extern int mnt_context_syscall_called(struct libmnt_context *cxt);
 
 extern int mnt_context_get_syscall_errno(struct libmnt_context *cxt);
+
+extern size_t mnt_context_get_nmesgs(struct libmnt_context *cxt, char type);
+extern char **mnt_context_get_mesgs(struct libmnt_context *cxt);
 
 extern int mnt_context_strerror(struct libmnt_context *cxt, char *buf,
 				size_t bufsiz)

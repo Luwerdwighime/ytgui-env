@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-object">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Object code</comment>
+  <generic-icon name="x-office-document"/>
+  <glob pattern="*.o"/>
+  <glob pattern="*.mod" weight="40"/>
+</mime-type>

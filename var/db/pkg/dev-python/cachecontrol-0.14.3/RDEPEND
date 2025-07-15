@@ -1,1 +1,0 @@
-<dev-python/msgpack-2[python_targets_python3_13(-)] >=dev-python/msgpack-0.5.2[python_targets_python3_13(-)] >=dev-python/requests-2.16.0[python_targets_python3_13(-)] dev-lang/python:3.13

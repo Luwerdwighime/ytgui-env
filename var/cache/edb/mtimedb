@@ -1,53 +1,332 @@
 {
 	"info": {
-		"/tmp/python_min/usr/share/gcc-data/aarch64-unknown-linux-gnu/14/info": 1752176176,
-		"/tmp/python_min/usr/share/info": 1752196726
+		"/data/data/org.nazarik.ytgui/files/ytgui-env/usr/share/gcc-data/aarch64-unknown-linux-gnu/14/info": 1752440085,
+		"/data/data/org.nazarik.ytgui/files/ytgui-env/usr/share/info": 1752440086
 	},
 	"ldpath": {
-		"/tmp/python_min/lib": 1752169271,
-		"/tmp/python_min/lib64": 1752172368,
-		"/tmp/python_min/usr/lib": 1752173805,
-		"/tmp/python_min/usr/lib64": 1752196518
+		"/data/data/org.nazarik.ytgui/files/ytgui-env/lib": 1752435656,
+		"/data/data/org.nazarik.ytgui/files/ytgui-env/lib64": 1752435959,
+		"/data/data/org.nazarik.ytgui/files/ytgui-env/usr/lib": 1752439352,
+		"/data/data/org.nazarik.ytgui/files/ytgui-env/usr/lib64": 1752440080,
+		"/lib": 1751937463,
+		"/lib64": 1752384241,
+		"/usr/lib": 1751937463,
+		"/usr/lib64": 1752384241,
+		"/usr/local/lib": 1751936965,
+		"/usr/local/lib64": 1704672512
 	},
 	"resume_backup": {
 		"binpkgs": [],
 		"favorites": [
-			"dev-libs/openssl",
-			"dev-libs/libffi",
-			"sys-libs/zlib",
-			"sys-libs/glibc"
+			"media-video/ffmpeg",
+			"net-misc/yt-dlp"
 		],
 		"mergelist": [
 			[
 				"ebuild",
-				"/tmp/python_min/",
-				"dev-libs/libunistring-1.3",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-devel/gcc-14.3.0",
 				"merge"
 			],
 			[
 				"ebuild",
-				"/tmp/python_min/",
-				"sys-libs/timezone-data-2025b",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-libs/libxcrypt-4.4.38",
 				"merge"
 			],
 			[
 				"ebuild",
-				"/tmp/python_min/",
-				"app-misc/ca-certificates-20240203.3.98",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"virtual/libcrypt-2-r1",
 				"merge"
 			],
 			[
 				"ebuild",
-				"/tmp/python_min/",
-				"net-dns/libidn2-2.3.8",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"app-crypt/libb2-0.98.1-r3",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"app-arch/bzip2-1.0.8-r5",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"app-alternatives/bzip2-1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"media-libs/freetype-2.13.3",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-libs/elfutils-0.193",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"virtual/libelf-3-r1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-libs/libcap-2.76",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-libs/readline-8.2_p13-r1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-libs/gdbm-1.25",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-libs/pam-1.7.0_p20241230-r3",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-libs/ncurses-6.5_p20250125",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-libs/gpm-1.20.7-r6",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-auth/passwdqc-2.0.3-r1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-auth/pambase-20250223",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-libs/libpcre2-10.45",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-db/sqlite-3.49.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-apps/util-linux-2.41.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-lang/python-3.13.5",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"media-libs/fontconfig-2.16.2-r1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/packaging-25.0",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-libs/libxml2-2.13.8",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/more-itertools-10.7.0",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/platformdirs-4.3.8",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/trove-classifiers-2025.5.9.12",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/jaraco-context-6.0.1-r1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/ply-3.11-r2",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/jaraco-functools-4.2.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/wheel-0.45.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/pycparser-2.22",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/jaraco-text-4.0.0",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/jaraco-collections-5.2.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-libs/glib-2.84.3",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"x11-misc/shared-mime-info-2.4-r2",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"x11-libs/cairo-1.18.4-r1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/setuptools-80.9.0",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/setuptools-scm-8.3.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-libs/gobject-introspection-1.84.0-r1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/cffi-1.17.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"media-libs/harfbuzz-11.2.1",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"dev-python/pycryptodome-3.23.0",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"media-libs/libass-0.17.1-r2",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"net-misc/yt-dlp-2025.06.30",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-apps/systemd-utils-255.18",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"virtual/udev-217-r7",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"sys-fs/udev-init-scripts-35",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"virtual/libudev-251-r2",
+				"merge"
+			],
+			[
+				"ebuild",
+				"/data/data/org.nazarik.ytgui/files/ytgui-env/",
+				"media-video/ffmpeg-7.1.1-r2",
 				"merge"
 			]
 		],
 		"myopts": {
-			"--onlydeps": true,
 			"--regex-search-auto": "y",
-			"--root": "/tmp/python_min",
-			"--usepkg": true
+			"--root": "/data/data/org.nazarik.ytgui/files/ytgui-env",
+			"--verbose": true
 		}
 	},
 	"starttime": 0,

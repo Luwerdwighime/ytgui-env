@@ -1,0 +1,43 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/fribidi-1.0.16
+obj /usr/share/doc/fribidi-1.0.16/THANKS.bz2 f6fd42f453ef2495fce2ea5a44eded38 1752384884
+obj /usr/share/doc/fribidi-1.0.16/README.md.bz2 6f360880ed11a207893b1fddcd3b6282 1752384882
+obj /usr/share/doc/fribidi-1.0.16/AUTHORS.bz2 101ddcd723ab54149ed33a7b2748ee68 1752384883
+obj /usr/share/doc/fribidi-1.0.16/NEWS.bz2 cb0fe8380ff7c0080331a76f44d2f22a 1752384883
+obj /usr/share/doc/fribidi-1.0.16/TODO.bz2 671165c263bac48179fac8c31581188e 1752384883
+obj /usr/share/doc/fribidi-1.0.16/ChangeLog.bz2 53975dacb906dda3c3bf7b45cf9b49be 1752384882
+obj /usr/share/doc/fribidi-1.0.16/README b50faa6ebadf26b2cbccff2777d3155a 1752384882
+dir /usr/bin
+obj /usr/bin/fribidi 7646383a3697b8ccc39ad1824e8c9395 1752384886
+dir /usr/lib64
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/fribidi.pc 48f9e2aaaff571947281339152739972 1752384874
+obj /usr/lib64/libfribidi.so.0.4.0 69cd16bce6326e8ebbc2006cf87451ce 1752384886
+dir /usr/include
+dir /usr/include/fribidi
+obj /usr/include/fribidi/fribidi-config.h ab5eeba61cd04e28a5f8d60e7fb2a0d2 1752384874
+obj /usr/include/fribidi/fribidi.h 83235dd4d9096997ea40f19caa90e2be 1727287450
+obj /usr/include/fribidi/fribidi-unicode.h 9d9cc71b9701b52f903ab76e558e48b9 1727287450
+obj /usr/include/fribidi/fribidi-types.h f329fac0fcfbd1bb1b2eea7996cb355b 1727287450
+obj /usr/include/fribidi/fribidi-shape.h 92594f7bb3e159e7f0c342d9049d30a7 1727287450
+obj /usr/include/fribidi/fribidi-brackets.h 8834c125207ac1b728ac91bd5b92f054 1727287450
+obj /usr/include/fribidi/fribidi-mirroring.h ef7edf6ed2e70f18e0d240b88205bb3b 1727287450
+obj /usr/include/fribidi/fribidi-joining-types-list.h 5f2644fcb5c27a25be9872a5ee758177 1727287450
+obj /usr/include/fribidi/fribidi-joining-types.h 7160370d663eefb18a304c1b42837b8b 1727287450
+obj /usr/include/fribidi/fribidi-joining.h af7ea412613ebac6ca95bf11f8bc4aec 1727287450
+obj /usr/include/fribidi/fribidi-flags.h c307dfaaf6017f3a95ba3fe536f14b89 1727287450
+obj /usr/include/fribidi/fribidi-enddecls.h 86a3d28e2b40a62a04fa9b2cb950fb22 1727287450
+obj /usr/include/fribidi/fribidi-deprecated.h 8491494cf487876010e079e5a4c67d00 1727287450
+obj /usr/include/fribidi/fribidi-common.h aa467880977b01e91dd990198ce7a06e 1727287450
+obj /usr/include/fribidi/fribidi-char-sets-list.h 4e4fec0f22d66b7e977c55db57012e06 1727287450
+obj /usr/include/fribidi/fribidi-char-sets.h b706228109d19c2c9659828284f09d6b 1727287450
+obj /usr/include/fribidi/fribidi-bidi-types-list.h b8f163b11632119b551512bc0cf86004 1727287450
+obj /usr/include/fribidi/fribidi-bidi-types.h f9dda4b8bd15c010d9ae426718e7b2a7 1727287450
+obj /usr/include/fribidi/fribidi-bidi.h 82de6062e74d8c8fddcd50af9e00c195 1727287450
+obj /usr/include/fribidi/fribidi-begindecls.h 35954052f539f2941aa564d1641e02b9 1727287450
+obj /usr/include/fribidi/fribidi-arabic.h 15e2fc1ace4e190bfa7a31e5c659cb7a 1727287450
+obj /usr/include/fribidi/fribidi-unicode-version.h e03ae386cc2dd5d7b5f9f0e168efc4ec 1752384875
+sym /usr/lib64/libfribidi.so.0 -> libfribidi.so.0.4.0 1752384882
+sym /usr/lib64/libfribidi.so -> libfribidi.so.0 1752384882

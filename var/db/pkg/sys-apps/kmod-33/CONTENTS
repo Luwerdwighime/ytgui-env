@@ -1,0 +1,48 @@
+dir /etc
+dir /etc/init.d
+obj /etc/init.d/kmod-static-nodes e38c4acdc2b5b09cb81684e87bb7a769 1752385862
+dir /lib
+dir /lib/modprobe.d
+obj /lib/modprobe.d/usb-load-ehci-first.conf 76166c8e368b6a5d3d792322b4cb30d4 1752385861
+dir /sbin
+dir /bin
+obj /bin/kmod 271b33744be122c7b23416c2f5423b85 1752385864
+dir /usr
+dir /usr/include
+obj /usr/include/libkmod.h 3c859551794acab2843c164a557c88c8 1752385860
+dir /usr/share
+dir /usr/share/man
+dir /usr/share/man/man8
+obj /usr/share/man/man8/modinfo.8.bz2 214c61dba00c860bc4413a4460f93977 1752385861
+obj /usr/share/man/man8/modprobe.8.bz2 b4420ea234115e316a7b3c8907ea41d0 1752385861
+obj /usr/share/man/man8/rmmod.8.bz2 2ab1e74541da2d417788677665df827c 1752385861
+obj /usr/share/man/man8/insmod.8.bz2 9a2deefd14bc81fe999ecc15a5a3c9b9 1752385861
+obj /usr/share/man/man8/depmod.8.bz2 717b20443b40def59800bccfa9df22e0 1752385861
+obj /usr/share/man/man8/lsmod.8.bz2 d0144ebcb2ec7fdf1e9da5256f47ee75 1752385861
+obj /usr/share/man/man8/kmod.8.bz2 c73872b166fd4a29560577ec4adfe4a7 1752385861
+dir /usr/share/man/man5
+obj /usr/share/man/man5/modules.dep.5.bz2 cf85e47c1dab3ef644a9a63622e36788 1752385861
+obj /usr/share/man/man5/modules.dep.bin.5 3f538fe2f595f2886732d38ff592e1c2 1752385861
+obj /usr/share/man/man5/depmod.d.5.bz2 f97e18397278fe4bf054d63eeb83a11b 1752385861
+obj /usr/share/man/man5/modprobe.d.5.bz2 9987d14e230b2152a94263f90590884d 1752385861
+dir /usr/share/doc
+dir /usr/share/doc/kmod-33
+obj /usr/share/doc/kmod-33/README.md.bz2 49394d8f9bd71c019d23a641c9c2b266 1752385861
+obj /usr/share/doc/kmod-33/NEWS.bz2 5da853bf13b8180da559942342732571 1752385861
+dir /usr/share/pkgconfig
+obj /usr/share/pkgconfig/kmod.pc 2f28b5ccda4501f480b95c51b3dc47d9 1752385860
+dir /usr/share/bash-completion
+dir /usr/share/bash-completion/completions
+obj /usr/share/bash-completion/completions/kmod 22440b8f33a0814174bbd31a60d26c93 1752385860
+dir /usr/lib64
+obj /usr/lib64/libkmod.so.2.5.0 0547347ff263b03b94e7a8ac7cb1e0e8 1752385864
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libkmod.pc 78469928c1d53f61f8cff64cb2d89d67 1752385860
+sym /usr/lib64/libkmod.so.2 -> libkmod.so.2.5.0 1752385860
+sym /usr/lib64/libkmod.so -> libkmod.so.2.5.0 1752385860
+sym /bin/lsmod -> kmod 1752385860
+sym /bin/modinfo -> kmod 1752385860
+sym /sbin/depmod -> ../bin/kmod 1752385861
+sym /sbin/insmod -> ../bin/kmod 1752385861
+sym /sbin/modprobe -> ../bin/kmod 1752385861
+sym /sbin/rmmod -> ../bin/kmod 1752385861

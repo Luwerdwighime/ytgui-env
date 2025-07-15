@@ -1,0 +1,1 @@
+>=dev-libs/libffi-3.4.4-r1:0/8= dev-python/pycparser[python_targets_python3_13(-)] dev-python/setuptools[python_targets_python3_13(-)] dev-lang/python:3.13

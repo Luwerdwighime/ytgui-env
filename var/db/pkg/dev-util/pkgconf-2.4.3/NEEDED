@@ -1,0 +1,3 @@
+/usr/lib64/libpkgconf.so.6.0.0 libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/bomtool libpkgconf.so.6,libc.so.6,ld-linux-aarch64.so.1
+/usr/bin/aarch64-unknown-linux-gnu-pkgconf libpkgconf.so.6,libc.so.6,ld-linux-aarch64.so.1

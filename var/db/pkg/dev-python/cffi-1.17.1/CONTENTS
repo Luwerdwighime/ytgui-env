@@ -1,0 +1,93 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/cffi-1.17.1
+obj /usr/share/doc/cffi-1.17.1/README.md.bz2 3a939191a55de2a56b20b40c56a2464e 1752438648
+obj /usr/share/doc/cffi-1.17.1/AUTHORS.bz2 75e09a2e963e90689e0ecb4a855ffe4a 1752438648
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+dir /usr/lib/python3.13/site-packages/cffi-1.17.1.dist-info
+obj /usr/lib/python3.13/site-packages/cffi-1.17.1.dist-info/entry_points.txt 688ceebec0652fc05ac25caec3e15043 1752438643
+obj /usr/lib/python3.13/site-packages/cffi-1.17.1.dist-info/top_level.txt 67ea4a90c355e59a4eb7026e12e6aa43 1752438643
+obj /usr/lib/python3.13/site-packages/cffi-1.17.1.dist-info/METADATA 390a281e14d0426a9413b3af28bc1abf 1752438643
+obj /usr/lib/python3.13/site-packages/cffi-1.17.1.dist-info/WHEEL 3b55c0f793a7ca750250be1a7f09cd86 1752438643
+obj /usr/lib/python3.13/site-packages/_cffi_backend.cpython-313-aarch64-linux-gnu.so c65f569df75188bdb52dfd2e4f750b17 1752438650
+dir /usr/lib/python3.13/site-packages/cffi
+dir /usr/lib/python3.13/site-packages/cffi/__pycache__
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/lock.cpython-313.pyc 6a3827a1b814579eea07043de52621c2 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/error.cpython-313.pyc 37242c8211bf44be7115c508544de1a7 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/cparser.cpython-313.opt-2.pyc 258946adab20ad6771d63b0ecb353915 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/verifier.cpython-313.opt-1.pyc 983fe7410ca0df8edd349dbc5379f7d0 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/cffi_opcode.cpython-313.opt-1.pyc b1e9a91d23e55a78086f6e3fb00a3e67 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/vengine_gen.cpython-313.opt-1.pyc d7f17c25df93ef4bcc38706df2048a15 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/_imp_emulation.cpython-313.opt-2.pyc 261f9039c4b3cbc5525c6dfb31402745 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/_imp_emulation.cpython-313.opt-1.pyc 261f9039c4b3cbc5525c6dfb31402745 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/recompiler.cpython-313.opt-2.pyc 1d9463aa7ab3a66cd21a374f46443573 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/lock.cpython-313.opt-2.pyc 6a3827a1b814579eea07043de52621c2 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/recompiler.cpython-313.opt-1.pyc 1d9463aa7ab3a66cd21a374f46443573 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/backend_ctypes.cpython-313.pyc 16cbee36ae6f3526ec45547916db7687 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/model.cpython-313.opt-1.pyc 3b7c21e4cf1e69c35e8b6b879199b9c9 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/model.cpython-313.pyc 954c313a22cd172f92e889afaa1077a6 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/__init__.cpython-313.opt-2.pyc 8fc7c24a1b3207a27b5c695dac61318a 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/vengine_cpy.cpython-313.opt-1.pyc 8015671f6f57b6cb79e1f8c5af6e0cd7 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/commontypes.cpython-313.pyc c3e6f75512d249a2863c55f85f20786d 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/recompiler.cpython-313.pyc 6301b1b001d75fc0001341f402cab0cd 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/vengine_gen.cpython-313.pyc fb59c574ab151c6622c8a95f09a857cb 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/api.cpython-313.pyc 41286ab028363d4208b09841ab31bba4 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/_shimmed_dist_utils.cpython-313.opt-1.pyc 77e60ba93c94c9e011e3556a7ae623a2 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/commontypes.cpython-313.opt-1.pyc 6031b8937751b3a3c7b4606f15a39259 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/setuptools_ext.cpython-313.opt-2.pyc 9e5447ffa482fff93de2ec894290fab5 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/pkgconfig.cpython-313.opt-1.pyc 484f8839cd469d37b4714bc4ccf638d6 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/cparser.cpython-313.opt-1.pyc 258946adab20ad6771d63b0ecb353915 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/backend_ctypes.cpython-313.opt-1.pyc 9fe941a5cd8c0c60f4be55977ba85e84 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/verifier.cpython-313.opt-2.pyc 80a27a893d7b3aca8bf92f6dde15afbf 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/_shimmed_dist_utils.cpython-313.pyc 77e60ba93c94c9e011e3556a7ae623a2 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/verifier.cpython-313.pyc 8e5856de20063e4e77ac7779f461bcff 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/api.cpython-313.opt-2.pyc f82c22788595fff2249078ec7a1a2a2d 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/vengine_cpy.cpython-313.opt-2.pyc 8015671f6f57b6cb79e1f8c5af6e0cd7 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/commontypes.cpython-313.opt-2.pyc 6031b8937751b3a3c7b4606f15a39259 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/ffiplatform.cpython-313.pyc a3f0dd9a71a6c2a3de8684e1cf9537f9 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/ffiplatform.cpython-313.opt-1.pyc a3f0dd9a71a6c2a3de8684e1cf9537f9 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/api.cpython-313.opt-1.pyc 44d6b9db0348cf654599e62fd2a0a992 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/lock.cpython-313.opt-1.pyc 6a3827a1b814579eea07043de52621c2 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/pkgconfig.cpython-313.pyc 484f8839cd469d37b4714bc4ccf638d6 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/__init__.cpython-313.pyc 8fc7c24a1b3207a27b5c695dac61318a 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/__init__.cpython-313.opt-1.pyc 8fc7c24a1b3207a27b5c695dac61318a 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/_shimmed_dist_utils.cpython-313.opt-2.pyc be791873205a5c4e54c682fa528f3e60 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/vengine_gen.cpython-313.opt-2.pyc d7f17c25df93ef4bcc38706df2048a15 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/cffi_opcode.cpython-313.pyc 90b715623d2488d91f537c22ca3e0ed1 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/backend_ctypes.cpython-313.opt-2.pyc 9fe941a5cd8c0c60f4be55977ba85e84 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/error.cpython-313.opt-1.pyc 37242c8211bf44be7115c508544de1a7 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/setuptools_ext.cpython-313.pyc f4e07dc0eb6d961c1aa29541753a13d2 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/pkgconfig.cpython-313.opt-2.pyc fbded7164c48522d2291281fd906629c 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/error.cpython-313.opt-2.pyc 2a5205540d346eff15ac3eff37050dd0 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/vengine_cpy.cpython-313.pyc 9a2ee4d6381337f5b0e43a08ec9966c7 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/cparser.cpython-313.pyc a5cbd7cdbbe26b0cbf59c478e5fdb0fd 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/setuptools_ext.cpython-313.opt-1.pyc c1bb6012ba083742922c26a314109ec5 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/model.cpython-313.opt-2.pyc 3b7c21e4cf1e69c35e8b6b879199b9c9 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/_imp_emulation.cpython-313.pyc 261f9039c4b3cbc5525c6dfb31402745 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/ffiplatform.cpython-313.opt-2.pyc a64bc23cc5686088c3de350fc9341556 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/__pycache__/cffi_opcode.cpython-313.opt-2.pyc b1e9a91d23e55a78086f6e3fb00a3e67 1752438644
+obj /usr/lib/python3.13/site-packages/cffi/verifier.py 23f51282fe057eeb2fc172bb6608a20e 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/commontypes.py 9d91ac7b6825a1d576c658abeac31940 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/cparser.py 2f5d26e82dcbc5ac9bea3b81abe1def4 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/cffi_opcode.py 03105b61433c21a14054e155c387af1d 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/error.py 7f02d866313a0d928aa9c1162eafb9e7 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/api.py 6c63dda48d04dde5fade30843c46d048 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/_shimmed_dist_utils.py 8fc51e95b05afee467430862d9d15a0a 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/_embedding.h 1532f1dd4050a9d4e86ad9a20f7979c1 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/setuptools_ext.py 3c1f3943ad1e0ed0f1f69237e7f719b3 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/lock.py 4cc065d5df79eddf6bcfc06bd4a8e54a 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/model.py 309212a09385f6c54065bf261dc42cea 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/pkgconfig.py dd1fc9c020281841aff3e724c61819ce 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/__init__.py 73a106798b33aaf7607639ef38601110 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/recompiler.py 1db1c1a9593fa832c4d48f585a493402 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/parse_c_type.h 0138c9742e437b5c5f5468acff804f27 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/vengine_cpy.py daf6eb10097ce2b765bbb5a4187998ff 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/_cffi_include.h dcff8ec5572c6f8b93f967c79345485b 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/ffiplatform.py 7c1aaf7202d5575e4daaf1dfcf5e7b35 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/_imp_emulation.py e84849d59d243dfc32ddf6992db2e5c5 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/vengine_gen.py 1cb6605c045da47463d53561ac8fbcc2 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/_cffi_errors.h 64efe54b03e5ae3a4da6775598600f51 1752438643
+obj /usr/lib/python3.13/site-packages/cffi/backend_ctypes.py cd7c9df758f20a9d6321e4ba47aa36f7 1752438643

@@ -35,11 +35,11 @@ extern "C" {
  *
  * Library version string
  */
-#define LIBFDISK_VERSION   "2.40.4"
+#define LIBFDISK_VERSION   "2.41.1"
 
 #define LIBFDISK_MAJOR_VERSION   2
-#define LIBFDISK_MINOR_VERSION   40
-#define LIBFDISK_PATCH_VERSION   4
+#define LIBFDISK_MINOR_VERSION   41
+#define LIBFDISK_PATCH_VERSION   1
 
 /**
  * fdisk_context:
@@ -872,6 +872,9 @@ int fdisk_ask_yesno(struct fdisk_context *cxt,
 		     int *result);
 int fdisk_ask_yesno_get_result(struct fdisk_ask *ask);
 int fdisk_ask_yesno_set_result(struct fdisk_ask *ask, int result);
+
+int fdisk_ask_menu(struct fdisk_context *cxt, char *query, int *result, int dflt, ...);
+
 int fdisk_ask_menu_get_default(struct fdisk_ask *ask);
 int fdisk_ask_menu_set_result(struct fdisk_ask *ask, int key);
 int fdisk_ask_menu_get_result(struct fdisk_ask *ask, int *key);

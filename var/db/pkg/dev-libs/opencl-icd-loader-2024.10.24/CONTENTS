@@ -1,0 +1,19 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/opencl-icd-loader-2024.10.24
+obj /usr/share/doc/opencl-icd-loader-2024.10.24/README.md.bz2 539d06ae419431026dce8a230fc911c0 1752383413
+dir /usr/share/cmake
+dir /usr/share/cmake/OpenCLICDLoader
+obj /usr/share/cmake/OpenCLICDLoader/OpenCLICDLoaderConfigVersion.cmake c519a82f8c4c7c0e769c718a0a2bb5e0 1752383408
+obj /usr/share/cmake/OpenCLICDLoader/OpenCLICDLoaderConfig.cmake 39874a666bb50a730b8b430fce74f4f1 1752383408
+obj /usr/share/cmake/OpenCLICDLoader/OpenCLICDLoaderTargets-relwithdebinfo.cmake 53f87c9627af2c52c949708e24e4a3c2 1752383408
+obj /usr/share/cmake/OpenCLICDLoader/OpenCLICDLoaderTargets.cmake 059f0fd409bad8f95512d6bbb5c4804b 1752383408
+dir /usr/bin
+obj /usr/bin/cllayerinfo bb6d8714446be14658d36f19271f4734 1752383415
+dir /usr/lib64
+obj /usr/lib64/libOpenCL.so.1.0.0 c2ac76a04683426a3f882fe78ff4423b 1752383415
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/OpenCL.pc 227ab5d834ac2ab29ab88e6f5df72b7f 1752383407
+sym /usr/lib64/libOpenCL.so.1 -> libOpenCL.so.1.0.0 1752383413
+sym /usr/lib64/libOpenCL.so -> libOpenCL.so.1 1752383413

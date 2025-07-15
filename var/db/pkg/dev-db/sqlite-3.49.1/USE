@@ -1,1 +1,1 @@
-arm64 elibc_glibc icu kernel_linux readline static-libs
+arm64 elibc_glibc icu kernel_linux readline

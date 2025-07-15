@@ -1,1 +1,1 @@
-{"version": "1", "timestamp": 1752196515.821921, "deltas": [{"event": "add", "package": "sys-apps/acl", "version": "2.3.2-r2", "slot": "0", "counter": "80"}, {"event": "add", "package": "sys-apps/coreutils", "version": "9.5", "slot": "0", "counter": "81"}]}
+{"version": "1", "timestamp": 1752439385.0795085, "deltas": [{"event": "add", "package": "virtual/libudev", "version": "251-r2", "slot": "0", "counter": "120"}, {"event": "add", "package": "media-video/ffmpeg", "version": "7.1.1-r2", "slot": "0", "counter": "121"}]}

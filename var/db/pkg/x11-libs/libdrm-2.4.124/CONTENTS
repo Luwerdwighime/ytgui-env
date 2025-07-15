@@ -1,0 +1,35 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/libdrm-2.4.124
+obj /usr/share/doc/libdrm-2.4.124/README.rst.bz2 e3c6009faf82a458a00fa05befecec03 1752382141
+dir /usr/include
+dir /usr/include/libdrm
+obj /usr/include/libdrm/virtgpu_drm.h be5392a2a02ca076e9ddbca2ee2e0331 1733337030
+obj /usr/include/libdrm/via_drm.h 82d58933ed528161c894e8e18e0dfc33 1733337030
+obj /usr/include/libdrm/vc4_drm.h 6e74cdfbed0f2e532c90ba0195ce417b 1733337030
+obj /usr/include/libdrm/tegra_drm.h 2836d25be961e0c80f01156affcd0872 1733337030
+obj /usr/include/libdrm/sis_drm.h 674cd1bfe1ed8c7b63fffe057e313c2e 1733337030
+obj /usr/include/libdrm/savage_drm.h 8bea02eaf07b2b578b5e68410669e45d 1733337030
+obj /usr/include/libdrm/amdgpu_drm.h a82779a90bf286320b2fe09789a25ecd 1733337030
+obj /usr/include/libdrm/radeon_drm.h c9931bb32823450e9273765266061d7d 1733337030
+obj /usr/include/libdrm/r128_drm.h 15a07c5e78ee8405239624a99bb30189 1733337030
+obj /usr/include/libdrm/qxl_drm.h bdc47893110b4b1a6723136885abdc2d 1733337030
+obj /usr/include/libdrm/nouveau_drm.h 13a1883886d087b57385625d868beeba 1733337030
+obj /usr/include/libdrm/msm_drm.h 511c2cba1b8406672fd44b1f17b5160e 1733337030
+obj /usr/include/libdrm/mga_drm.h 898e4fd2652ce8d490afbb67aa5f2e3f 1733337030
+obj /usr/include/libdrm/mach64_drm.h a5a1ddc2aa2d0341dcb0e9e55a1ab00f 1733337030
+obj /usr/include/libdrm/i915_drm.h 3e5fab3cb910c596938452238ad65d16 1733337030
+obj /usr/include/libdrm/drm_sarea.h 04e861951a4247476209ca2cedcc6762 1733337030
+obj /usr/include/libdrm/drm_mode.h 758693fded4d5841f38e7e7dbd76cb03 1733337030
+obj /usr/include/libdrm/drm_fourcc.h a57f806ac846d8b05cd733ab0dd576c1 1733337030
+obj /usr/include/libdrm/drm.h 1280951d32073fd5eecdbf412fda8f9c 1733337030
+obj /usr/include/xf86drmMode.h 0f27787b652a3242c891726bc1731285 1733337030
+obj /usr/include/xf86drm.h a4f488877c7aa7467f8615077f37eace 1733337030
+obj /usr/include/libsync.h 0751837697d862bc7dc002d02f9ec835 1733337030
+dir /usr/lib64
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libdrm.pc 5a30e248af2c64daadfb3e08f0b9ee0c 1752382135
+obj /usr/lib64/libdrm.so.2.124.0 ae0b45b405912b63a8038a16fc0d1fd8 1752382143
+sym /usr/lib64/libdrm.so.2 -> libdrm.so.2.124.0 1752382141
+sym /usr/lib64/libdrm.so -> libdrm.so.2 1752382141

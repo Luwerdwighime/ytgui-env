@@ -1,0 +1,19 @@
+dir /usr
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/opus-1.5.2
+obj /usr/share/doc/opus-1.5.2/AUTHORS.bz2 2851bf83b3810ed7fe4c80f590f1dcb5 1752382289
+obj /usr/share/doc/opus-1.5.2/README.bz2 73cfe009bd88364689f6492155ae3a6d 1752382288
+dir /usr/include
+dir /usr/include/opus
+obj /usr/include/opus/opus_defines.h ca0884f9ff6afa4ba8b00847edc5f049 1709840739
+obj /usr/include/opus/opus_types.h 74aa00a5fc0971fdbb4e76f871f3976e 1705089326
+obj /usr/include/opus/opus_projection.h c525d963e8b904de6b31638e2f3e0cd9 1705089326
+obj /usr/include/opus/opus_multistream.h 74e27fe797508e154a9d20a0bd237957 1709840739
+obj /usr/include/opus/opus.h 6a7c2a8c52deb56f2a6cc61fdf6aa160 1709840739
+dir /usr/lib64
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/opus.pc eddb80ca58890d12ac11b954dfc977ba 1752382272
+obj /usr/lib64/libopus.so.0.10.1 a21adfc9fa2bbd695bc5c892c1c847c4 1752382291
+sym /usr/lib64/libopus.so.0 -> libopus.so.0.10.1 1752382288
+sym /usr/lib64/libopus.so -> libopus.so.0 1752382288

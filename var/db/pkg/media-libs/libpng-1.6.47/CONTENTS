@@ -1,0 +1,36 @@
+dir /usr
+dir /usr/include
+dir /usr/include/libpng16
+obj /usr/include/libpng16/pngconf.h 30d7637aef7ae1a56229cb18a65a3a1c 1752382118
+obj /usr/include/libpng16/png.h 7b85d4d97e7cc2524fcb67ef9119cc46 1752382118
+obj /usr/include/libpng16/pnglibconf.h aacf82d719f96116cae7498dc9ef0dfc 1752382118
+dir /usr/share
+dir /usr/share/doc
+dir /usr/share/doc/libpng-1.6.47
+obj /usr/share/doc/libpng-1.6.47/README.bz2 7701c146cce57a960230b272680fe5f3 1752382118
+obj /usr/share/doc/libpng-1.6.47/libpng-manual.txt.bz2 d1137f8a19996f09c4e6cb4dc9a918af 1752382118
+obj /usr/share/doc/libpng-1.6.47/CHANGES.bz2 37fcf8393692bf12b608596f1c7c8995 1752382118
+obj /usr/share/doc/libpng-1.6.47/ANNOUNCE.bz2 afb11e11ef4d88357379f130d699d3f4 1752382118
+obj /usr/share/doc/libpng-1.6.47/TODO.bz2 62481a321000fad2ed3f495414b61561 1752382118
+dir /usr/share/man
+dir /usr/share/man/man3
+obj /usr/share/man/man3/libpngpf.3.bz2 6142168b32cdcebd28997827d4670a1f 1752382118
+obj /usr/share/man/man3/libpng.3.bz2 fdeb85bf6e786c3f6547ffcdce2fe43c 1752382118
+dir /usr/share/man/man5
+obj /usr/share/man/man5/png.5.bz2 dc8db0014c0a28554c5d30eb8624d99d 1752382118
+dir /usr/lib64
+obj /usr/lib64/libpng16.so.16.47.0 5e7b55a5c23ae49a937fa4f1ade22f20 1752382120
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libpng16.pc 7f5c927bb68e74fa5e1108753970a869 1752382118
+dir /usr/bin
+obj /usr/bin/png-fix-itxt 5b2d2b8d33e29e323a299c1d729133f7 1752382120
+obj /usr/bin/pngfix a37022c777ec9515104e8a9a43c13be1 1752382120
+obj /usr/bin/libpng16-config 47c355745a64872c8fc3dbca52e6da06 1752382118
+sym /usr/bin/libpng-config -> libpng16-config 1752382118
+sym /usr/lib64/pkgconfig/libpng.pc -> libpng16.pc 1752382118
+sym /usr/lib64/libpng16.so.16 -> libpng16.so.16.47.0 1752382118
+sym /usr/lib64/libpng16.so -> libpng16.so.16.47.0 1752382118
+sym /usr/lib64/libpng.so -> libpng16.so 1752382118
+sym /usr/include/pnglibconf.h -> libpng16/pnglibconf.h 1752382118
+sym /usr/include/png.h -> libpng16/png.h 1752382118
+sym /usr/include/pngconf.h -> libpng16/pngconf.h 1752382118

@@ -1,0 +1,165 @@
+dir /usr
+dir /usr/share
+dir /usr/share/aclocal
+obj /usr/share/aclocal/vorbis.m4 3f76538c632006e2513198f410721ded 1752384064
+dir /usr/share/doc
+dir /usr/share/doc/libvorbis-1.3.7-r2
+dir /usr/share/doc/libvorbis-1.3.7-r2/html
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/doxygen-build.stamp d41d8cd98f00b204e9800998ecf8427e 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbis-fidelity.html 305225eb21e43bfbb7571199ae7a94b7 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbis-errors.txt 1e65d184fd08b65132850fd3ff75a404 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbis-clip.txt 9724185c26ebbad2fba02f13a6c490b4 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/v-comment.html 13f28fdf76ad4c14c1e0513e872cba8c 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/stream.png 147edcd251e5741ede2a831e0adf0dfe 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/stereo.html 3ff3425230a8a152828ebe254f725704 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/squarepolar.png 18b7d83f940e32ac98403077d8343d33 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/programming.html 01f3d49e4c8cbf61212727553cd7a553 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/oggstream.html 0c75ab198b3df1b774d236ccd429c778 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/index.html 31612fb96245f2159c770a2643daf638 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/helper.html 6d15019248962f2ec647f2d8d26bed1e 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/framing.html 386e57db89cd1cf1f88cbafd9eab981b 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/fourphase.png 489a3e2e09354bb2d6e6c262d14e2792 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/floorval.png e8247a18da31f6c23091550edf73cd08 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/floor1_inverse_dB_table.html cc1c93b9b2d8317ec06fc0dbb6c88743 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/fish_xiph_org.png 577cb1de2f201f4c473b89118b342b28 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/eightphase.png b9e4c57a1bb69b0230ada55aa21c35fe 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/rfc5215.txt b3bdad4ad786a3d4b0b70b5d59150907 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/rfc5215.xml 3bd4aa20b67cd5c07d5102a489e1fb7b 1752384064
+dir /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/vorbis_encode_init_vbr.html 44c212cc9bb9bcf1cbed24fb243a9fd2 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/vorbis_encode_setup_vbr.html 47a4589564b44e8567050dfd10c4154d 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/vorbis_encode_setup_managed.html 22ac3185b65ce808c84d8a7b0e60fc3d 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/vorbis_encode_setup_init.html 9c7d84ba859d0c95ded4f77a8edaca85 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/vorbis_encode_init.html d87b8f1e43dd9378c66c46c6e36c295f 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/vorbis_encode_ctl.html 2dc20831ee4eefdbffd097c190328d15 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/style.css b6bacacc82f7403bde49a29905a9ee08 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/reference.html b1611cd6e8e640c70c4c2e7058be5dae 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/overview.html 359b41ca3201d6d6e799e92061eaf6a0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/ovectl_ratemanage_arg.html 2d87e6bb5e828c59bc44d2333de68bc8 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/ovectl_ratemanage2_arg.html 3a58d30db25d1c8f2409912cb4db2a45 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/index.html a9665f304db870df129c20bed1642c21 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/examples.html 2d3698111b5ff961d4eada190dc860f1 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisenc/changes.html 0982ed8c1c3ef83cdf43d82d578aa169 1752384064
+dir /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/vorbisfile_example_c.html be49bed1071ce43f8f4dbf8fcdb86ec5 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/threads.html 7483e4397b0b2301520da592e30b4e12 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/style.css b6bacacc82f7403bde49a29905a9ee08 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/seekingexample.html eec7c81cffe54f22b160dad2e2b42c56 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/seeking_test_c.html dee5bc5f2e83bad041d3b33571c0cee9 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/seeking_example_c.html dee5bc5f2e83bad041d3b33571c0cee9 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/seeking.html 94576c367eea61809ce5ccdc846339f2 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/seekexample.html 3cad4fb3815ac957bc5a9c52f6075d9a 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/reference.html 2dedb7a370d35d522e52d9321e7f418b 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/overview.html 73eb91d8edfd32cda01e20db71b1b45c 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_time_total.html 4e12da2700c5677b3909c478d1e4d7d5 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_time_tell.html 76f4d81f88ca7605f8e686d11d0d32ad 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_time_seek_page_lap.html e04fd1f412073beab985ca2881abdee6 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_time_seek_page.html 6ba08632cb88378e6128258650bf3eef 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_time_seek_lap.html 1237199f6bc7b3fb010508e05d42f6a9 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_time_seek.html c17903ca646edf035d4787aa4c3e8fda 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_test_open.html e075e1dd460deda7e81651cd8343618e 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_test_callbacks.html 8a07a377910d48a170b9e6e35046b1f0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_test.html 7f723cc915a4b8c54a429b407f8d8720 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_streams.html 1a9d21ad1be9f8d8b37e6664c7b3f3dd 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_serialnumber.html 1bb425d5f3b78ce9f426a77fc31113b4 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_seekable.html b85b5861b3b17b100d0220b04507631c 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_read_filter.html 9758529379fdf1d74a3c0e06e4c222f0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_read_float.html 122569ec46888505d7894a01d32187f6 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_read.html 7d55bdd5046768ec0ed9d93086ba1b3a 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_raw_total.html 4be0d54d0eaa3628286eefdd5d229735 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_raw_tell.html bc7cd397ee7194df573b8771fb49b905 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_raw_seek_lap.html 5c772daec2a00c38071ddbc93f0825d0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_raw_seek.html 14086567b5900630205050d432d0f245 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_pcm_total.html d3a32e0a224c00408bb8ef55c1d28a6a 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_pcm_tell.html f190fba968319a51dc0af3667a05cb55 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_pcm_seek_page_lap.html 435e127da1503ee9bbd9ca597c26ab8a 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_pcm_seek_page.html 4b6e5d1d1c3b23c883f912c829c23289 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_pcm_seek_lap.html 71fc097b64382b6a129cd0304eba2d3a 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_pcm_seek.html 51e1e4b3dcb196fb515feac56236f789 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_open_callbacks.html f897dc2cc2ca2c64ca0e240bfd959f83 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_open.html 76d1f02e87bdffa99ff7274485980b06 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_info.html c42a69baf90d9731c819357f37206a13 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_fopen.html 9168ae11551560bef77562a5fd2cc688 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_crosslap.html 191f6b0be5a894981b5d66de8c26b5fb 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_comment.html 5e195073ece0f5d92502c73679cc4c74 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_clear.html 9e32d4ed7bbf76a9905e1daa7da3f0e3 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_callbacks.html e637bafd239e8b79677796afc275824d 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_bitrate_instant.html 72897ed9311669f9e53e6e0a90f7984c 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/ov_bitrate.html ed803f2d45ec7a3f50f631ef53981fe8 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/initialization.html 9c22792472a891d0e322da2c7c6ba52e 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/index.html bbc7ffc715027691b933249208eeac67 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/fileinfo.html 28456a096ac3063f1716794fe2949aa0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/exampleindex.html 4fa775c4e69f5b6fa683c4219cf04396 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/example.html 464508c2be0802590b08691b617ea90e 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/decoding.html 363f3e7e75b08c50c704e025106308b3 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/datastructures.html 260ace68adb096581be50c43d69f5bb0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/crosslap.html 565db72cacf097fabbb41f47756025f0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/chainingexample.html 9b9d2bbe6b84b4b00aab1c01b713390d 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/chaining_example_c.html 6e8e1653ea1ced13c1d328bd010cfbdb 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/callbacks.html 34967c884993ed05f9be8fac5708608d 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/vorbisfile/OggVorbis_File.html 6899372a42b41d0ce08dae045132775a 1752384064
+dir /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/overview.html 3204ca245f67be96f7f16e78f3f5cea2 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/return.html 508c87733ac723f2496a6a0b81363ae2 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_dsp_state.html 56ce4de7d53b2e537354eaf911af2865 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_block.html 5de431100582391e83dbebb4c4d34495 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_trackonly.html e90c81ad0a47f20dbcc627d1446c76e6 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_restart.html 1519de4faf414869d0df48ad284c157b 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_read.html 7da59d04e7c6f7bcaf84e9127d466482 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_pcmout.html f9fb0946eab25281dc26c50d8ce934c1 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_lapout.html 5c62ba2348a03f413451c140eb1f83f2 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_init.html 35ec33705a6b753e4a676ef9d4d2a618 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_idheader.html ed34f84c5fb83a5b7ddb19718f2c38f9 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_headerin.html 8d9faeb547c8018da727a32d98b09239 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_halfrate_p.html b708255e472b6fc20a6adc97f0488abc 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_halfrate.html 7ba9962aeb7f55ed7cdbdcfc949ba18f 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis_blockin.html d8f96a5cde0cc3e287b17c4b70386d77 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_synthesis.html 9804e8997138569ba90bca9b628911b8 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_packet_blocksize.html ff96123d23688a54d1c3c1ea7d9f18ca 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_commentheader_out.html d5a5e71d9e0a87e2e5d20de55a030534 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_comment_query_count.html 05513100d5bda55c84dd55cb714d8afc 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_comment_query.html 63e0ad8e24595a07ed761bf0652519c0 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_comment_init.html 3f44bc5f20438dff78aa2c7bae9aa65a 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_comment_clear.html 0a6ccce27ec2e7cbfefe53d5172da57e 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_comment_add_tag.html 61365ebc1baab1b630a88e6598f8b8c2 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_comment_add.html eb33c091f6c39f44c5d2eba72b0f3e15 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_info_init.html 3a4fd467578af9e3d436bd2448f7876b 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_info_clear.html 4b1395bdb8579b629b320e772e45de8f 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_info_blocksize.html c77c1b7c40d108f8e4072db4a270bcc7 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_version_string.html 9a4b774094437c4f82686609532f454c 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_granule_time.html e5f5af1d5e2c0f6c615adff204e37d9c 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_dsp_clear.html a2327fd6935deab0e3c280713225072d 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_block_clear.html ffd0fe0dd79aefdddff99dd8d2abc2ae 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_block_init.html 511fca31f43cd0818c3339e136c9fc3a 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_bitrate_flushpacket.html 1415d04ea046de76ff3070af89ecf410 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_bitrate_addblock.html 97abf72f34e1ca5db683a76c8d5c70c1 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_analysis.html 5a762c75d9939d594107a7c3a2a2f34d 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_analysis_wrote.html d05df3eb80ac7feb9094e0506c8789a7 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_analysis_init.html eb7819f3163a1eec45fe5c04690c75b9 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_analysis_headerout.html bf9fe3a3154158927aef6575d5244509 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_analysis_buffer.html f65d50a11139375fec48bae7248823f6 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_analysis_blockout.html cf8f640845389f3bf89373cf0daaffcb 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_info.html ac3ead7de5c4d04217afb877a5d7f8c9 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/vorbis_comment.html 490ca8da222845d6adbf0cdfc906ce76 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/style.css b6bacacc82f7403bde49a29905a9ee08 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/reference.html 2fe1e2a6dc87d09b65e1bb6c12a09244 1752384064
+obj /usr/share/doc/libvorbis-1.3.7-r2/html/libvorbis/index.html c62801ed3ebe87aab0cfa401dc9cd5fd 1752384064
+dir /usr/lib64
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/vorbisfile.pc 8c2a56145be7f009d054f1b6f176219b 1752384064
+obj /usr/lib64/pkgconfig/vorbisenc.pc 3c3e3b277c8d3d28ea3e2b6d583a05ec 1752384064
+obj /usr/lib64/pkgconfig/vorbis.pc 527f61b547ce2e5238bb096e3c5fb65f 1752384064
+obj /usr/lib64/libvorbisenc.so.2.0.12 e027a53f94a99aadd7db7830011fc138 1752384066
+obj /usr/lib64/libvorbisfile.so.3.3.8 ebb77e54ae1fab0dd010836aa6bcd4d1 1752384066
+obj /usr/lib64/libvorbis.so.0.4.9 079c0c41061db28a9be780b3767442d7 1752384066
+dir /usr/include
+dir /usr/include/vorbis
+obj /usr/include/vorbis/vorbisenc.h 91dbe43bd74667fd022017869be43efd 1752384063
+obj /usr/include/vorbis/vorbisfile.h 8ec86729a3862fdf1be8dc6e8cedcef1 1752384063
+obj /usr/include/vorbis/codec.h fa152bc760b7e0dbf2571a923873ccc1 1752384063
+sym /usr/lib64/libvorbis.so.0 -> libvorbis.so.0.4.9 1752384063
+sym /usr/lib64/libvorbis.so -> libvorbis.so.0.4.9 1752384063
+sym /usr/lib64/libvorbisfile.so.3 -> libvorbisfile.so.3.3.8 1752384063
+sym /usr/lib64/libvorbisfile.so -> libvorbisfile.so.3.3.8 1752384063
+sym /usr/lib64/libvorbisenc.so.2 -> libvorbisenc.so.2.0.12 1752384064
+sym /usr/lib64/libvorbisenc.so -> libvorbisenc.so.2.0.12 1752384064

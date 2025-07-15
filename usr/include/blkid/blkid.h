@@ -30,8 +30,8 @@
 extern "C" {
 #endif
 
-#define BLKID_VERSION   "2.40.4"
-#define BLKID_DATE      "13-Jan-2025"
+#define BLKID_VERSION   "2.41.1"
+#define BLKID_DATE      "24-Jun-2025"
 
 /**
  * blkid_dev:
@@ -423,7 +423,7 @@ extern int blkid_do_fullprobe(blkid_probe pr)
 /**
  * BLKID_PROBE_OK:
  *
- * probing return value; superblock (RAID, partiton table, ...) succesfully detected
+ * probing return value; superblock (RAID, partition table, ...) successfully detected
  */
 #define BLKID_PROBE_OK	0
 /**
@@ -442,7 +442,7 @@ extern int blkid_do_fullprobe(blkid_probe pr)
  * BLKID_PROBE_AMBIGUOUS:
  *
  * probing return value; more than one probing result, in this case, it's not
- * safe to use the device automaticaly and user intervention is recommended
+ * safe to use the device automatically and user intervention is recommended
  */
 #define BLKID_PROBE_AMBIGUOUS	-2
 

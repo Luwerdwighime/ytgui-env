@@ -1,1 +1,1 @@
-sys-libs/libxcrypt[system(-),static-libs(-)]
+sys-libs/libxcrypt[system(-)]

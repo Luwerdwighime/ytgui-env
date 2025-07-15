@@ -1,0 +1,149 @@
+dir /usr
+dir /usr/lib
+dir /usr/lib/python3.13
+dir /usr/lib/python3.13/site-packages
+obj /usr/lib/python3.13/site-packages/drv_libxml2.py d0ac960df260567b6a7edd33b98a48d2 1752437764
+dir /usr/lib/python3.13/site-packages/__pycache__
+obj /usr/lib/python3.13/site-packages/__pycache__/drv_libxml2.cpython-313.opt-2.pyc 04ff9a9ad378a4f4729aefb6e9c1c80a 1752437765
+obj /usr/lib/python3.13/site-packages/__pycache__/drv_libxml2.cpython-313.pyc 49005f94bbec55c618b1cb499018a822 1752437765
+obj /usr/lib/python3.13/site-packages/__pycache__/libxml2.cpython-313.opt-2.pyc cd21888c590d0d136ef2991aeb604fc1 1752437765
+obj /usr/lib/python3.13/site-packages/__pycache__/drv_libxml2.cpython-313.opt-1.pyc 49005f94bbec55c618b1cb499018a822 1752437765
+obj /usr/lib/python3.13/site-packages/__pycache__/libxml2.cpython-313.pyc 070fb3f32d033407d5adace843a9aeac 1752437765
+obj /usr/lib/python3.13/site-packages/__pycache__/libxml2.cpython-313.opt-1.pyc 070fb3f32d033407d5adace843a9aeac 1752437765
+obj /usr/lib/python3.13/site-packages/libxml2.py 2e7fe4bf274fca91c773a374b9fee133 1752437763
+obj /usr/lib/python3.13/site-packages/libxml2mod.so 69d4c31070f7f4eeb861cb63cc8ff31d 1752437769
+dir /usr/share
+dir /usr/share/gtk-doc
+dir /usr/share/gtk-doc/html
+dir /usr/share/gtk-doc/html/libxml2
+obj /usr/share/gtk-doc/html/libxml2/style.css a7b180ebf583ed0c315d70d6a4890f79 1752437762
+obj /usr/share/gtk-doc/html/libxml2/up.png 2f07d9272deb4ae870ca6821117877fa 1752437762
+obj /usr/share/gtk-doc/html/libxml2/right.png ebd7e6d206d73850d77d305ab548f957 1752437762
+obj /usr/share/gtk-doc/html/libxml2/left.png f771308152ab24a69682daed70ce136d 1752437762
+obj /usr/share/gtk-doc/html/libxml2/home.png f6192f4292d744423df690e785d60fdf 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xpointer.html 2224ca4e7585f6ad7aae772cae41c2bc 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xpathInternals.html 12e9e27b77db3a5f6410393b2e39a8ce 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xpath.html 66842c81c8b6dc56a1037e31f1cf6532 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlwriter.html 3607392b61078350e71fa9d902c8db4f 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlversion.html 470f0f2d0bb5ae3b42603912a02e364e 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlunicode.html 39e0871ec71696fd3e792b7b2fb4a136 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlstring.html 330013ede9c7d9de914b86774ea6d323 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlschemastypes.html 3a8be1bab4c36f0a423924d1d66a5714 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlschemas.html a0f4788f51c5a0c94f6dfc2ed0a6d3a8 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlsave.html 1572c4cc962165422edea0f757c227c8 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlregexp.html b5731c1b8f6808e9127f6f80854de23f 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlreader.html b9e182bc36cbdfe420bc756bea9de5b2 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlmodule.html 87d3567f928c2c5268d1ca17fcb04755 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlmemory.html f2cf4f042c53eca46ee82bbc0cccdae3 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlIO.html d12d14d2e2526c3867fda2107881f1f7 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlexports.html 5eca9da828b488a1208f544bab24f96a 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlerror.html dfc227d90d9aecfe90becb752751deda 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xmlautomata.html b35324ec2d57e2a923beeef7fba69058 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xlink.html 291741206691e5bb6545a5d56fae8408 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-xinclude.html 5fbf092a139d398e4172ca1c6b587bce 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-valid.html e983464b376fab11244282081c633767 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-uri.html dfef504327cfa88d8260505070ceaf29 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-tree.html cbe77876be97c8c3ee6a0166c1c2ddc4 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-threads.html deec3de3e77a5329bf2e034b0f7c38c1 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-schematron.html 81744c35c75fe3cae9a3f9a21e154930 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-schemasInternals.html 77bad2a2e5bdf83d02f73342f6298fc6 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-SAX.html aba6e2c5baa39eafca4bb4a7ca9798b1 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-SAX2.html 2e340086bbc60d5a64a7d14ae3b04ac9 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-relaxng.html 8d037cb183cc268b015cda70caea95c9 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-pattern.html 4c080ffa71b9f53fbd3cb0a553501eec 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-parserInternals.html 37bb75dc5b4ce70561a8530965ecd224 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-parser.html 3e48eecd56f4f3ab406b89749b59259f 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-nanohttp.html 9e2d85cdd90293a059ae98aa6a7a8c62 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-nanoftp.html c351a0b52c5cb1028d5d459cdb40a434 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-list.html 285482b8eb7d83da30a9875b33770c9b 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-HTMLtree.html 37fd1bbc314f56abba5a07c0316179a2 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-HTMLparser.html bf134fa3deeec2ba59efed825eb6433e 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-hash.html baeb4c78c8abf716c50bb9100405a93c 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-globals.html 743c82076b78b982d2ef2577192bd755 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-entities.html e3ab631ee80595e7c46c8f45ac2e1af1 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-encoding.html 0678fbff91a91e0019a8276b26053829 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-dict.html 8b3d5f418abad9d39248fd9a9812103a 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-debugXML.html 3ff01edfeb4d9a77ef32845b49ef27c1 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-chvalid.html 240566dce0bf418286789fb34d5b8b91 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-catalog.html fb4c93a0f4db552dfaf5ad38978e72ab 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2-c14n.html 943418d35eb0e3702d01f475016e119a 1752437762
+obj /usr/share/gtk-doc/html/libxml2/index.html 73e2406651ca203acfdb5fa896caddcd 1752437762
+obj /usr/share/gtk-doc/html/libxml2/general.html 500031d9f498139f180091ba797c40c0 1752437762
+obj /usr/share/gtk-doc/html/libxml2/libxml2.devhelp2 3da9af0a789250ccbae72687406a48b0 1752437762
+dir /usr/share/doc
+dir /usr/share/doc/libxml2-2.13.8
+obj /usr/share/doc/libxml2-2.13.8/README.zOS.bz2 81ba558409d65852d8b63f82812ad0f6 1752437766
+obj /usr/share/doc/libxml2-2.13.8/README.md.bz2 e11ac3ce2064dbbc47621cfae93f58a6 1752437766
+obj /usr/share/doc/libxml2-2.13.8/NEWS.bz2 132c90972992a5212d8b9ed392e6fc43 1752437767
+obj /usr/share/doc/libxml2-2.13.8/xmllint.html b2c4b8a516b4baac03a53da22e40ce19 1752437762
+obj /usr/share/doc/libxml2-2.13.8/xmlcatalog.html 048851764b96c8a37fa1485f14c6b251 1752437762
+dir /usr/share/man
+dir /usr/share/man/man1
+obj /usr/share/man/man1/xml2-config.1.bz2 f9b070a13bb558030da90a852dbdc15b 1752437762
+obj /usr/share/man/man1/xmllint.1.bz2 a0deedcb42c2a3d3f9333ab762579c9b 1752437762
+obj /usr/share/man/man1/xmlcatalog.1.bz2 95670759a18de62c91ad5ce280669346 1752437762
+dir /usr/share/aclocal
+obj /usr/share/aclocal/libxml.m4 79cd670cdfa8ae6f98e116411b9dc2aa 1752437762
+dir /usr/bin
+obj /usr/bin/aarch64-unknown-linux-gnu-xml2-config 3baf2cb8fccb97ef40a985cb67aed014 1752437762
+obj /usr/bin/xmlcatalog e65cd290666e8d8d30b20388dcd50024 1752437769
+obj /usr/bin/xmllint 850798e3874d9d2e97c3821ba93f70c6 1752437769
+sym /usr/bin/xml2-config -> aarch64-unknown-linux-gnu-xml2-config 1752437766
+dir /usr/lib64
+obj /usr/lib64/libxml2.so.2.13.8 a06c40df14a211e3e182be8879238396 1752437769
+dir /usr/lib64/pkgconfig
+obj /usr/lib64/pkgconfig/libxml-2.0.pc 86a183bc0ce5476de93aeb4916fd509a 1752437762
+dir /usr/lib64/cmake
+dir /usr/lib64/cmake/libxml2
+obj /usr/lib64/cmake/libxml2/libxml2-config.cmake f518e42a4dec915c278fbbdb766df5c6 1752437762
+dir /usr/include
+dir /usr/include/libxml2
+dir /usr/include/libxml2/libxml
+obj /usr/include/libxml2/libxml/schematron.h 7a163ee849171ffc2471a89704a33643 1752437762
+obj /usr/include/libxml2/libxml/xmlsave.h f48903903819d60b25e6faf03c8161e3 1752437762
+obj /usr/include/libxml2/libxml/pattern.h dfa0e955ce14744df32c8a050c5ee84a 1752437762
+obj /usr/include/libxml2/libxml/chvalid.h 5b94bc432b4ab477a11761182334b646 1752437762
+obj /usr/include/libxml2/libxml/xmlwriter.h 237a31e0b6328115ed5c1673138615e6 1752437762
+obj /usr/include/libxml2/libxml/xmlversion.h 676b8f1d3e4413c684d4791743369337 1752437762
+obj /usr/include/libxml2/libxml/xmlexports.h c7cd0631506fa520419478939e289c07 1752437762
+obj /usr/include/libxml2/libxml/SAX2.h 2f6eb29ddd29a6380634e0ba4757f102 1752437762
+obj /usr/include/libxml2/libxml/dict.h d00de0e505d1b4dfcccf9ff38837b61a 1752437762
+obj /usr/include/libxml2/libxml/relaxng.h d752e41ee40c2b028d0adb34ffc38810 1752437762
+obj /usr/include/libxml2/libxml/xmlreader.h 288e26a1a1b1e495a463ff90b7d243d7 1752437762
+obj /usr/include/libxml2/libxml/xmlunicode.h 157b92f46696fd22d89f7250de7e30ec 1752437762
+obj /usr/include/libxml2/libxml/xmlstring.h 74cf81ae5e6c6b553e49683528d78b6b 1752437762
+obj /usr/include/libxml2/libxml/xmlschemastypes.h ac3b6d0c4a6fc4ea9fea5652b46b2992 1752437762
+obj /usr/include/libxml2/libxml/schemasInternals.h 853377a2dbf74e9b0d679dcfcc1859b9 1752437762
+obj /usr/include/libxml2/libxml/xmlschemas.h f4c5548787cac73cd7c6d18a07555393 1752437762
+obj /usr/include/libxml2/libxml/xmlmodule.h 1dda0f8301c72cab8c0015a4f36d008f 1752437762
+obj /usr/include/libxml2/libxml/xmlregexp.h 5f98d803fb4dd3fda837e2f922ce4e6a 1752437762
+obj /usr/include/libxml2/libxml/xmlautomata.h 78602d66c5db00b0deece2c56ab86d43 1752437762
+obj /usr/include/libxml2/libxml/c14n.h eeca649010f9bdc2a60b069766e030ab 1752437762
+obj /usr/include/libxml2/libxml/globals.h bc51344e21f8d3b7f0fc93cc9d554243 1752437762
+obj /usr/include/libxml2/libxml/threads.h 84310bd67922e532329432f7ab04338c 1752437762
+obj /usr/include/libxml2/libxml/catalog.h 17bea9cec4f3b2fb59a68af652c27ad8 1752437762
+obj /usr/include/libxml2/libxml/xlink.h 4c7ff0fcbc3595d38f47e41f703dbc61 1752437762
+obj /usr/include/libxml2/libxml/valid.h 986a33222b102677c2f07580a7ca9b46 1752437762
+obj /usr/include/libxml2/libxml/uri.h d08bbbc90b3d1d31309fd93c9681390f 1752437762
+obj /usr/include/libxml2/libxml/nanoftp.h d5c907a6d7d205e286168e007f32504c 1752437762
+obj /usr/include/libxml2/libxml/nanohttp.h 95b1e4eadd008ebd16424f0f47213062 1752437762
+obj /usr/include/libxml2/libxml/xmlmemory.h 13b117b714ad87f0fb17d302d9580cf3 1752437762
+obj /usr/include/libxml2/libxml/xmlIO.h 59b6841396e332b38f075694ac2db47d 1752437762
+obj /usr/include/libxml2/libxml/xinclude.h f56a2156246c1eabc080d8c2f27d48b6 1752437762
+obj /usr/include/libxml2/libxml/xpointer.h 74590f782d9b322ce115d1530e6f74d6 1752437762
+obj /usr/include/libxml2/libxml/xpathInternals.h 348e82b05d463eca3d661e2cc2db9aee 1752437762
+obj /usr/include/libxml2/libxml/xpath.h 3bbf2dc32947c6f1a6f7cd0da788d86a 1752437762
+obj /usr/include/libxml2/libxml/hash.h 637596e31cab013c73d81e02a31a5b65 1752437762
+obj /usr/include/libxml2/libxml/list.h 90371c7017be1221a0c4d20089ade92a 1752437762
+obj /usr/include/libxml2/libxml/tree.h 965a1da577ff8126e00825c6c4be7489 1752437762
+obj /usr/include/libxml2/libxml/debugXML.h 63619fe1dbd8ae82c1040d7df0c7eb6e 1752437762
+obj /usr/include/libxml2/libxml/HTMLtree.h bb4e2df91d33306ab3c2d71374559877 1752437762
+obj /usr/include/libxml2/libxml/HTMLparser.h c0e828b83cec6c6c1e8ebd53a8ce1de4 1752437762
+obj /usr/include/libxml2/libxml/xmlerror.h 04fa9aa45df384fe962db1a14fb59553 1752437762
+obj /usr/include/libxml2/libxml/parserInternals.h b0d1746c566f0a4e1c368d6b1f734564 1752437762
+obj /usr/include/libxml2/libxml/parser.h d502bff9a863243db03445264fe5dea0 1752437762
+obj /usr/include/libxml2/libxml/encoding.h 8d3a048f503607ca9fbdc63bfa27d02e 1752437762
+obj /usr/include/libxml2/libxml/entities.h dfec1ac296aa8060e8556e7d122d375b 1752437762
+obj /usr/include/libxml2/libxml/SAX.h 44e6202b2e65e38c48a5cacb75afe5bf 1752437762
+sym /usr/lib64/libxml2.so.2 -> libxml2.so.2.13.8 1752437762
+sym /usr/lib64/libxml2.so -> libxml2.so.2.13.8 1752437762

@@ -1,1 +1,1 @@
-arm64 elibc_glibc kernel_linux lzma static-libs zlib
+arm64 elibc_glibc kernel_linux lzma zlib
