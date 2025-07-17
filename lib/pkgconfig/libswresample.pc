@@ -1,0 +1,14 @@
+prefix=/data/data/com.termux/files/home/pybuild/prefix
+exec_prefix=${prefix}
+libdir=/data/data/com.termux/files/home/pybuild/prefix/lib
+includedir=/data/data/com.termux/files/home/pybuild/prefix/include
+
+Name: libswresample
+Description: FFmpeg audio resampling library
+Version: 6.0.100
+Requires: libavutil >= 60.4.101
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lswresample -lm -latomic
+Libs.private: 
+Cflags: -I${includedir}

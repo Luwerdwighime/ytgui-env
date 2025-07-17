@@ -1,2 +1,0 @@
-/usr/bin/gfind libm.so.6,libc.so.6,ld-linux-aarch64.so.1
-/usr/bin/gxargs libc.so.6,ld-linux-aarch64.so.1

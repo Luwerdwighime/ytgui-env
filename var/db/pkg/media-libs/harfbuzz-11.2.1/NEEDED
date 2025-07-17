@@ -1,9 +1,0 @@
-/usr/lib64/libharfbuzz.so.0.61121.0 libm.so.6,libfreetype.so.6,libglib-2.0.so.0,libgraphite2.so.3,libc.so.6,ld-linux-aarch64.so.1
-/usr/lib64/libharfbuzz-subset.so.0.61121.0 libharfbuzz.so.0,libm.so.6,libc.so.6,ld-linux-aarch64.so.1
-/usr/lib64/libharfbuzz-cairo.so.0.61121.0 libharfbuzz.so.0,libm.so.6,libcairo.so.2,libc.so.6,ld-linux-aarch64.so.1
-/usr/lib64/libharfbuzz-icu.so.0.61121.0 libharfbuzz.so.0,libicuuc.so.77,libc.so.6,ld-linux-aarch64.so.1
-/usr/lib64/libharfbuzz-gobject.so.0.61121.0 libharfbuzz.so.0,libglib-2.0.so.0,libgobject-2.0.so.0
-/usr/bin/hb-view libharfbuzz.so.0,libharfbuzz-cairo.so.0,libfreetype.so.6,libcairo.so.2,libglib-2.0.so.0,libm.so.6,libc.so.6,ld-linux-aarch64.so.1
-/usr/bin/hb-shape libharfbuzz.so.0,libglib-2.0.so.0,libm.so.6,libc.so.6,ld-linux-aarch64.so.1
-/usr/bin/hb-info libharfbuzz.so.0,libharfbuzz-gobject.so.0,libglib-2.0.so.0,libgobject-2.0.so.0,libm.so.6,libc.so.6,ld-linux-aarch64.so.1
-/usr/bin/hb-subset libharfbuzz.so.0,libharfbuzz-subset.so.0,libglib-2.0.so.0,libc.so.6,ld-linux-aarch64.so.1

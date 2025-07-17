@@ -1,0 +1,14 @@
+prefix=/data/data/com.termux/files/home/pybuild/prefix
+exec_prefix=${prefix}
+libdir=/data/data/com.termux/files/home/pybuild/prefix/lib
+includedir=/data/data/com.termux/files/home/pybuild/prefix/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 60.4.101
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil -lm -latomic -landroid -lmediandk -pthread
+Libs.private: 
+Cflags: -I${includedir}

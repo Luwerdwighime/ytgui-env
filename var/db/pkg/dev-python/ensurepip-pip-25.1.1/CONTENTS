@@ -1,5 +1,0 @@
-dir /usr
-dir /usr/lib
-dir /usr/lib/python
-dir /usr/lib/python/ensurepip
-obj /usr/lib/python/ensurepip/pip-25.1.1-py3-none-any.whl 6a01d861bf88ee075c6942419a04839d 1752380753

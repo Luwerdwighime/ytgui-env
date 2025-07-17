@@ -1,1 +1,0 @@
-arm_64: ld-linux-aarch64.so.1 libOpenCL.so.1 libass.so.9 libbz2.so.1 libc.so.6 libdav1d.so.7 libdrm.so.2 libfontconfig.so.1 libfreetype.so.6 libgnutls.so.30 libharfbuzz.so.0 libm.so.6 libopus.so.0 libudev.so.1 libva-drm.so.2 libva.so.2 libvo-amrwbenc.so.0 libvorbis.so.0 libvorbisenc.so.2 libvpx.so.9 libwebp.so.7 libwebpmux.so.3 libx264.so.164 libx265.so.209 libxml2.so.2 libz.so.1

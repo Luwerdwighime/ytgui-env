@@ -1,1 +1,0 @@
->=dev-libs/fribidi-0.19.5-r1 >=media-libs/freetype-2.5.0.1:2 >=virtual/libiconv-0-r1 >=media-libs/harfbuzz-1.2.3:0/6.0.0=[truetype] >=media-libs/fontconfig-2.10.92

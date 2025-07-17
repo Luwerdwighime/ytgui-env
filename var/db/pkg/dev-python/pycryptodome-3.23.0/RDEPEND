@@ -1,1 +1,0 @@
-dev-libs/gmp:0/10.4= >=dev-libs/libtomcrypt-1.18.2-r1:0/1= dev-python/cffi[python_targets_python3_13(-)] dev-lang/python:3.13[threads(+)]

@@ -1,0 +1,14 @@
+prefix=/data/data/com.termux/files/home/pybuild/prefix
+exec_prefix=${prefix}
+libdir=/data/data/com.termux/files/home/pybuild/prefix/lib
+includedir=/data/data/com.termux/files/home/pybuild/prefix/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 62.1.103
+Requires: libavcodec >= 62.6.100, libavutil >= 60.4.101
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavformat -lm -latomic -lbz2 -L/data/data/com.termux/files/home/pybuild/prefix/lib -lz
+Libs.private: 
+Cflags: -I${includedir}

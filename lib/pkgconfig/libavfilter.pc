@@ -1,0 +1,14 @@
+prefix=/data/data/com.termux/files/home/pybuild/prefix
+exec_prefix=${prefix}
+libdir=/data/data/com.termux/files/home/pybuild/prefix/lib
+includedir=/data/data/com.termux/files/home/pybuild/prefix/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 11.2.100
+Requires: libavutil >= 60.4.101
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavfilter -pthread -lm -latomic
+Libs.private: 
+Cflags: -I${includedir}

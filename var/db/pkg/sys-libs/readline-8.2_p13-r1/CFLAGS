@@ -1,1 +1,0 @@
--O2 -pipe -mtune=native -std=gnu17

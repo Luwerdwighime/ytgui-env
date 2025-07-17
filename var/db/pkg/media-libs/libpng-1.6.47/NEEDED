@@ -1,3 +1,0 @@
-/usr/bin/pngfix libpng16.so.16,libz.so.1,libc.so.6,ld-linux-aarch64.so.1
-/usr/bin/png-fix-itxt libz.so.1,libc.so.6,ld-linux-aarch64.so.1
-/usr/lib64/libpng16.so.16.47.0 libz.so.1,libm.so.6,libc.so.6,ld-linux-aarch64.so.1

@@ -1,1 +1,0 @@
-sys-apps/acl:0/0= >=sys-apps/util-linux-2.30:0/0= sys-libs/libcap:0/0= virtual/libcrypt:0/2= sys-apps/acl:0/0= >=sys-apps/kmod-15:0/0= >=sys-kernel/linux-headers-3.11

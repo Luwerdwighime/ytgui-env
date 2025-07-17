@@ -1,1 +1,0 @@
-virtual/libiconv >=sys-libs/zlib-1.2.8-r1:0/1= >=dev-libs/icu-51.2-r1:0/77= dev-lang/python:3.13[xml(+)] sys-libs/readline:0/8=

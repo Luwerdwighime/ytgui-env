@@ -1,2 +1,0 @@
-/usr/lib64/libfribidi.so.0.4.0 libc.so.6,ld-linux-aarch64.so.1
-/usr/bin/fribidi libfribidi.so.0,libc.so.6,ld-linux-aarch64.so.1
